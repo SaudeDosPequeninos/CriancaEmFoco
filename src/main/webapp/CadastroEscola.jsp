@@ -39,10 +39,10 @@
                 <label for="email">E-mail*:</label>
                 <input type="email" id="email_cadastrar" name="email_cadastrar" required placeholder="exemplo@exemplo.com"><br>
 
-                <input type="button" id="esconder-passo1" onclick="mostrarProximo('passo1', 'passo2')" value="AVANÇAR">
+                <input type="button" id="esconder-passo1" value="AVANÇAR">
             </div>
 
-            <div id="passo2" style="display:none;">
+            <div id="passo2">
                 <h2>Passo 2 - Endereço</h2>
 
                 <label for="estado">Estado*:</label>
@@ -63,15 +63,15 @@
                 <label for="numero">Número*:</label>
                 <input type="number" id="numero_cadastro" name="numero_cadastro" required min="1" placeholder="Informe o número e complemento"><br>
 
-                <input type="button" value="< VOLTAR" onclick="mostrarProximo('passo2', 'passo1')">
-                <input type="button" value="CONTINUAR" onclick="mostrarProximo('passo2', 'passo3')">
+                <input type="button" value="< VOLTAR">
+                <input type="button" value="CONTINUAR" >
             </div>
 
-            <div id="passo3" style="display:none;">
+            <div id="passo3">
                 <h2>Passo 3 - Informações Adicionais e Senha</h2>
 
                 <label for="tipos_procedimento">Tipos de Procedimentos*</label>
-                <div class="procedimento-container" onclick="toggleProcedimentoList()">
+                <div class="procedimento-container">
                     Procedimentos
                 </div>
                 <div class="procedimento-list" id="procedimento-list">
@@ -90,8 +90,8 @@
                 <label for="confirmar_senha">Confirmar Senha*</label>
                 <input type="password" name="confirmar_senha_cadastro" id="confirmar_senha_cadastro" required minlength="8" maxlength="20" placeholder="Informe a senha novamente"><br>
 
-                <input type="button" value="< VOLTAR" onclick="mostrarProximo('passo3', 'passo2')">
-                <input type="submit" onclick="confirmar_button()" value="CONFIRMAR">
+                <input type="button" value="< VOLTAR">
+                <input type="submit" value="CONFIRMAR">
             </div>
 
         </form>
