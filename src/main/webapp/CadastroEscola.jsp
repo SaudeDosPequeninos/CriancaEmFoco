@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CadastroEscola.css">
     <title>Cadastro: Escola</title>
     <style>
     </style>
@@ -74,7 +73,7 @@
                 <div class="procedimento-container">
                     Procedimentos
                 </div>
-                <div class="procedimento-list" id="procedimento-list">
+                <div class="procedimento-list" id="procedimento-list"><!-- Apenas um Exemplo -->
                     <select id="tipos_procedimento_cadastro" name="tipos_procedimento[]" multiple required>
                         <option value="Procedimento 1">Procedimento 1</option>
                         <option value="Procedimento 2">Procedimento 2</option>
@@ -96,9 +95,5 @@
 
         </form>
     </div>
-
-    <script src="CadastroEscola.js"></script>
-    <script>
-    </script>
 </body>
 </html>
