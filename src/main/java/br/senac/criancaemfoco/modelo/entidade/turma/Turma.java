@@ -38,7 +38,7 @@ public class Turma implements Serializable {
 	private List<Aluno> alunosTurma = new ArrayList<Aluno>();
 
 	@Column(name = "ano_turma", nullable = false, length = 10)
-	private byte anoTurma;
+	private String anoTurma;
 
 	@Column(name = "numero_turma", nullable = false, length = 2)	
 	private String numeroTurma;
@@ -49,13 +49,13 @@ public class Turma implements Serializable {
 
 	public Turma() {}
 
-	public Turma(List<Aluno> alunosTurma, byte anoTurma, String numeroTurma, Escola escola) {
+	public Turma(List<Aluno> alunosTurma, String anoTurma, String numeroTurma, Escola escola) {
 		setAnoTurma(anoTurma);
 		setNumeroTurma(numeroTurma);
 		setEscola(escola);
 	}
 
-	public Turma(Long id, List<Aluno> alunosTurma, byte anoTurma, String numeroTurma, Escola escola) {
+	public Turma(Long id, List<Aluno> alunosTurma, String anoTurma, String numeroTurma, Escola escola) {
 		setId(id);
 		setAnoTurma(anoTurma);
 		setNumeroTurma(numeroTurma);
@@ -78,11 +78,11 @@ public class Turma implements Serializable {
 		this.alunosTurma = alunosTurma;
 	}
 
-	public byte getAnoTurma() {
+	public String getAnoTurma() {
 		return anoTurma;
 	}
 
-	public void setAnoTurma(byte anoTurma) {
+	public void setAnoTurma(String anoTurma) {
 		this.anoTurma = anoTurma;
 	}
 
