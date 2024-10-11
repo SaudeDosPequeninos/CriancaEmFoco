@@ -1,9 +1,9 @@
 package br.senac.criancaemfoco.modelo.entidade.estoque;
- 
+
 import br.senac.criancaemfoco.modelo.entidade.insumo.Insumo;
- 
+
 import java.io.Serializable;
- 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

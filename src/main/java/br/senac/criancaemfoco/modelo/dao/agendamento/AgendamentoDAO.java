@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.senac.criancaemfoco.modelo.entidade.agendamento.Agendamento;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.enfermeiro.Enfermeiro;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 
 public interface AgendamentoDAO {

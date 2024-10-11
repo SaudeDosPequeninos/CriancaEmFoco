@@ -17,8 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.senac.criancaemfoco.modelo.entidade.escola.Escola;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
 
 @Entity
 @Table(name = "turma")
@@ -40,7 +40,7 @@ public class Turma implements Serializable {
 	@Column(name = "ano_turma", nullable = false, length = 10)
 	private byte anoTurma;
 
-	@Column(name = "numero_turma", nullable = false, length = 2)	
+	@Column(name = "numero_turma", nullable = false, length = 2)
 	private String numeroTurma;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -100,6 +100,6 @@ public class Turma implements Serializable {
 
 	public void setEscola(Escola escola) {
 		this.escola = escola;
-	}	
+	}
 
 }

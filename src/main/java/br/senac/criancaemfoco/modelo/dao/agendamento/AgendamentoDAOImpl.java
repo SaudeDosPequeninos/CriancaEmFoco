@@ -4,18 +4,20 @@ import br.senac.criancaemfoco.modelo.entidade.agendamento.Agendamento;
 import br.senac.criancaemfoco.modelo.entidade.agendamento.Agendamento_;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno_;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.enfermeiro.Enfermeiro;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.enfermeiro.Enfermeiro_;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro_;
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento_;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 import org.hibernate.Session;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
+
 import java.util.List;
 
 public class AgendamentoDAOImpl implements AgendamentoDAO {
@@ -141,8 +143,7 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 			Join<Agendamento, Enfermeiro> juncaoEnfermeiro = raizAgendamento.join(Agendamento_.enfermeiro);
 			ParameterExpression<String> cpfEnfermeiro = construtor.parameter(String.class);
 			criteria.where(construtor.equal(juncaoEnfermeiro.get(Enfermeiro_.CPF), cpfEnfermeiro));
-			agendamento = sessao.createQuery(criteria).setParameter(cpfEnfermeiro, enfermeiro.getCpf())
-					.getSingleResult();
+			agendamento = sessao.createQuery(criteria).setParameter(cpfEnfermeiro, enfermeiro.getCpf()).getSingleResult();
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
@@ -163,8 +164,7 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 			Join<Agendamento, Procedimento> juncaoProcedimento = raizAgendamento.join(Agendamento_.procedimentos);
 			ParameterExpression<Long> idProcedimento = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoProcedimento.get(Procedimento_.ID), idProcedimento));
-			agendamentos = sessao.createQuery(criteria).setParameter(idProcedimento, procedimento.getId())
-					.getResultList();
+			agendamentos = sessao.createQuery(criteria).setParameter(idProcedimento, procedimento.getId()).getResultList();
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);

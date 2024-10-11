@@ -4,9 +4,11 @@ import br.senac.criancaemfoco.modelo.entidade.pessoa.Pessoa;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 import org.hibernate.Session;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
 import java.util.List;
 
 public class PessoaDAOImpl implements PessoaDAO {

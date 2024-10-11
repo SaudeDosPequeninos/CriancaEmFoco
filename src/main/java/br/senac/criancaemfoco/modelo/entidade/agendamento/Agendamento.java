@@ -21,8 +21,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.enfermeiro.Enfermeiro;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.responsavel.Responsavel;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 import br.senac.criancaemfoco.modelo.enumeracao.status.Status;
 
@@ -137,27 +137,27 @@ public class Agendamento implements Serializable {
 	public boolean inserirProcedimento(Procedimento procedimento) {
 		if (procedimento == null)
 			return false;
-		
+
 		if (procedimento.getClass().getName() != "Procedimento")
 			return false;
-		
+
 		if (procedimentos.contains(procedimento))
 			return false;
-		
+
 		return procedimentos.add(procedimento);
 	}
 
 	public boolean removerProcedimento(Procedimento procedimento) {
 		if (procedimentos.contains(procedimento))
 			return false;
-		
+
 		int i = procedimentos.indexOf(procedimento);
-		
+
 		if (i < 0)
 			return false;
-		
+
 		this.procedimentos.remove(i);
-			
+
 		return true;
 	}
 

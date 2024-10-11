@@ -30,19 +30,19 @@ public class Procedimento implements Serializable {
 	private Long id;
 
 	@Column(name = "nome_procedimento", length = 30, nullable = false)
-    private String nomeProcedimento;
+	private String nomeProcedimento;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "procedimento_insumo", 
 	joinColumns = @JoinColumn(name = "id_procedimento"), 
 	inverseJoinColumns = @JoinColumn(name = "id_insumo"))
-    private List<Insumo> insumos = new ArrayList<Insumo>();;
+	private List<Insumo> insumos = new ArrayList<Insumo>();;
 
 	public Procedimento() {}
 
-    public Procedimento(String procedimento) {
-    	setNomeProcedimento(nomeProcedimento);
-    }
+	public Procedimento(String procedimento) {
+		setNomeProcedimento(nomeProcedimento);
+	}
 
 	public String getNomeProcedimento() {
 		return nomeProcedimento;

@@ -2,14 +2,17 @@ package br.senac.criancaemfoco.modelo.dao.pessoa.aluno;
 
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.responsavel.Responsavel;
-import br.senac.criancaemfoco.modelo.entidade.escola.Escola;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
 import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
+
 import java.util.List;
 
 public class AlunoDAOImpl implements AlunoDAO {

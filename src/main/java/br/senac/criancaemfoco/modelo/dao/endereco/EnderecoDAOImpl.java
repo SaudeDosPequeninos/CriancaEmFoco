@@ -1,10 +1,13 @@
 package br.senac.criancaemfoco.modelo.dao.endereco;
 
 import org.hibernate.Session;
+
 import java.util.List;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
 import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 

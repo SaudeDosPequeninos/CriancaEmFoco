@@ -1,6 +1,7 @@
 package br.senac.criancaemfoco.modelo.dao.procedimento;
 
 import java.util.List;
+
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 
 public interface ProcedimentoDAO {

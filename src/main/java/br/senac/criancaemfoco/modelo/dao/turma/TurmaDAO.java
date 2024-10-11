@@ -1,6 +1,7 @@
 package br.senac.criancaemfoco.modelo.dao.turma;
 
 import java.util.List;
+
 import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 public interface TurmaDAO {
