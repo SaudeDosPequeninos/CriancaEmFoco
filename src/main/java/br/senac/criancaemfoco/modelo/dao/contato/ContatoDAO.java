@@ -1,6 +1,7 @@
 package br.senac.criancaemfoco.modelo.dao.contato;
 
 import java.util.List;
+
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 
 public interface ContatoDAO {
