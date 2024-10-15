@@ -18,11 +18,11 @@ public class Main {
 		usuario.setNomeInsumo("Paracetamol");
 		usuario.setDescricao("faz coisas boas pro corpo");
 		usuarioDAO.inserirInsumo(usuario);
-		
+
 		List<Insumo> usuarios = usuarioDAO.recuperarInsumo();
 		for (Insumo usuario1 : usuarios) {
 			System.out.println(usuario1);
 		}
-		
+
 	}
 }

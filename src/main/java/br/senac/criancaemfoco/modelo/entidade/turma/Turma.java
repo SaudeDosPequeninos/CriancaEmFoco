@@ -61,6 +61,13 @@ public class Turma implements Serializable {
 		setNumeroTurma(numeroTurma);
 		setEscola(escola);
 	}
+	// retirar dps o de baixo aq
+    public Turma(String anoTurma, String numeroTurma, String anoLetivo, Escola escola) {
+        this.anoTurma = anoTurma;
+        this.numeroTurma = numeroTurma;
+        this.escola = escola;
+        this.alunosTurma = new ArrayList<>();
+    }
 
 	public Long getId() {
 		return id;
