@@ -38,11 +38,11 @@ public class ContatoDAOImpl implements ContatoDAO {
 		return sessao;
 	}
 
-	public void inserirContato(Contato Contato) {
+	public void inserirContato(Contato contato) {
 		Session sessao = null;
 		try {
 			sessao = abrirSessao(sessao);
-			sessao.save(Contato);
+			sessao.save(contato);
 			sessao.getTransaction().commit();
 
 		} catch (Exception exception) {
@@ -52,11 +52,11 @@ public class ContatoDAOImpl implements ContatoDAO {
 		}
 	}
 
-	public void deletarContato(Contato Contato) {
+	public void deletarContato(Contato contato) {
 		Session sessao = null;
 		try {
 			sessao = abrirSessao(sessao);
-			sessao.delete(Contato);
+			sessao.delete(contato);
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
@@ -65,11 +65,11 @@ public class ContatoDAOImpl implements ContatoDAO {
 		}
 	}
 
-	public void atualizarContato(Contato Contato) {
+	public void atualizarContato(Contato contato) {
 		Session sessao = null;
 		try {
 			sessao = abrirSessao(sessao);
-			sessao.update(Contato);
+			sessao.update(contato);
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);

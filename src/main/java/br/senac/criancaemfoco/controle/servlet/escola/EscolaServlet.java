@@ -1,0 +1,125 @@
+package br.senac.criancaemfoco.controle.servlet.escola;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.senac.criancaemfoco.modelo.dao.contato.ContatoDAO;
+import br.senac.criancaemfoco.modelo.dao.contato.ContatoDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAO;
+import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.escola.EscolaDAO;
+import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.escola.EscolaDAOImpl;
+import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
+import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
+
+@WebServlet(urlPatterns = {"/escola", "/escola/cadastro", "/escola/inserir"})
+public class EscolaServlet extends HttpServlet implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private EscolaDAO daoEscola;
+	private ContatoDAO daoContato;
+	private EnderecoDAO daoEndereco;
+
+	public void init() {
+		daoEscola = new EscolaDAOImpl();
+		daoContato = new ContatoDAOImpl();
+		daoEndereco = new EnderecoDAOImpl();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String action = request.getServletPath();
+
+		try {
+
+			switch (action) {
+
+			case "/escola/cadastro":
+				mostrarCadastroEscola(request, response);
+				break;
+
+			case "/escola/inserir":
+				inserirEscola(request, response);
+				break;
+
+			default:
+				retornarMenu(request, response);
+				break;
+			}
+
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
+		}
+	}
+
+	private void mostrarCadastroEscola(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/CadastroEscola.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	private void retornarMenu(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	private void inserirEscola(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+
+		Escola escola = new Escola();
+		Contato contato = new Contato();
+		Endereco endereco = new Endereco();
+
+		String razaoSocial = request.getParameter("razao-social");
+		String nomeFantasia = request.getParameter("nome-fantasia");
+		String cnpj = request.getParameter("cnpj");
+		String telefone = request.getParameter("telefone");
+		String email = request.getParameter("email");
+		String estado = request.getParameter("estado");
+		String cidade = request.getParameter("cidade");
+		String logradouro = request.getParameter("logradouro");
+		int cep = Integer.parseInt(request.getParameter("cep"));
+		String bairro = request.getParameter("bairro");
+		short numero = Short.parseShort(request.getParameter("numero"));
+		String tipo = "Instituição";
+		String senha = request.getParameter("senha");
+
+		contato.setNumCelular(telefone);
+		endereco.setBairro(bairro);
+		endereco.setCep(cep);
+		endereco.setCidade(cidade);
+		endereco.setEstado(estado);
+		endereco.setLogradouro(logradouro);
+		endereco.setNumero(numero);
+		endereco.setTipo(tipo);
+		escola.setContato(contato);
+		escola.setEndereco(endereco);
+		escola.setEmail(email);
+		escola.setIdFiscal(cnpj);
+		escola.setNomeId(razaoSocial);
+		escola.setSenha(senha);
+		escola.setSobrenome(nomeFantasia);
+
+		daoContato.inserirContato(contato);
+		daoEndereco.inserirEndereco(endereco);
+		daoEscola.inserirEscola(escola);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
+	}
+}

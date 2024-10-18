@@ -121,8 +121,8 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 			Join<Agendamento, Aluno> juncaoAluno = raizAgendamento.join(Agendamento_.aluno);
 			ParameterExpression<String> cpfAluno = construtor.parameter(String.class);
 
-			criteria.where(construtor.equal(juncaoAluno.get(Aluno_.CPF), cpfAluno));
-			agendamento = sessao.createQuery(criteria).setParameter(cpfAluno, aluno.getCpf()).getSingleResult();
+			criteria.where(construtor.equal(juncaoAluno.get(Aluno_.ID_FISCAL), cpfAluno));
+			agendamento = sessao.createQuery(criteria).setParameter(cpfAluno, aluno.getIdFiscal()).getSingleResult();
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
@@ -142,8 +142,8 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 			Root<Agendamento> raizAgendamento = criteria.from(Agendamento.class);
 			Join<Agendamento, Enfermeiro> juncaoEnfermeiro = raizAgendamento.join(Agendamento_.enfermeiro);
 			ParameterExpression<String> cpfEnfermeiro = construtor.parameter(String.class);
-			criteria.where(construtor.equal(juncaoEnfermeiro.get(Enfermeiro_.CPF), cpfEnfermeiro));
-			agendamento = sessao.createQuery(criteria).setParameter(cpfEnfermeiro, enfermeiro.getCpf()).getSingleResult();
+			criteria.where(construtor.equal(juncaoEnfermeiro.get(Enfermeiro_.ID_FISCAL), cpfEnfermeiro));
+			agendamento = sessao.createQuery(criteria).setParameter(cpfEnfermeiro, enfermeiro.getIdFiscal()).getSingleResult();
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);

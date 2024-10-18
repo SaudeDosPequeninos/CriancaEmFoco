@@ -1,10 +1,7 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
-import br.senac.criancaemfoco.modelo.dao.agendamento.AgendamentoDAOImpl;
 import br.senac.criancaemfoco.modelo.dao.insumo.InsumoDAOImpl;
-import br.senac.criancaemfoco.modelo.entidade.agendamento.Agendamento;
 import br.senac.criancaemfoco.modelo.entidade.insumo.Insumo;
 
 public class Main {
