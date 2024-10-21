@@ -15,8 +15,8 @@
     <a href="#" class="house-ico"></a>
     <a href="#" class="tab-ico"></a>
 
-    <div class="CadastroEscola-form">
-        <form action="cadastrar/turma/inserir" method="POST">
+    <div class="CadastroTurma-form">
+        <form action="cadastrar-turma" method="POST">
             <div id="passo1">
                 <h2>Informações Básicas</h2>
 
