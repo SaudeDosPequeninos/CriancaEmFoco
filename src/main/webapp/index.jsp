@@ -24,7 +24,7 @@
                 <input type="text" id="nome-user" name="nome-user" placeholder="Ex: 5º ano" required><br>
 
                 <label for="turno">Turno*</label>
-                <input type="text" id="turno-cadastro" name="turno-cadastro" placeholder="Ex: Matutino" required><br>
+                <input type="text" id="turno" name="turno" placeholder="Ex: Matutino" required><br>
 
                 <label for="ano-letivo">Ano Letivo*</label>
                 <input type="number" id="ano-letivo" name="ano-letivo" placeholder="0000" min="1900" max="2100" required><br>
