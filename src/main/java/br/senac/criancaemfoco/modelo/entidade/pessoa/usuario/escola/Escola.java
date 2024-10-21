@@ -21,6 +21,7 @@ import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
+import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 @Entity
@@ -57,6 +58,12 @@ public class Escola extends Usuario implements Serializable {
 	joinColumns = @JoinColumn(name = "id_escola"),
 	inverseJoinColumns = @JoinColumn(name = "id_turma"))
 	private List<Turma> turmas = new ArrayList<Turma>();
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "escola_procedimento",
+	joinColumns = @JoinColumn(name = "id_escola"),
+	inverseJoinColumns = @JoinColumn(name = "id_procedimento"))
+	private List<Procedimento> tipoProcedimentos = new ArrayList<Procedimento>();
 
 	public Escola() {}
 
