@@ -71,31 +71,13 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 	private void inserirTurma(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		// criar uma escola e salvar ela no banco. depois vicular a turma a escola criada
-	    Endereco endereco = new Endereco(); 
-	    endereco.setLogradouro("Rua"); 
-	    endereco.setNumero((short) 123);
-
-	    Contato contato = new Contato(); 
-	    contato.setEmail("contato@a.com");
-	    contato.setNumCelular("123456789"); 
-
 	    Escola escola = new Escola();
-	    escola.setNomeEscola("Escola Top");
-	    escola.setEndereco(endereco);
-	    escola.setContato(contato);
-	    escola.setCnpjEscola("12.345.678/0001-95"); 
 
-	    EscolaDAOImpl escolaDao = new EscolaDAOImpl();
-	    escolaDao.inserirEscola(escola);
-
-	    String turma1 = request.getParameter("nomeTurma");
-	    String turno = request.getParameter("turnoTurma");
-	    String anoTurma = request.getParameter("anoLetivo");
+	    String anoTurma = request.getParameter("ano-turma");
+	    String numeroTurma = request.getParameter("numero-turma");
 	    
-	    Turma turma = new Turma(turma1, turno, anoTurma, escola);
-	    TurmaDAOImpl turmaDAO = new TurmaDAOImpl();
-	    turmaDAO.inserirTurma(turma); 
+	    Turma turma = new Turma(numeroTurma, anoTurma);
+	    dao.inserirTurma(turma); 
 		response.sendRedirect("salvo");
 	}
 	

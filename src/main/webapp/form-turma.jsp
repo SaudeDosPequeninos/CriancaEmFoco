@@ -8,12 +8,10 @@
 	<body>
 		<div>
 			<form action="inserir" method="post">
-				<label>Nome da Turma:</label>
-				<input type="text" id="nomeTurma" name="nomeTurma" required>
-				<label>Turno:</label>
-				<input type="text" id="turnoTurma" name="turnoTurma" required>
-				<label>Ano Letivo:</label>
-				<input type="text" id="anoLetivo" name="anoLetivo" required>
+				<label>Ano da Turma:</label>
+				<input type="text" id="ano-turma" name="ano-turma" required>
+				<label>Série:</label>
+				<input type="text" id="numero-turma" name="numero-turma" required>
 				<button type="submit">Concluir</button>
 				<button type="reset">Limpar Formulário</button>
 			</form>
