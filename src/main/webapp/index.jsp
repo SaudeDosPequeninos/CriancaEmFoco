@@ -7,6 +7,6 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<a href="escola/cadastro">cadastrar escola</a>
+		<a href="<%=request.getContextPath()%>/cadastrar-escola">Cadastrar Escola</a>
 	</body>
 </html>

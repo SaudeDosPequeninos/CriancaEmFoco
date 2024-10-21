@@ -20,7 +20,7 @@ import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
 
-@WebServlet(urlPatterns = {"/escola", "/escola/cadastro", "/escola/inserir"})
+@WebServlet(urlPatterns = {"/cadastrar-escola", "/inserir-escola"})
 public class EscolaServlet extends HttpServlet implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -48,11 +48,11 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 
 			switch (action) {
 
-			case "/escola/cadastro":
+			case "/cadastrar-escola":
 				mostrarCadastroEscola(request, response);
 				break;
 
-			case "/escola/inserir":
+			case "/inserir-escola":
 				inserirEscola(request, response);
 				break;
 
@@ -69,14 +69,14 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 	private void mostrarCadastroEscola(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/CadastroEscola.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/escola/cadastro-escola.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void retornarMenu(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -119,7 +119,7 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 		daoContato.inserirContato(contato);
 		daoEndereco.inserirEndereco(endereco);
 		daoEscola.inserirEscola(escola);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 	}
 }
