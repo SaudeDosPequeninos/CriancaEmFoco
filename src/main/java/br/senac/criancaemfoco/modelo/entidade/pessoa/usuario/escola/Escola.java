@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,6 +20,7 @@ import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
+import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 @Entity
@@ -30,33 +30,38 @@ public class Escola extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@MapsId
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "escola_enfermeiro",
-	joinColumns = @JoinColumn(name = "id_escola"),
+	joinColumns = @JoinColumn(name = "id_pessoa"),
 	inverseJoinColumns = @JoinColumn(name = "id_enfermeiro"))
 	private List<Enfermeiro> enfermeiros = new ArrayList<Enfermeiro>();
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "escola_estoque",
-	joinColumns = @JoinColumn(name = "id_escola"),
+	joinColumns = @JoinColumn(name = "id_pessoa"),
 	inverseJoinColumns = @JoinColumn(name = "id_estoque"))
 	private List<Estoque> estoques = new ArrayList<Estoque>();
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "escola_aluno",
-	joinColumns = @JoinColumn(name = "id_escola"),
+	joinColumns = @JoinColumn(name = "id_pessoa"),
 	inverseJoinColumns = @JoinColumn(name = "id_aluno"))
 	private List<Aluno> alunos = new ArrayList<Aluno>();
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "escola_turma",
-	joinColumns = @JoinColumn(name = "id_escola"),
+	joinColumns = @JoinColumn(name = "id_pessoa"),
 	inverseJoinColumns = @JoinColumn(name = "id_turma"))
 	private List<Turma> turmas = new ArrayList<Turma>();
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "escola_procedimento",
+	joinColumns = @JoinColumn(name = "id_pessoa"),
+	inverseJoinColumns = @JoinColumn(name = "id_procedimento"))
+	private List<Procedimento> tipoProcedimentos = new ArrayList<Procedimento>();
 
 	public Escola() {}
 
@@ -121,4 +126,15 @@ public class Escola extends Usuario implements Serializable {
 		return estoques.remove(estoque);
 	}
 
+	public List<Procedimento> getProcedimento() {
+		return tipoProcedimentos;
+	}
+
+	public boolean inserirProcedimento(Procedimento procedimento) {
+		return tipoProcedimentos.add(procedimento);
+	}
+
+	public boolean removerProcedimento(Procedimento procedimento) {
+		return tipoProcedimentos.remove(procedimento);
+	} 
 }
