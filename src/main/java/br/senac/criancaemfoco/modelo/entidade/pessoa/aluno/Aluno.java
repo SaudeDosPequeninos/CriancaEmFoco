@@ -31,7 +31,7 @@ public class Aluno extends Pessoa implements Serializable {
 	private float matricula;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
-	@JoinColumn(name = "responsavel_id_responsavel", referencedColumnName = "id_usuario")
+	@JoinColumn(name = "responsavel_id_responsavel", referencedColumnName = "id_pessoa")
 	private Responsavel responsavel;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)

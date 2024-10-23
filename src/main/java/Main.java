@@ -1,28 +1,39 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
 
-import br.senac.criancaemfoco.modelo.dao.agendamento.AgendamentoDAOImpl;
-import br.senac.criancaemfoco.modelo.dao.insumo.InsumoDAOImpl;
-import br.senac.criancaemfoco.modelo.entidade.agendamento.Agendamento;
-import br.senac.criancaemfoco.modelo.entidade.insumo.Insumo;
+import br.senac.criancaemfoco.modelo.dao.contato.ContatoDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAO;
+import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.papel.PapelDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.pessoa.aluno.AlunoDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.escola.EscolaDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.responsavel.ResponsavelDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.turma.TurmaDAOImpl;
+import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
+import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
+import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
+import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 public class Main {
 	public static void main(String[] args) {
-		InsumoDAOImpl usuarioDAO = new InsumoDAOImpl();
-		Insumo usuario = new Insumo();
-		LocalDate data = LocalDate.parse("2026-02-05");
-		//LocalTime horario = LocalTime.parse("15:30:00");
-		//LocalTime duracao = LocalTime.parse("00:10:00");
-		usuario.setDataValidade(data);
-		usuario.setNomeInsumo("Paracetamol");
-		usuario.setDescricao("faz coisas boas pro corpo");
-		usuarioDAO.inserirInsumo(usuario);
+
+		AlunoDAOImpl alunoDAO = new AlunoDAOImpl();
+		Aluno aluno = new Aluno();
 		
-		List<Insumo> usuarios = usuarioDAO.recuperarInsumo();
-		for (Insumo usuario1 : usuarios) {
-			System.out.println(usuario1);
-		}
+		aluno.setTurma(null);
+		aluno.setResponsavel(null);
+		
+		aluno.setMatricula(12);
+		aluno.setNomeId("Maria");
+		aluno.setIdFiscal("cccc");
+		aluno.setSobrenome("Eugenia");
+		aluno.setDataNascimento(LocalDate.of(2004, 1, 23));
+		
+		alunoDAO.inserirAluno(aluno);
+		
+
 		
 	}
 }

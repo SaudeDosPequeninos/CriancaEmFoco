@@ -30,7 +30,6 @@ public class Escola extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@MapsId
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 
