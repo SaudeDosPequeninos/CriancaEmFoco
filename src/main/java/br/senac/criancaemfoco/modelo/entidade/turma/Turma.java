@@ -34,7 +34,7 @@ public class Turma implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "turma_aluno", 
 	joinColumns = @JoinColumn(name = "id_turma"), 
-	inverseJoinColumns = @JoinColumn(name = "id_usuario"))
+	inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
 	private List<Aluno> alunosTurma = new ArrayList<Aluno>();
 
 	@Column(name = "ano_turma", nullable = false, length = 10)

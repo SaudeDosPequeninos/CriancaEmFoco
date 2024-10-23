@@ -30,7 +30,7 @@ public class Enfermeiro extends Usuario implements Serializable {
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "enfermeiro_agendamento",
-	joinColumns = @JoinColumn(name = "id_enfermeiro"),
+	joinColumns = @JoinColumn(name = "id_pessoa"),
 	inverseJoinColumns = @JoinColumn(name = "id_agendamento"))
 	private List<Agendamento> agendamentos = new ArrayList<Agendamento>();
 
