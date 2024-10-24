@@ -10,6 +10,12 @@ import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 public interface AlunoDAO {
 
+	void inserirAluno(Aluno aluno);
+
+	void deletarAluno(Aluno aluno);
+
+	void atualizarAluno(Aluno aluno);
+
 	List<Aluno> recuperarAlunoTurma(Turma turma);
 
 	List<Aluno> recuperarAlunoResponsavel(Responsavel responsavel);
