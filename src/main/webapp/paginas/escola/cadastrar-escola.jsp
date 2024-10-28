@@ -13,8 +13,8 @@
 
 <body>
     <div class="top_bar"></div>
-    <a href="#" class="house_ico"> <!-- SVG da casa --> </a>
-    <a href="#" class="tab_ico"> <!-- SVG do tab --> </a>
+    <a href="#" class="house_ico"></a>
+    <a href="#" class="tab_ico"></a>
 
     <div class="CadastroEscola-form">
         <form action="criancaemfoco/cadastro/escola" method="POST">
