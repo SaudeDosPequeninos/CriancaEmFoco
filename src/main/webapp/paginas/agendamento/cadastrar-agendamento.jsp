@@ -18,7 +18,7 @@
             
             <div id="agendamento">
                 <div class="agendamento">
-                    <h2>Agendamento</h2>
+                    <div class="title">Agendar Procedimento</div>
 					<div></div>
 					
                     <div id="tipos-procedimento">
