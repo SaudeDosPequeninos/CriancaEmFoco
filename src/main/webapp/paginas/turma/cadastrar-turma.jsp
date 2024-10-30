@@ -1,59 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro:Agendamento</title>
+    <link rel="stylesheet" href="CadastroEscola.css">
+    <title>Cadastro: Turma</title>
+    <style>
+    </style>
 </head>
 
 <body>
     <div class="top_bar"></div>
-    <a href="/index.jsp" class="house_ico"></a>
-    <a href="" class="tab_ico"></a>
+    <a href="#" class="house_ico"> <!-- SVG da casa --> </a>
+    <a href="#" class="tab_ico"> <!-- SVG do tab --> </a>
 
     <div class="CadastroEscola-form">
-        <form action="inserir-agendamento" method="POST">
-            
-            <div id="agendamento">
-                <div class="agendamento">
-                    <h2>Agendamento</h2>
-					<div></div>
-					
-                    <div id="tipos-procedimento">
-                        <label for="tipo-procedimento">Procedimento*</label>
-                        <select id="tipo-procedimento" name="tipo-procedimento" required>
-                       		<optgroup label="Selecione um Procedimento"></optgroup>
-                            <option value="administracao-de-medicamento">Administração de Medicamento</option>
-                            <option value="verificacao-de-glicose">Verificação de Glicose</option>
-                        </select>
-                    </div>
-                    
-					<div id="observacao">
-                    <label for="observacao">Observações*</label>
-                    <input type="text" id="observacao" name="observacao" placeholder="Digite aqui alguma observação, sobre o procedimento  (opcional)" required>
-					</div>
-					
-                    <div class="horario agendamento" id="horario agendamento">
-                        <label for="horario-agendamento">Horario*</label>
-                        <select id="tipo-procedimento" name="tipo-procedimento" required>
-                        	<optgroup label="Selecione um Horario"></optgroup>
-                            <option value="hora">18:30</option>
-                            <option value="hora1">20:30</option>
-                        </select>
-                    </div>
-                    
-                    <div id="Data" class="Data">
-                    <label for=data-agendamento>Data*</label>
-                    <input type="date" id="data-agendamento" name="data-agendamento" placeholder="dd/mm/aaaa">
-                    </div>
-                </div>
+        <form action="criancaemfoco/cadastro/escola" method="POST">
+            <div id="turma">
+                <h2>Informações Básicas</h2>
 
-                <input type="submit" value="Cadastrar Agendamento">
+                <label for="nome_turma">Nome Turma*:</label>
+                <input type="text" id="nome_turma_cadastro" name="nome_turma_cadastro" placeholder="Informe o nome" required><br>
+
+                <label for="turno">Turno*:</label>
+                <input type="text" id="turno_turma" name="turno_turma" placeholder="turno_turma" required><br>
+
+                <label for="cnpj">Ano Letivo*:</label>
+                <input type="number" id="cnpj_cadastro" name="cnpj_cadastro" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
+
+                <label for="tel">Telefone*:</label>
+                <input type="number" id="tel_cadastro" name="tel_cadastro" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
+
+                <label for="email">E-mail*:</label>
+                <input type="email" id="email_cadastrar" name="email_cadastrar" required placeholder="exemplo@exemplo.com"><br>
+
+                <input type="button" id="esconder-passo1" onclick="mostrarProximo('passo1', 'passo2')" value="AVANÇAR">
             </div>
         </form>
     </div>
-</body>
 
+    <script src="CadastroEscola.js"></script>
+    <script>
+    </script>
+</body>
 </html>
