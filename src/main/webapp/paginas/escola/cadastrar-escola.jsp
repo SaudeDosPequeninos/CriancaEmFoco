@@ -17,7 +17,7 @@
     <a href="#" class="tab_ico"></a>
 
     <div class="CadastroEscola-form">
-        <form action="criancaemfoco/cadastro/escola" method="POST">
+        <form action="inserir-escola" method="POST">
 
             <div id="passo1">
                 <h2>Passo 1 - Informações Básicas</h2>
