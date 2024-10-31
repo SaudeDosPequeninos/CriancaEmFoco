@@ -1,0 +1,813 @@
+@charset "UTF-8";
+
+input[type="text"] {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: none;
+	color: rgba(32, 58, 64, 0.5); 
+    padding: 15px 50px 12px;
+}
+
+input[type="password"] {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: none;
+	color: rgba(32, 58, 64, 0.5); 
+    padding: 15px 50px 12px;
+}
+
+input[type="number"] {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: none;
+	color: rgba(32, 58, 64, 0.5); 
+    padding: 15px 50px 12px;
+}
+
+input[type="tel"] {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: none;
+	color: rgba(32, 58, 64, 0.5); 
+    padding: 15px 50px 12px;
+}
+
+input[type="email"] {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: none;
+	color: rgba(32, 58, 64, 0.5); 
+    padding: 15px 50px 12px;
+}
+
+label[for] {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: capitalize;	
+	text-decoration: none;
+	color: #203A40;
+	padding: 0px 20px;
+}
+
+.cadastroescola {
+	position: absolute;
+	width: 1520px;
+	height: 340px;
+	left: calc(50% - 1520px/2);
+	top: 492px;
+}
+
+.obrigatorio::after {
+	content: "*";
+	color: #E8505B;
+}
+
+.header {
+    position: absolute;
+    width: 1920px;
+    left: calc(50% - 1920px / 2);
+    top: 0;
+    bottom: 90.74%;
+}
+
+.titulo-cadastro {
+	position: absolute;
+	width: 700px;
+	height: 148px;
+	left: 610px;
+	top: 220px;
+}
+
+.house-ico {
+    position: absolute;
+    left: 7.3%;
+    right: 89.99%;
+    top: 25%;
+    bottom: 25.21%;
+    text-decoration: none;
+}
+
+.tab-ico {
+    position: absolute;
+    left: 3.24%;
+    right: 94.06%;
+    top: 38%;
+    bottom: 26%;
+    text-decoration: none;
+}
+
+.user-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 1.55%;
+	right: 88.9%;
+	top: 47.39%;
+	bottom: 0.93%;
+	z-index: 1;
+	
+}
+
+.nomeFantasia {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 995px;
+	top: 492px;
+}
+
+.user-ico-fantasia {
+	position: absolute;
+	pointer-events: none;
+	left: 1.55%;
+	right: 88.9%;
+	top: 47.39%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#nome-fantasia {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.top-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #203A40;
+}
+
+.razaoSocial {
+    position: absolute;
+    width: 725px;
+    height: 84px;
+    left: 200px;
+    top: 492px;
+}
+
+#razao-social {
+    box-sizing: border-box;
+    position: absolute;
+	outline: none;
+    width: 725px;
+    height: 64px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+.cnpj {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 200px;
+	top: 620px;
+}
+
+.cnpj-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 1.55%;
+	right: 88.9%;
+	top: 51.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#cnpj-cadastro {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.telefone {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 995px;
+	top: 620px;
+}
+
+.tel-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 2%;
+	right: 88.9%;
+	top: 50.39%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#tel-cadastro {
+	box-sizing: border-box;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.email {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: calc(50% - 725px/2 + 0.5px);
+	top: 748px;
+}
+
+.email-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 1.55%;
+	right: 88.9%;
+	top: 52.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#email-cadastrar {
+	box-sizing: border-box;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+#esconder-passo1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 16px;
+	gap: 10px;
+	position: absolute;
+	width: 230px;
+	height: 70px;
+	left: 1490px;
+	top: 890px;
+	background: #203A40;
+	border-radius: 6px;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.estado {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 200px;
+	top: 412px;
+}
+
+.estado-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 1.55%;
+	right: 88.9%;
+	top: 45.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+.titulo-cadastro2 {
+	position: absolute;
+	width: 440px;
+	height: 148px;
+	left: 740px;
+	top: 220px;
+}
+
+#estado {
+	box-sizing: border-box;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.cidade {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 200px;
+	top: 540px;
+}
+
+.cidade-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 1.55%;
+	right: 88.9%;
+	top: 45.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#cidade {
+	box-sizing: border-box;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.logradouro {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 200px;
+	top: 668px;
+}
+
+.logradouro-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 2.15%;
+	right: 88.9%;
+	top: 52.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#logradouro-cadastrar {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.cep {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 995px;
+	top: 412px;
+}
+
+#cep-cadastro {
+	box-sizing: border-box;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.cep-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 1.80%;
+	right: 88.9%;
+	top: 49.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+.bairro {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 995px;
+	top: 540px;
+}
+
+.bairro-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 2.40%;
+	right: 88.9%;
+	top: 53.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#bairro-cadastro {
+	box-sizing: border-box;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.numero {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: calc(50% - 725px/2 + 0.5px);
+	top: 796px;
+}
+
+.numero-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 2.65%;
+	right: 88.9%;
+	top: 53.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#numero-cadastro {
+	box-sizing: border-box;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.tipo {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 995px;
+	top: 668px;
+}
+
+.tipo-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 1.65%;
+	right: 88.9%;
+	top: 53.5%;
+	bottom: 0.93%;
+	z-index: 1;
+}
+
+#tipo {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+#voltar-passo1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 16px;
+	gap: 10px;
+
+	position: absolute;
+	width: 230px;
+	height: 70px;
+	left: 201px;
+	top: 890px;
+	
+	background: #203A40;
+	border-radius: 6px;
+
+	font-family: 'Helvetica';
+	font-style: bold;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+#esconder-passo2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 16px;
+	gap: 10px;
+
+	width: 230px;
+	height: 70px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+
+	position: absolute;
+	width: 230px;
+	height: 70px;
+	left: 1491px;
+	top: 890px;
+
+	background: #203A40;
+	border-radius: 6px;
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+
+	font-family: 'Helvetica';
+	font-style: bold;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.titulo-cadastro3 {
+	position: absolute;
+	width: 941px;
+	height: 149px;
+	left: 489px;
+	top: 220px;
+}
+
+.tipos-procedimento {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: calc(50% - 725px/2 - 3.5px);
+	top: 524px;
+}
+
+#tipos-procedimento {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: capitalize;
+	color: rgba(32, 58, 64, 0.5);
+	padding: 15px 12px;
+}
+
+.senha {
+	position: absolute;
+	width: 668px;
+	height: 84px;
+	left: 200px;
+	top: 668px;
+}
+
+.icone-senha {
+	position: absolute;
+	width: 630.74px;
+	height: 33.75px;
+	left: -58px;
+	top: 16px;
+}
+
+#senha {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 668px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.senha-fechada-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 11.38%;
+	right: 87.17%;
+	top: 65.09%;
+	bottom: 31.78%;
+	z-index: 1;
+}
+
+.olho-senha {
+	position: absolute;
+	left: 105%;
+	right: 100.29%;
+	top: 80.48%;
+	bottom: 32.75%;
+	z-index: 1;
+}
+
+.olho-senha-fechado {
+	position: absolute;
+	left: 105%;
+	right: 100.29%;
+	top: 101%;
+	bottom: 32.75%;
+	z-index: 1;
+}
+
+.confirmar-senha {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 995px;
+	top: 668px;
+}
+
+#confirmar-senha {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+}
+
+.icone-confirmar-senha {
+	position: absolute;
+	width: 684.74px;
+	height: 31.5px;
+}
+
+.confirmar-senha-fechada-ico {
+	position: absolute;
+	pointer-events: none;
+	left: 2.38%;
+	top: 50.09%;
+	bottom: 31.78%;
+	z-index: 1;
+}
+
+.confirmar-senha-fechada-ico {
+	position: absolute;
+	left: 2.2%;
+	right: 45.73%;
+	top: 52.19%;
+	bottom: 31.9%;
+}
+
+.olho-senha-aberto-confirmar-senha {
+	position: absolute;
+	left: 97.98%;
+	right: 11.47%;
+	top: 66.02%;
+	bottom: 32.66%;
+	z-index: 1;
+}
+
+.olho-senha-fechado-confirmar-senha {
+	position: absolute;
+	left: 97.98%;
+	right: 11.47%;
+	top: 85.02%;
+	bottom: 32.66%;
+	z-index: 1;
+}
+
+.voltar {
+	position: absolute;
+	width: 230px;
+	height: 70px;
+	left: 200px;
+	top: 890px;
+}
+
+.voltar-botao {
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+}
+
+.voltar-botao-style {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 16px;
+	gap: 10px;
+
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+
+	background: #203A40;
+	border-radius: 6px;
+
+	font-family: 'Helvetica';
+	font-style: bold;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.voltar-seta {
+	position: absolute;
+	left: 25.31%;
+	right: 67.12%;
+	top: 37.57%;
+	bottom: 49.33%;
+	z-index: 1;
+}
+
+.botao-confirmar {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+
+	position: absolute;
+	width: 230px;
+	height: 70px;
+	left: 1490px;
+	top: 890px;
+}
+
+.confimar-botao-style {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 16px;
+	gap: 10px;
+
+	width: 230px;
+	height: 70px;
+
+	background: #203A40;
+	border-radius: 6px;
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+
+	font-family: 'Helvetica';
+	font-style: bold;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
