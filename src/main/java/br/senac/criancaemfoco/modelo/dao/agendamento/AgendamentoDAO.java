@@ -17,9 +17,9 @@ public interface AgendamentoDAO {
 
 	List<Agendamento> recuperarAgendamentos();
 
-	Agendamento recuperarAgendamentoAluno(Aluno aluno);
+	List<Agendamento> recuperarAgendamentoAluno(Aluno aluno);
 
-	Agendamento recuperarAgendamentoEnfermeiro(Enfermeiro enfermeiro);
+	List<Agendamento> recuperarAgendamentoEnfermeiro(Enfermeiro enfermeiro);
 
 	List<Agendamento> recuperarAgendamentosProcedimento(Procedimento procedimento);
 
