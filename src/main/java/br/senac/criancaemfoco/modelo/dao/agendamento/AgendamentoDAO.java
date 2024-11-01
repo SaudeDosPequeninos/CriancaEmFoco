@@ -16,7 +16,7 @@ public interface AgendamentoDAO {
 	void atualizarAgendamento(Agendamento agendamento);
 
 	List<Agendamento> recuperarAgendamentos();
-
+ 
 	List<Agendamento> recuperarAgendamentoAluno(Aluno aluno);
 
 	List<Agendamento> recuperarAgendamentoEnfermeiro(Enfermeiro enfermeiro);

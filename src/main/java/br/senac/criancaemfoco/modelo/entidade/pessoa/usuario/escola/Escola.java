@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -127,4 +126,15 @@ public class Escola extends Usuario implements Serializable {
 		return estoques.remove(estoque);
 	}
 
+	public List<Procedimento> getProcedimento() {
+		return tipoProcedimentos;
+	}
+
+	public boolean inserirProcedimento(Procedimento procedimento) {
+		return tipoProcedimentos.add(procedimento);
+	}
+
+	public boolean removerProcedimento(Procedimento procedimento) {
+		return tipoProcedimentos.remove(procedimento);
+	} 
 }

@@ -11,7 +11,7 @@ import org.hibernate.Session;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
-public class UsuarioDAOImpl {
+public class UsuarioDAOImpl implements UsuarioDAO {
 
 	private ConexaoFactory fabrica;
 

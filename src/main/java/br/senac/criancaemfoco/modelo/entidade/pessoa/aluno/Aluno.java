@@ -31,16 +31,16 @@ public class Aluno extends Pessoa implements Serializable {
 	private float matricula;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
-	@JoinColumn(name = "responsavel_id_responsavel", referencedColumnName = "id_usuario")
+	@JoinColumn(name = "id_responsavel", referencedColumnName = "id_pessoa")
 	private Responsavel responsavel;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
-	@JoinColumn(name = "turma_id_turma", referencedColumnName = "id_turma")
+	@JoinColumn(name = "id_turma", referencedColumnName = "id_turma")
 	private Turma turma;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
 	@JoinTable(name = "aluno_procedimento", 
-	joinColumns = @JoinColumn(name = "id_usuario"), 
+	joinColumns = @JoinColumn(name = "id_pessoa"), 
 	inverseJoinColumns = @JoinColumn(name = "id_procedimento"))
 	private List<Procedimento> procedimentos = new ArrayList<Procedimento>();
 

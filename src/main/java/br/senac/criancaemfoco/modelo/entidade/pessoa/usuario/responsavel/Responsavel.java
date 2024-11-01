@@ -26,7 +26,7 @@ public class Responsavel extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "endereco_id_endereco", referencedColumnName = "id_endereco")
+	@JoinColumn(name = "id_endereco", referencedColumnName = "id_endereco")
 	private Endereco endereco;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "responsavel")

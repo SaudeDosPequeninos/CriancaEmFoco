@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "contato")
-public class Contato implements Serializable{
+public class Contato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,14 +23,10 @@ public class Contato implements Serializable{
 	@Column(name = "numero_celular", length = 9, nullable = false)
 	private String numeroCelular;
 
-	@Column(name = "email", length = 45, nullable = false)
-	private String email;
-
 	public Contato() {}
 
 	public Contato(String numCelular, String email) {
 		setNumCelular(numCelular);
-		setEmail(email);
 	}
 
 	public Long getId() {
@@ -47,14 +43,6 @@ public class Contato implements Serializable{
 
 	public void setNumCelular(String numCelular) {
 		this.numeroCelular = numCelular;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 }
