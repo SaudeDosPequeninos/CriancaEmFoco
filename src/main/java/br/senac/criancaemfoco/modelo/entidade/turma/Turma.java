@@ -44,7 +44,7 @@ public class Turma implements Serializable {
 	private String numeroTurma;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_escola")
+	@JoinColumn(name = "id_pessoa")
 	private Escola escola;
 
 	public Turma() {}
