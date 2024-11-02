@@ -1,6 +1,7 @@
 package br.senac.criancaemfoco.modelo.dao.pessoa.aluno;
 
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
+import br.senac.criancaemfoco.modelo.entidade.estoque.Estoque;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
@@ -80,6 +81,25 @@ public class AlunoDAOImpl implements AlunoDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+	
+	public List<Aluno> recuperarAlunos() {
+		Session sessao = null;
+		List<Aluno> alunos = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Aluno> criteria = construtor.createQuery(Aluno.class);
+			Root<Aluno> raizCliente = criteria.from(Aluno.class);
+			criteria.select(raizCliente);
+			alunos = sessao.createQuery(criteria).getResultList();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return alunos;
 	}
 
 	public List<Aluno> recuperarAlunoTurma(Turma turma) {

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.List;
 import br.senac.criancaemfoco.modelo.dao.pessoa.aluno.AlunoDAO;
 import br.senac.criancaemfoco.modelo.dao.pessoa.aluno.AlunoDAOImpl;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
@@ -43,10 +44,26 @@ public class AlunoServlet extends HttpServlet implements Serializable {
 				mostrarCadastroAluno(request, response);
 				break;
 			
+			case "/editar-aluno":
+				mostrarEdicaoAluno(request, response);
+				break;
+				
 			case "/inserir-aluno":
 				inserirAluno(request, response);
 				break;
-			
+				
+			case "/atualizar-aluno":
+				atualizarAluno(request, response);
+				break;
+				
+			case "/deletar-aluno":
+				deletarAluno(request, response);
+				break;
+				
+			case "/listar-aluno":
+				listarAlunos(request, response);
+				break;
+				
 			default:
 				retornarMenu(request, response);
 				break;
@@ -70,14 +87,41 @@ public class AlunoServlet extends HttpServlet implements Serializable {
 		dispatcher.forward(request, response);
 	}
 	
+	
+	private void mostrarEdicaoAluno(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		
+		Long idAluno = Long.parseLong(request.getParameter("id-aluno"));
+		List<Aluno> alunos = daoAluno.recuperarAlunos();
+		Aluno alunoRecuperado = null;
+		for (Aluno aluno : alunos) {
+			if (aluno.getId() == idAluno) {
+				alunoRecuperado = aluno ;
+				break;
+			}
+		}
+		
+		request.setAttribute("aluno", alunoRecuperado);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/aluno/editar-aluno.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	
 	private void inserirAluno(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		Aluno aluno = new Aluno();
 		
-		aluno.setNomeId(request.getParameter("nome-user"));
-		aluno.setSobrenome(request.getParameter("sobrenome-user"));
-		aluno.setIdFiscal(formatCPF(request.getParameter("cpf-user")));
-		aluno.setDataNascimento(LocalDate.parse(request.getParameter("data-nascimento-user")));
-		aluno.setMatricula(Float.parseFloat(request.getParameter("id-aluno")));
+		String nome = request.getParameter("nome-user");
+		String sobrenome = request.getParameter("sobrenome-user");
+		String cpf = request.getParameter("cpf-user");
+		LocalDate dtNascimento = LocalDate.parse(request.getParameter("data-nascimento-user"));
+		Float matricula = Float.parseFloat(request.getParameter("id-aluno"));
+		
+		aluno.setNomeId(nome);
+		aluno.setSobrenome(sobrenome);
+		aluno.setIdFiscal(cpf);
+		aluno.setDataNascimento(dtNascimento);
+		aluno.setMatricula(matricula);
 		
 		daoAluno.inserirAluno(aluno);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
@@ -85,13 +129,57 @@ public class AlunoServlet extends HttpServlet implements Serializable {
 		
 	}
 
-	public static String formatCPF(String cpf) {
 
-        return cpf.substring(0, 3) + "." + 
-               cpf.substring(3, 6) + "." + 
-               cpf.substring(6, 9) + "-" + 
-               cpf.substring(9, 11);
-    }
+	private void atualizarAluno(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		
+		Long idAluno = Long.parseLong(request.getParameter("id-aluno"));
+		
+		Aluno aluno = new Aluno();
+		
+		String nome = request.getParameter("nome-user");
+		String sobrenome = request.getParameter("sobrenome-user");
+		String cpf = request.getParameter("cpf-user");
+		LocalDate dtNascimento = LocalDate.parse(request.getParameter("data-nascimento-user"));
+		Float matricula = Float.parseFloat(request.getParameter("id-aluno"));
+		
+		aluno.setId(idAluno);
+		aluno.setNomeId(nome);
+		aluno.setSobrenome(sobrenome);
+		aluno.setIdFiscal(cpf);
+		aluno.setDataNascimento(dtNascimento);
+		aluno.setMatricula(matricula);
+		
+		daoAluno.inserirAluno(aluno);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
+	}
 	
+	private void deletarAluno(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		
+		Long idAluno = Long.parseLong(request.getParameter("id-aluno"));
+		List<Aluno> alunos = daoAluno.recuperarAlunos();
+		Aluno alunoRecuperado = null;
+		for (Aluno aluno : alunos) {
+			if (aluno.getId() == idAluno) {
+				alunoRecuperado = aluno ;
+				break;
+			}
+		}
+		
+		daoAluno.deletarAluno(alunoRecuperado);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/aluno/cadastrar-aluno.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void listarAlunos(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
 
+		List<Aluno> alunos= daoAluno.recuperarAlunos();
+		request.setAttribute("alunos", alunos);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/aluno/listar-aluno.jsp");
+		dispatcher.forward(request, response);
+	}
 }
