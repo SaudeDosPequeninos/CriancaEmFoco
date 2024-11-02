@@ -9,6 +9,9 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
@@ -98,4 +101,104 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 		return usuarios;
 	}
+
+	public boolean usuarioResponsavelExistente(String email, String senha) {
+		Session sessao = null;
+		try {
+ 
+				sessao = abrirSessao(sessao);
+				
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+				
+				CriteriaQuery<Long> criteriaUsuario = construtor.createQuery(Long.class);
+				Root<Usuario> raizUsuario = criteriaUsuario.from(Usuario.class);
+				Root<Responsavel> raizResponsavel = criteriaUsuario.from(Responsavel.class);
+				
+				
+				criteriaUsuario.select(construtor.count(raizUsuario))
+					.where(construtor.equal(raizUsuario.get("id"), raizResponsavel.get("id")),
+					construtor.equal(raizUsuario.get("email"), email),
+					construtor.equal(raizUsuario.get("senha"), senha));
+				
+				Long totalUsuarios = sessao.createQuery(criteriaUsuario).getSingleResult();
+				
+				if (totalUsuarios > 0) {
+					return true;
+				}
+				
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		}finally {
+			fecharSessao(sessao);
+		}
+		
+		return false;
+	}
+	
+	public boolean usuarioEnfermeiroExistente(String email, String senha) {
+		Session sessao = null;
+		try {
+ 
+				sessao = abrirSessao(sessao);
+				
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+				
+				CriteriaQuery<Long> criteriaUsuario = construtor.createQuery(Long.class);
+				Root<Usuario> raizUsuario = criteriaUsuario.from(Usuario.class);
+				Root<Enfermeiro> raizEnfermeiro = criteriaUsuario.from(Enfermeiro.class);
+				
+				
+				criteriaUsuario.select(construtor.count(raizUsuario))
+					.where(construtor.equal(raizUsuario.get("id"), raizEnfermeiro.get("id")),
+					construtor.equal(raizUsuario.get("email"), email),
+					construtor.equal(raizUsuario.get("senha"), senha));
+				
+				Long totalUsuarios = sessao.createQuery(criteriaUsuario).getSingleResult();
+				
+				if (totalUsuarios > 0) {
+					return true;
+				}
+				
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		}finally {
+			fecharSessao(sessao);
+		}
+		
+		return false;
+	}
+	
+	public boolean usuarioEscolaExistente(String email, String senha) {
+		Session sessao = null;
+		try {
+ 
+				sessao = abrirSessao(sessao);
+				
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+				
+				CriteriaQuery<Long> criteriaUsuario = construtor.createQuery(Long.class);
+				Root<Usuario> raizUsuario = criteriaUsuario.from(Usuario.class);
+				Root<Escola> raizEscola= criteriaUsuario.from(Escola.class);
+				
+				
+				criteriaUsuario.select(construtor.count(raizUsuario))
+					.where(construtor.equal(raizUsuario.get("id"), raizEscola.get("id")),
+					construtor.equal(raizUsuario.get("email"), email),
+					construtor.equal(raizUsuario.get("senha"), senha));
+				
+				Long totalUsuarios = sessao.createQuery(criteriaUsuario).getSingleResult();
+				
+				if (totalUsuarios > 0) {
+					return true;
+				}
+				
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		}finally {
+			fecharSessao(sessao);
+		}
+		
+		return false;
+	}
+
 }

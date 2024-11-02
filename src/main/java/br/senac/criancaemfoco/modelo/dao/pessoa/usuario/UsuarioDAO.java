@@ -11,6 +11,12 @@ public interface UsuarioDAO {
 	void deletarUsuario(Usuario usuario);
 
 	void atualizarUsuario(Usuario usuario);
+	
+	boolean usuarioResponsavelExistente(String email, String senha);
+	
+	boolean usuarioEnfermeiroExistente(String email, String senha);
+	
+	boolean usuarioEscolaExistente(String email, String senha);
 
 	List<Usuario> recuperarUsuarios();
 

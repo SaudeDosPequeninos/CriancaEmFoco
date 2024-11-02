@@ -36,7 +36,7 @@ public class Escola extends Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "escola_enfermeiro",
 	joinColumns = @JoinColumn(name = "id_pessoa"),
-	inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
+	inverseJoinColumns = @JoinColumn(name = "id_enfermeiro"))
 	private List<Enfermeiro> enfermeiros = new ArrayList<Enfermeiro>();
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -48,7 +48,7 @@ public class Escola extends Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "escola_aluno",
 	joinColumns = @JoinColumn(name = "id_pessoa"),
-	inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
+	inverseJoinColumns = @JoinColumn(name = "id_aluno"))
 	private List<Aluno> alunos = new ArrayList<Aluno>();
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
