@@ -24,8 +24,8 @@
     <div id="cadastroescola-form">
         <form action="criancaemfoco/cadastro/escola" method="POST">
             <div id="passo1" style="display: block;">
-                <div class="titulo-cadastro">
-                    <img src="../../resources/images/titulo-cadastro.svg" alt="Titulo Cadastro">
+                <div class="titulo">
+                    <img src="../../resources/images/titulo.svg" alt="Titulo Cadastro">
                 </div>                
 
                 <div class="razaoSocial">
@@ -49,7 +49,7 @@
                     <div class="cnpj-ico">
                         <img src="../../resources/images/cnpj-ico.svg" alt="cnpj-ico">                           
                     </div>
-                    <input type="text" id="cnpj-cadastro" name="cnpj-cadastro" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
+                    <input type="text" id="cnpj" name="cnpj" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
                 </div>
                 
                 <div class="telefone">
@@ -57,7 +57,7 @@
                     <div class="tel-ico">
                         <img src="../../resources/images/telefone-ico.svg" alt="telefone-ico">                  
                     </div>
-                    <input type="tel" id="tel-cadastro" name="tel-cadastro" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
+                    <input type="tel" id="tel" name="tel" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
                 </div>
 
                 <div class="email">
@@ -65,7 +65,7 @@
                     <div class="email-ico">
                         <img src="../../resources/images/email-ico.svg" alt="email-ico">  
                     </div>
-                    <input type="email" id="email-cadastrar" name="email-cadastrar" required placeholder="exemplo@exemplo.com"><br>
+                    <input type="email" id="email" name="email" required placeholder="exemplo@exemplo.com"><br>
                 </div>
 
                 <button type="button" id="esconder-passo1" onclick="mostrarProximo('passo1', 'passo2')">AVANÇAR</button>
@@ -97,7 +97,7 @@
                     <div class="logradouro-ico">
                         <img src="../../resources/images/logradouro-ico.svg" alt="logradouro-ico">
                     </div>
-                    <input type="text" id="logradouro-cadastrar" name="logradouro-cadastrar" required placeholder="Informe a rua"><br>
+                    <input type="text" id="logradouro" name="logradouro" required placeholder="Informe a rua"><br>
                 </div>
 
                 <div class="cep">
@@ -105,7 +105,7 @@
                     <div class="cep-ico">
                         <img src="../../resources/images/cep-ico.svg" alt="cep-ico">
                     </div>
-                    <input type="text" id="cep-cadastro" name="cep-cadastro" required pattern="\d{8}" title="Digite 8 dígitos" placeholder="Informe o CEP" maxlength="8" minlength="8"><br>
+                    <input type="text" id="cep" name="cep" required pattern="\d{8}" title="Digite 8 dígitos" placeholder="Informe o CEP" maxlength="8" minlength="8"><br>
                 </div>
 
                 <div class="tipo">
@@ -121,7 +121,7 @@
                     <div class="bairro-ico">
                         <img src="../../resources/images/bairro-ico.svg" alt="bairro-ico">
                     </div>
-                    <input type="text" id="bairro-cadastro" name="bairro-cadastro" required placeholder="Informe o bairro"><br>
+                    <input type="text" id="bairro" name="bairro" required placeholder="Informe o bairro"><br>
                 </div>
 
                 <button id="voltar-passo1" onclick="mostrarProximo('passo2', 'passo1')">VOLTAR</button>
