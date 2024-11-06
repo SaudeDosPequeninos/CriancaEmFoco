@@ -40,17 +40,25 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 		String action = request.getServletPath();
 
 		try {
-			
+
 			switch (action) {
-			
+
 			case "/inserir":
 				inserirTurma(request, response);
 				break;
-			
+
 			case "/salvo":
 				salvoTurma(request, response);
 				break;
-				
+
+			case "deletar":
+				deletarTurma(request,response);
+				break;
+
+			case "atualizar":
+				atualizarTurma(request,response);
+				break;
+
 			default:
 				formularioTurma(request, response);
 				break;
@@ -80,6 +88,26 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 	    dao.inserirTurma(turma); 
 		response.sendRedirect("salvo");
 	}
+	
+	private void atualizarTurma(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		// recuperar uma turma por id para atualizar a mesma pelo id
+		long id = Long.parseLong(request.getParameter("id"));
+	    String anoTurma = request.getParameter("ano-turma");
+	    String numeroTurma = request.getParameter("numero-turma");
+	    Turma turma = new Turma(id,numeroTurma, anoTurma);
+		dao.atualizarTurma(turma);
+		response.sendRedirect("listar"); //
+	}
+
+	private void deletarTurma(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Contato contato = dao.recuperarContato(new Contato(id)); // recuperar uma turma por id
+		dao.deletarContato(contato);
+		response.sendRedirect("listar");
+		
+	}
+		
 	
 	private void salvoTurma(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
