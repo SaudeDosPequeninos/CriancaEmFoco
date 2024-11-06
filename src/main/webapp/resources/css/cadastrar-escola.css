@@ -155,7 +155,7 @@ label[for] {
 	z-index: 1;
 }
 
-#nome-fantasia {
+#nome-fantasia-user {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -182,7 +182,7 @@ label[for] {
     top: 492px;
 }
 
-#razao-social {
+#razao-social-user {
     box-sizing: border-box;
     position: absolute;
 	outline: none;
@@ -210,7 +210,7 @@ label[for] {
 	z-index: 1;
 }
 
-#cnpj {
+#cnpj-user {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -238,7 +238,7 @@ label[for] {
 	z-index: 1;
 }
 
-#tel {
+#tel-user {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -265,7 +265,7 @@ label[for] {
 	z-index: 1;
 }
 
-#email {
+#email-user {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -326,7 +326,7 @@ label[for] {
 	top: 220px;
 }
 
-#estado {
+#estado-user {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -353,7 +353,7 @@ label[for] {
 	z-index: 1;
 }
 
-#cidade {
+#cidade-user {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -380,7 +380,7 @@ label[for] {
 	z-index: 1;
 }
 
-#logradouro {
+#logradouro-user {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -398,7 +398,7 @@ label[for] {
 	top: 412px;
 }
 
-#cep {
+#cep-user {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -435,7 +435,7 @@ label[for] {
 	z-index: 1;
 }
 
-#bairro {
+#bairro-user {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -462,7 +462,7 @@ label[for] {
 	z-index: 1;
 }
 
-#numero {
+#numero-user {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -489,7 +489,7 @@ label[for] {
 	z-index: 1;
 }
 
-#tipo {
+#tipo-user {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -583,7 +583,7 @@ label[for] {
 	top: 524px;
 }
 
-#tipos-procedimento {
+#tipos-procedimento-user {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -620,7 +620,7 @@ label[for] {
 	top: 16px;
 }
 
-#senha {
+#senha-user {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -666,7 +666,7 @@ label[for] {
 	top: 668px;
 }
 
-#confirmar-senha {
+#confirmar-senha-user {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
