@@ -94,15 +94,15 @@ label[for] {
 
 .header {
     position: absolute;
-    width: 1920px;
-    left: calc(50% - 1920px / 2);
+    width: 100%;
+    left: calc(50% - 100% / 2);
     top: 0;
     bottom: 90.74%;
 }
 
 .titulo {
 	position: absolute;
-	width: 700px;
+	width: 50%;
 	height: 148px;
 	left: 610px;
 	top: 220px;
