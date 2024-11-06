@@ -100,7 +100,7 @@ label[for] {
     bottom: 90.74%;
 }
 
-.titulo-cadastro {
+.titulo {
 	position: absolute;
 	width: 700px;
 	height: 148px;
@@ -210,7 +210,7 @@ label[for] {
 	z-index: 1;
 }
 
-#cnpj-cadastro {
+#cnpj {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -238,7 +238,7 @@ label[for] {
 	z-index: 1;
 }
 
-#tel-cadastro {
+#tel {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -265,7 +265,7 @@ label[for] {
 	z-index: 1;
 }
 
-#email-cadastrar {
+#email {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -380,7 +380,7 @@ label[for] {
 	z-index: 1;
 }
 
-#logradouro-cadastrar {
+#logradouro {
 	box-sizing: border-box;
 	position: absolute;
 	outline: none;
@@ -398,7 +398,7 @@ label[for] {
 	top: 412px;
 }
 
-#cep-cadastro {
+#cep {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -435,7 +435,7 @@ label[for] {
 	z-index: 1;
 }
 
-#bairro-cadastro {
+#bairro {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
@@ -462,7 +462,7 @@ label[for] {
 	z-index: 1;
 }
 
-#numero-cadastro {
+#numero {
 	box-sizing: border-box;
 	outline: none;
 	width: 725px;
