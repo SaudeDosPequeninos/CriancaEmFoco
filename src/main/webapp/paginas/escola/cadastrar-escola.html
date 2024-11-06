@@ -33,7 +33,7 @@
                     <div class="user-ico">
                         <img src="../../resources/images/user-ico.svg" alt="user-ico">
                     </div>
-                    <input type="text" id="razao-social" name="razao-social" placeholder="Informe o nome" required><br>
+                    <input type="text" id="razao-social-user" name="razao-social-user" placeholder="Informe o nome" required><br>
                 </div>
 
                 <div class="nomeFantasia">
@@ -41,7 +41,7 @@
                     <div class="user-ico-fantasia">
                         <img src="../../resources/images/user-ico.svg" alt="user-ico-fantasia">   
                     </div>
-                    <input type="text" id="nome-fantasia" name="nome-fantasia" placeholder="Opcional"><br>
+                    <input type="text" id="nome-fantasia-user" name="nome-fantasia-user" placeholder="Opcional"><br>
                 </div>
 
                 <div class="cnpj">
@@ -49,7 +49,7 @@
                     <div class="cnpj-ico">
                         <img src="../../resources/images/cnpj-ico.svg" alt="cnpj-ico">                           
                     </div>
-                    <input type="text" id="cnpj" name="cnpj" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
+                    <input type="text" id="cnpj-user" name="cnpj-user" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
                 </div>
                 
                 <div class="telefone">
@@ -57,7 +57,7 @@
                     <div class="tel-ico">
                         <img src="../../resources/images/telefone-ico.svg" alt="telefone-ico">                  
                     </div>
-                    <input type="tel" id="tel" name="tel" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
+                    <input type="tel" id="tel-user" name="tel-user" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
                 </div>
 
                 <div class="email">
@@ -65,7 +65,7 @@
                     <div class="email-ico">
                         <img src="../../resources/images/email-ico.svg" alt="email-ico">  
                     </div>
-                    <input type="email" id="email" name="email" required placeholder="exemplo@exemplo.com"><br>
+                    <input type="email" id="email-user" name="email-user" required placeholder="exemplo@exemplo.com"><br>
                 </div>
 
                 <button type="button" id="esconder-passo1" onclick="mostrarProximo('passo1', 'passo2')">AVANÇAR</button>
@@ -81,7 +81,7 @@
                     <div class="estado-ico">
                         <img src="../../resources/images/estado-ico.svg" alt="estado-ico">                  
                     </div>
-                    <input type="text" id="estado" name="estado" placeholder="Informe o estado" required><br>
+                    <input type="text" id="estadov" name="estado-user" placeholder="Informe o estado" required><br>
                 </div>
 
                 <div class="cidade">
@@ -89,7 +89,7 @@
                     <div class="cidade-ico">
                         <img src="../../resources/images/estado-ico.svg" alt="cidade-ico">
                     </div>
-                    <input type="text" id="cidade" name="cidade" required placeholder="Informe a cidade"><br>
+                    <input type="text" id="cidade-user" name="cidade-user" required placeholder="Informe a cidade"><br>
                 </div>
 
                 <div class="logradouro">
@@ -97,7 +97,7 @@
                     <div class="logradouro-ico">
                         <img src="../../resources/images/logradouro-ico.svg" alt="logradouro-ico">
                     </div>
-                    <input type="text" id="logradouro" name="logradouro" required placeholder="Informe a rua"><br>
+                    <input type="text" id="logradouro-user" name="logradouro-user" required placeholder="Informe a rua"><br>
                 </div>
 
                 <div class="cep">
@@ -105,7 +105,7 @@
                     <div class="cep-ico">
                         <img src="../../resources/images/cep-ico.svg" alt="cep-ico">
                     </div>
-                    <input type="text" id="cep" name="cep" required pattern="\d{8}" title="Digite 8 dígitos" placeholder="Informe o CEP" maxlength="8" minlength="8"><br>
+                    <input type="text" id="cep-user" name="cep-user" required pattern="\d{8}" title="Digite 8 dígitos" placeholder="Informe o CEP" maxlength="8" minlength="8"><br>
                 </div>
 
                 <div class="tipo">
@@ -113,7 +113,7 @@
                     <div class="tipo-ico">
                         <img src="../../resources/images/tipo-ico.svg" alt="tipo-ico">
                     </div>
-                    <input type="text" id="tipo" name="tipo" required placeholder="Ex: Casa, Apto, etc."><br>
+                    <input type="text" id="tipo-user" name="tipo-user" required placeholder="Ex: Casa, Apto, etc."><br>
                 </div>
 
                 <div class="bairro">
@@ -121,7 +121,7 @@
                     <div class="bairro-ico">
                         <img src="../../resources/images/bairro-ico.svg" alt="bairro-ico">
                     </div>
-                    <input type="text" id="bairro" name="bairro" required placeholder="Informe o bairro"><br>
+                    <input type="text" id="bairro-user" name="bairro-user" required placeholder="Informe o bairro"><br>
                 </div>
 
                 <button id="voltar-passo1" onclick="mostrarProximo('passo2', 'passo1')">VOLTAR</button>
@@ -159,7 +159,7 @@
                         </div>
                     </div>
 
-                    <input type="password" id="senha" name="senha" placeholder="Informe uma senha" required>
+                    <input type="password" id="senha-user" name="senha-user" placeholder="Informe uma senha" required>
                 </div>
 
                 <div class="confirmar-senha">
@@ -178,7 +178,7 @@
                         </div>
                     </div>
 
-                    <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Informe a senha novamente" required>
+                    <input type="password" id="confirmar-senha-user" name="confirmar-senha-user" placeholder="Informe a senha novamente" required>
                 </div>
 
                 <div class="voltar">
