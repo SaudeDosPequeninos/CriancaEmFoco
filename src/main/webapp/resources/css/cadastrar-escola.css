@@ -1,6 +1,20 @@
 @charset "UTF-8";
 
-input[type="text"] {
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    flex-direction: column;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="tel"], input[type="email"]  {
 	font-family: 'Helvetica';
 	font-style: normal;
 	font-weight: 700;
@@ -13,59 +27,7 @@ input[type="text"] {
     padding: 15px 50px 12px;
 }
 
-input[type="password"] {
-	font-family: 'Helvetica';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
-	line-height: 120%;
-	display: flex;
-	align-items: center;
-	text-transform: none;
-	color: rgba(32, 58, 64, 0.5); 
-    padding: 15px 50px 12px;
-}
-
-input[type="number"] {
-	font-family: 'Helvetica';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 120%;
-	display: flex;
-	align-items: center;
-	text-transform: none;
-	color: rgba(32, 58, 64, 0.5); 
-    padding: 15px 50px 12px;
-}
-
-input[type="tel"] {
-	font-family: 'Helvetica';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 120%;
-	display: flex;
-	align-items: center;
-	text-transform: none;
-	color: rgba(32, 58, 64, 0.5); 
-    padding: 15px 50px 12px;
-}
-
-input[type="email"] {
-	font-family: 'Helvetica';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 120%;
-	display: flex;
-	align-items: center;
-	text-transform: none;
-	color: rgba(32, 58, 64, 0.5); 
-    padding: 15px 50px 12px;
-}
-
-label[for] {
+.text-style {
 	font-family: 'Helvetica';
 	font-style: normal;
 	font-weight: 400;
@@ -78,6 +40,7 @@ label[for] {
 	color: #203A40;
 	padding: 0px 20px;
 }
+
 
 .cadastroescola {
 	position: absolute;
@@ -93,6 +56,7 @@ label[for] {
 }
 
 .header {
+	display: grid;
     position: absolute;
     width: 100%;
     left: calc(50% - 100% / 2);
@@ -101,26 +65,26 @@ label[for] {
 }
 
 .titulo {
+	display: grid;
 	position: absolute;
-	width: 50%;
 	height: 148px;
 	left: 610px;
 	top: 220px;
 }
 
 .house-ico {
+	display: grid;
     position: absolute;
-    left: 7.3%;
-    right: 89.99%;
+    left: 130px;
     top: 25%;
     bottom: 25.21%;
     text-decoration: none;
 }
 
 .tab-ico {
+	display: grid;
     position: absolute;
-    left: 3.24%;
-    right: 94.06%;
+    left: 50px;
     top: 38%;
     bottom: 26%;
     text-decoration: none;
@@ -166,7 +130,10 @@ label[for] {
 }
 
 .top-bar {
-    position: absolute;
+    display: grid;
+	padding: 45px 25px;
+    position: fixed;
+	height: 0%;
     left: 0;
     right: 0;
     top: 0;
@@ -248,10 +215,11 @@ label[for] {
 }
 
 .email {
+	display: grid;
 	position: absolute;
 	width: 725px;
 	height: 84px;
-	left: calc(50% - 725px/2 + 0.5px);
+	left: 620px;
 	top: 748px;
 }
 
@@ -583,6 +551,14 @@ label[for] {
 	top: 524px;
 }
 
+.procedimento-ico {
+    position: absolute;
+    left: 95%;
+    top: 60%;
+    bottom: 46.28%;
+    z-index: 1;
+}
+
 #tipos-procedimento-user {
 	box-sizing: border-box;
 	position: absolute;
@@ -602,6 +578,10 @@ label[for] {
 	text-transform: capitalize;
 	color: rgba(32, 58, 64, 0.5);
 	padding: 15px 12px;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
 }
 
 .senha {

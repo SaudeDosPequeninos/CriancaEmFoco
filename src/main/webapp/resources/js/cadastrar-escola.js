@@ -15,12 +15,14 @@ function validar(passo) {
 }
 
 function mostrarProximo(passoAtual, proximoPasso) {
-    document.getElementById(passoAtual).style.display = 'none';
-    document.getElementById(proximoPasso).style.display = 'block';
+    if (validar(passoAtual)) {
+        document.getElementById(passoAtual).style.display = 'none';
+        document.getElementById(proximoPasso).style.display = 'block';
+    }
 }
 
 function toggleIco() {
-    const senhaInput = document.getElementById('senha');
+    const senhaInput = document.getElementById('senha-user');
     const olhoFechado = document.getElementById('olho-fechado');
     const olhoAberto = document.getElementById('olho-aberto');
     if (senhaInput.type === 'password') {
@@ -35,7 +37,7 @@ function toggleIco() {
 }
 
 function toggleIcoConfirmarSenha() {
-    const senhaInput = document.getElementById('confirmar-senha');
+    const senhaInput = document.getElementById('confirmar-senha-user');
     const olhoFechado = document.getElementById('olho-fechado-confirmar');
     const olhoAberto = document.getElementById('olho-aberto-confirmar');
     if (senhaInput.type === 'password') {
@@ -48,3 +50,23 @@ function toggleIcoConfirmarSenha() {
         olhoAberto.style.display = 'inline';
     }
 }
+
+function toggleIcoBaixo() {
+    const setaBaixo = document.getElementById('tipos-procedimento-seta');
+    const setaCima = document.getElementById('seta-cima');
+    const tipoProcedimentoSelect = document.getElementById('tipos-procedimento-user');
+
+    tipoProcedimentoSelect.addEventListener('focus', function() {
+            setaBaixo.style.display = 'none';
+            setaCima.style.display = 'inline';
+    });
+
+    tipoProcedimentoSelect.addEventListener('focusout', function() {
+            setaBaixo.style.display = 'inline';
+            setaCima.style.display = 'none';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    toggleIcoBaixo();
+});
