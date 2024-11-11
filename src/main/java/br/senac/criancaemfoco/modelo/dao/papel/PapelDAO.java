@@ -11,6 +11,8 @@ public interface PapelDAO {
 	void deletarPapel(Papel papel);
 
 	void atualizarPapel(Papel papel);
+	
+	Papel recuperarPapel(Long id);
 
 	List<Papel> recuperarPapeis();
 

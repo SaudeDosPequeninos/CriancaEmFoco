@@ -78,6 +78,25 @@ public class PapelDAOImpl implements PapelDAO {
 		}
 	}
 
+	public Papel recuperarPapel(Long id) {
+		Session sessao = null;
+		Papel papel = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Papel> criteria = construtor.createQuery(Papel.class);
+			Root<Papel> raizCliente = criteria.from(Papel.class);
+			criteria.select(raizCliente).where(construtor.equal(raizCliente.get("id"), id));
+			papel = sessao.createQuery(criteria).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return papel;
+	}
+	
 	public List<Papel> recuperarPapeis() {
 		Session sessao = null;
 		List<Papel> papeis = null;

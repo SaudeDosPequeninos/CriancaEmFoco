@@ -9,9 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import br.senac.criancaemfoco.modelo.dao.papel.PapelDAO;
+import br.senac.criancaemfoco.modelo.dao.papel.PapelDAOImpl;
 import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.UsuarioDAO;
 import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.UsuarioDAOImpl;
+import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
 
 
 @WebServlet(urlPatterns = {"/login", "/logar-usuario"})
@@ -19,9 +24,11 @@ public class UsuarioServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     private UsuarioDAO daoUsuario;	
+    private PapelDAO daoPapel;
 
     public void init() {
         daoUsuario = new UsuarioDAOImpl();
+        daoPapel = new PapelDAOImpl();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,21 +73,48 @@ public class UsuarioServlet extends HttpServlet {
 		
 		String email = request.getParameter("email-user");
 		String senha = request.getParameter("senha-user");
+
 		
-		if (daoUsuario.usuarioResponsavelExistente(email, senha)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/responsavel/home-responsavel.jsp");
-			dispatcher.forward(request, response);
-		}else if(daoUsuario.usuarioEscolaExistente(email, senha)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/escola/home-escola.jsp");
-			dispatcher.forward(request, response);
-		}else if(daoUsuario.usuarioEnfermeiroExistente(email, senha)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/enfermeiro/home-enfermeiro.jsp");
-			dispatcher.forward(request, response);
+		if(daoUsuario.usuarioExistente(email, senha)) {
+			
+			HttpSession session = request.getSession();
+			
+			Usuario usuario = daoUsuario.recuperarUsuario(email);
+			Papel papel = daoPapel.recuperarPapel(usuario.getPapel().getId());
+			
+			if(papel.getNomePapel().equals("enfermeiro")) {
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/enfermeiro/perfil-enfermeiro.jsp");
+				dispatcher.forward(request, response);
+			
+			}else if(papel.getNomePapel().equals("escola")) {
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/escola/perfil-escola.jsp");
+				dispatcher.forward(request, response);
+			
+			}else if(papel.getNomePapel().equals("responsavel")) {
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/responsavel/perfil-responsavel.jsp");
+				dispatcher.forward(request, response);
+			
+			}else {
+				
+				System.out.println("Papel inválido");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+				dispatcher.forward(request, response);
+				return;
+			}
+			
+			session.setAttribute("usuario", usuario);
+			return;
+		
 		}else {
-			System.out.println("Usuario Não existe");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-			dispatcher.forward(request, response);
+			
+			System.out.println("email ou senha não incorretos");
+			return;
 		}
+		
+		
 		
 	}
 
