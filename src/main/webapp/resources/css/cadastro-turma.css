@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    flex-direction: column;
+}
+
+header {
+    position: absolute;
+    left: -0.16%;
+    right: 0.16%;
+    top: 0%;
+    bottom: 90.74%;
+}
+
+.obrigatorio::after {
+	content: "*";
+	color: #E8505B;
+}
+
+.text-style {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #203A40;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="tel"], input[type="email"]  {
+	font-family: 'Helvetica';
+	font-style: normal;
+	line-height: 120%;
+    font-size: 15px;
+	display: flex;
+	align-items: center;
+	text-transform: none;
+	color: rgba(32, 58, 64, 0.5); 
+    padding: 15px 60px 12px;
+}   
+
+#title {
+    position: absolute;
+    width: 479px;
+    height: 36px;
+    font-size: 50px;
+    left: calc(50% - 479px/2 + 0.5px);
+    top: 316px;
+}
+
+.text-left {
+    padding-left: 22px;
+}
+
+.top-bar {
+    display: grid;
+	padding: 45px 25px;
+    position: fixed;
+	height: 0%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #203A40;
+}
+
+.house-ico {
+	display: grid;
+    position: absolute;
+    left: 130px;
+    top: 25%;
+    bottom: 25.21%;
+    text-decoration: none;
+}
+
+.tab-ico {
+	display: grid;
+    position: absolute;
+    left: 50px;
+    top: 38%;
+    bottom: 26%;
+    text-decoration: none;
+}
+
+.nome-turma {
+    position: absolute;
+    width: 725px;
+    height: 84px;
+    left: 200px;
+    top: 523px;
+}
+
+#nome-turma {
+    box-sizing: border-box;
+
+    position: absolute;
+    outline: none;
+    width: 725px;
+    height: 64px;
+
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+.turno {
+    position: absolute;
+    width: 725px;
+    height: 84px;
+    left: 995px;
+    top: 523px;
+}
+
+#turno-turma {
+    box-sizing: border-box;
+
+    position: absolute;
+    outline: none;
+    width: 725px;
+    height: 64px;
+
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+.ano-letivo {
+    position: absolute;
+    width: 725px;
+    height: 84px;
+    left: calc(50% - 725px/2 + 0.5px);
+    top: 651px;
+}
+
+#ano-letivo {
+    box-sizing: border-box;
+
+    position: absolute;
+    outline: none;
+    width: 725px;
+    height: 64px;
+
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+#concluir {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 16px;
+    gap: 10px;
+
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    left: 1490px;
+    top: 890px;
+
+    background: #203A40;
+    border-radius: 6px;
+
+    color: #FFFFFF;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.livro-ico {
+    position: absolute;
+    pointer-events: none;
+    left: 2.5%;
+    right: 87.4%;
+    top: 51.94%;
+    bottom: 45.46%;
+    z-index: 1;
+}
+
+.relogio-ico {
+    position: absolute;
+    pointer-events: none;
+    left: 2%;
+    right: 45.47%;
+    top: 50.85%;
+    bottom: 45.28%;
+    z-index: 1;
+}
+
+.calendario-ico {
+    position: absolute;
+    pointer-events: none;
+    left: 2%;
+    right: 66.12%;
+    top: 47%;
+    bottom: 33.47%;
+    z-index: 1;
+}

@@ -5,43 +5,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CadastroEscola.css">
+    <link rel="stylesheet" href="../../resources/css/cadastro-turma.css">
     <title>Cadastro:Turma</title>
     <style>
     </style>
 </head>
 
 <body>
-    <div class="top-bar"></div>
-    <a href="#" class="house-ico"></a>
-    <a href="#" class="tab-ico"></a>
+    <header>
+        <div class="top-bar">
+        <a href="#" class="house-ico">
+        <img src="../../resources/images/house-ico.svg" alt="house-ico">
+        </a>
+        <a href="#" class="tab-ico">
+        <img src="../../resources/images/hamburguer-ico.svg" alt="hamburguer-ico">
+        </a>
+        </div>
+    </header>
 
     <div class="CadastroEscola-form">
         <form action="criancaemfoco/cadastro/escola" method="POST">
             <div id="turma">
-                <h2>Informações Básicas</h2>
+                <h2 class="text-style" id="title">Informações Básicas</h2>
 
-                <label for="nome-turma">Nome Turma*:</label>
-                <input type="text" id="nome-turma-cadastro" name="nome-turma-cadastro" placeholder="Informe o nome" required><br>
+                <div class="nome-turma">
+                    <label for="nome-turma" class="text-style obrigatorio text-left">Nome Turma</label>
+                    <div class="livro-ico">
+                        <img src="../../resources/images/livro-ico.svg" alt="livro-ico">
+                    </div>
+                    <input type="text" id="nome-turma" name="nome-turma" placeholder="Informe o nome" required><br>
+                </div>
 
-                <label for="turno">Turno*:</label>
-                <input type="text" id="turno-turma" name="turno-turma" placeholder="turno-turma" required><br>
+                <div class="turno">
+                    <label for="turno" class="text-style obrigatorio text-left">Turno</label>
+                    <div class="relogio-ico">
+                        <img src="../../resources/images/relogio-ico.svg" alt="relogio-ico">
+                    </div>
+                    <input type="text" id="turno-turma" name="turno-turma" placeholder="Ex: matutino" required><br>
+                </div>
 
-                <label for="cnpj">Ano Letivo*:</label>
-                <input type="number" id="cnpj-cadastro" name="cnpj-cadastro" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
+                <div class="ano-letivo">
+                    <label for="ano-letivo" class="text-style obrigatorio text-left">Ano Letivo</label>
+                    <div class="calendario-ico">
+                        <img src="../../resources/images/calendario-ico.svg" alt="calendario-ico">
+                    </div>
+                    <input type="number" id="ano-letivo" name="ano-letivo" placeholder="0000" min="1900" max="2100" required><br>
+                </div>
 
-                <label for="tel">Telefone*:</label>
-                <input type="number" id="tel-cadastro" name="tel-cadastro" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
-
-                <label for="email">E-mail*:</label>
-                <input type="email" id="email-cadastrar" name="email-cadastrar" required placeholder="exemplo@exemplo.com"><br>
-
-                <input type="button" id="esconder-passo1" onclick="mostrarProximo('passo1', 'passo2')" value="AVANÇAR">
+                <input type="submit" id="concluir" class="text-style" value="CONCLUIR">
             </div>
         </form>
     </div>
 
-    <script src="CadastroEscola.js"></script>
+    <script src="../../resources/js/cadastro-turma.js"></script>
     <script>
     </script>
 </body>
