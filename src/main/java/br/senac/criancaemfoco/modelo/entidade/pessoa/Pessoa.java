@@ -29,17 +29,14 @@ public abstract class Pessoa implements Serializable {
 	@Column(name = "id_pessoa")
 	private Long id;
 
-	@Column(name= "id_fiscal", length = 14, nullable = false, unique = true)
-	private String idFiscal;
-	
 	@Column(name = "nome_id", length = 25, nullable = false, unique = false)
 	private String nomeId;
 
 	@Column(name = "sobrenome", length = 45, unique = false)
 	private String sobrenome;
-	
-	@Column(name= "img_perfil", unique = false)
-	private String imgPerfil;
+
+	@Column(name= "id_fiscal", length = 14, nullable = false, unique = true)
+	private String idFiscal;
 
 	@Column(name= "data_nascimento", unique = false)
 	private LocalDate dataNascimento;
@@ -50,13 +47,12 @@ public abstract class Pessoa implements Serializable {
 
 	public Pessoa() {}
 
-	public Pessoa(String nomeId, String sobrenome, String idFiscal,LocalDate dataNascimento, Contato contato, String imgPerfil) {
+	public Pessoa(String nomeId, String sobrenome, String idFiscal,LocalDate dataNascimento, Contato contato) {
 		setNomeId(nomeId);
 		setSobrenome(sobrenome);
 		setIdFiscal(idFiscal);
 		setDataNascimento(dataNascimento);
 		setContato(contato);
-		setImgPerfil(imgPerfil);
 	}
 
 	public Pessoa(String nomeId, String idFiscal, Contato contato) {
@@ -95,14 +91,6 @@ public abstract class Pessoa implements Serializable {
 
 	public void setIdFiscal(String idFiscal) {
 		this.idFiscal = idFiscal;
-	}
-	
-	public String getImgPerfil() {
-		return imgPerfil;
-	}
-
-	public void setImgPerfil(String imgPerfil) {
-		this.imgPerfil = imgPerfil;
 	}
 
 	public LocalDate getDataNascimento() {
