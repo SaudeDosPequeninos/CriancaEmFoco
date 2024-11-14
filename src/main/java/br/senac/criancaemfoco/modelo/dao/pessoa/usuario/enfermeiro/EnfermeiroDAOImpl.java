@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -46,7 +47,6 @@ public class EnfermeiroDAOImpl implements EnfermeiroDAO {
 			sessao = abrirSessao(sessao);
 			sessao.save(enfermeiro);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -78,6 +78,27 @@ public class EnfermeiroDAOImpl implements EnfermeiroDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+
+	public Enfermeiro recuperarEnfermeiro(Enfermeiro enfermeiro) {
+		Session sessao = null;
+		Enfermeiro enfermeiroRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Enfermeiro> criteria = construtor.createQuery(Enfermeiro.class);
+			Root<Enfermeiro> raizEnfermeiro = criteria.from(Enfermeiro.class);
+			criteria.select(raizEnfermeiro);
+			ParameterExpression<Long> idEnfermeiro = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizEnfermeiro.get("id"), idEnfermeiro));
+			enfermeiroRecuperado = sessao.createQuery(criteria).setParameter(idEnfermeiro, enfermeiro.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return enfermeiroRecuperado;
 	}
 
 	public List<Enfermeiro> recuperarEnfermeiros() {

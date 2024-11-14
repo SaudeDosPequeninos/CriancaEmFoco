@@ -1,15 +1,16 @@
 package br.senac.criancaemfoco.modelo.dao.insumo;
 
-import br.senac.criancaemfoco.modelo.entidade.insumo.Insumo;
-import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
-
-import org.hibernate.Session;
+import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
-import java.util.List;
+import org.hibernate.Session;
+
+import br.senac.criancaemfoco.modelo.entidade.insumo.Insumo;
+import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 public class InsumoDAOImpl implements InsumoDAO {
 
@@ -77,7 +78,28 @@ public class InsumoDAOImpl implements InsumoDAO {
 		}
 	}
 
-	public List<Insumo> recuperarInsumo() {
+	public Insumo recuperarInsumo(Insumo insumo) {
+		Session sessao = null;
+		Insumo insumoRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Insumo> criteria = construtor.createQuery(Insumo.class);
+			Root<Insumo> raizInsumo = criteria.from(Insumo.class);
+			criteria.select(raizInsumo);
+			ParameterExpression<Long> idInsumo = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizInsumo.get("id"), idInsumo));
+			insumoRecuperado = sessao.createQuery(criteria).setParameter(idInsumo, insumo.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return insumoRecuperado;
+	}
+
+	public List<Insumo> recuperarInsumos() {
 		Session sessao = null;
 		List<Insumo> insumos = null;
 		try {
