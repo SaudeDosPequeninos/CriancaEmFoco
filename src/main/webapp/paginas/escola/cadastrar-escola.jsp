@@ -13,7 +13,7 @@
 <body>
 
     <div class="header">
-        <div class="top-bar"></div>
+        <div class="top-bar">
         <a href="../../index.jsp" class="house-ico">
             <img src="../../resources/images/house-ico.svg" alt="house-ico">
         </a>
@@ -21,7 +21,9 @@
             <img src="../../resources/images/tab-ico.svg" alt="tab-ico">
         </a>
     </div>
+    </div>
 
+<main>
     <div id="cadastroescola-form">
         <form action="criancaemfoco/cadastro/escola" method="POST">
             <div id="passo1" style="display: block;">
@@ -30,7 +32,7 @@
                 </div>                
 
                 <div class="razaoSocial">
-                    <label for="razao-social" class="obrigatorio">Razão Social</label>
+                    <div class="text-style obrigatorio">Razão Social</div>
                     <div class="user-ico">
                         <img src="../../resources/images/user-ico.svg" alt="user-ico">
                     </div>
@@ -38,7 +40,7 @@
                 </div>
 
                 <div class="nomeFantasia">
-                    <label for="nome-fantasia">Nome Fantasia</label>
+                    <div class="text-style">Nome Fantasia</div>
                     <div class="user-ico-fantasia">
                         <img src="../../resources/images/user-ico.svg" alt="user-ico-fantasia">   
                     </div>
@@ -46,7 +48,7 @@
                 </div>
 
                 <div class="cnpj">
-                    <label for="cnpj" class="obrigatorio">CNPJ</label>
+                    <div class="text-style obrigatorio">CNPJ</div>
                     <div class="cnpj-ico">
                         <img src="../../resources/images/cnpj-ico.svg" alt="cnpj-ico">                           
                     </div>
@@ -54,7 +56,7 @@
                 </div>
                 
                 <div class="telefone">
-                    <label for="tel" class="obrigatorio">Telefone</label>
+                    <div class="text-style obrigatorio">Telefone</div>
                     <div class="tel-ico">
                         <img src="../../resources/images/telefone-ico.svg" alt="telefone-ico">                  
                     </div>
@@ -62,7 +64,7 @@
                 </div>
 
                 <div class="email">
-                    <label for="email" class="obrigatorio">E-mail</label>
+                    <div class="text-style obrigatorio">E-mail</div>
                     <div class="email-ico">
                         <img src="../../resources/images/email-ico.svg" alt="email-ico">  
                     </div>
@@ -78,7 +80,7 @@
                 </div>
 
                 <div class="estado">
-                    <label for="estado" class="obrigatorio">Estado</label>
+                    <div class="text-style obrigatorio">Estado</div>
                     <div class="estado-ico">
                         <img src="../../resources/images/estado-ico.svg" alt="estado-ico">                  
                     </div>
@@ -86,7 +88,7 @@
                 </div>
 
                 <div class="cidade">
-                    <label for="cidade" class="obrigatorio">Cidade</label>
+                    <div class="text-style obrigatorio">Cidade</div>
                     <div class="cidade-ico">
                         <img src="../../resources/images/estado-ico.svg" alt="cidade-ico">
                     </div>
@@ -94,7 +96,7 @@
                 </div>
 
                 <div class="logradouro">
-                    <label for="logradouro" class="obrigatorio">Logradouro</label>
+                    <div class="text-style obrigatorio">Logradouro</div>
                     <div class="logradouro-ico">
                         <img src="../../resources/images/logradouro-ico.svg" alt="logradouro-ico">
                     </div>
@@ -102,7 +104,7 @@
                 </div>
 
                 <div class="cep">
-                    <label for="cep" class="obrigatorio">CEP</label>
+                    <div class="text-style obrigatorio">CEP</div>
                     <div class="cep-ico">
                         <img src="../../resources/images/cep-ico.svg" alt="cep-ico">
                     </div>
@@ -110,7 +112,7 @@
                 </div>
 
                 <div class="tipo">
-                    <label for="tipo" class="obrigatorio">Tipo</label>
+                    <div class="text-style obrigatorio">Tipo</div>
                     <div class="tipo-ico">
                         <img src="../../resources/images/tipo-ico.svg" alt="tipo-ico">
                     </div>
@@ -118,34 +120,41 @@
                 </div>
 
                 <div class="bairro">
-                    <label for="bairro" class="obrigatorio">Bairro</label>
+                    <div class="text-style obrigatorio">Bairro</div>
                     <div class="bairro-ico">
                         <img src="../../resources/images/bairro-ico.svg" alt="bairro-ico">
                     </div>
                     <input type="text" id="bairro-user" name="bairro-user" required placeholder="Informe o bairro"><br>
                 </div>
 
-                <button id="voltar-passo1" onclick="mostrarProximo('passo2', 'passo1')">VOLTAR</button>
-                <button id="esconder-passo2" onclick="mostrarProximo('passo2', 'passo3')">AVANÇAR</button>
+                <button type="button" id="voltar-passo1" onclick="mostrarProximo('passo2', 'passo1')">VOLTAR</button>
+                <button type="button" id="esconder-passo2" onclick="mostrarProximo('passo2', 'passo3')">AVANÇAR</button>
             </div>
 
             <div id="passo3" style="display:none;">
                 <div class="titulo-cadastro3">
                     <img src="../../resources/images/titulo3.svg" alt="titulo-cadastro3">
-                </div>
+                </div>               
 
                 <div class="tipos-procedimento">
-                    <label for="tipos-procedimento" class="obrigatorio">Tipos de Procedimentos</label>
-                    <select name="tipos-procedimento-user" id="tipos-procedimento-user">
-                        <optgroup>Selecione um tipo de procedimento</optgroup>
-                        <option value="procedimento1">Procedimento 1</option>
-                        <option value="procedimento2">Procedimento 2</option>
-                        <option value="procedimento3">Procedimento 3</option>
-                    </select>
-                </div>
+                    <div class="text-style obrigatorio">Tipos de Procedimentos</div>
 
+                    <div class="procedimento-ico">
+                        <img id="tipos-procedimento-seta" src="../../resources/images/seta-baixo.svg" alt="seta-baixo" onclick="toggleIcoBaixo()">
+                        <img id="seta-cima" src="../../resources/images/seta-cima.svg" alt="seta-cima" style="display:none;" onclick="toggleIcoBaixo()">
+                    </div>                    
+                
+                        <select name="tipos-procedimento-user" id="tipos-procedimento-user">
+                            <optgroup label="Selecione um tipo de procedimento">
+                                <option value="procedimento1">Procedimento 1</option>
+                                <option value="procedimento2">Procedimento 2</option>
+                                <option value="procedimento3">Procedimento 3</option>
+                            </optgroup>
+                        </select>
+                </div>     
+                
                 <div class="senha">
-                    <label for="senha" class="obrigatorio">Senha</label>
+                    <div class="text-style obrigatorio">Senha</div>
                     <div class="icone-senha">
                         <div class="senha-fechada-ico">
                             <img src="../../resources/images/senha-fechada.svg" alt="senha-fechada-ico">
@@ -164,7 +173,7 @@
                 </div>
 
                 <div class="confirmar-senha">
-                    <label for="confirmar-senha" class="obrigatorio">Confirmar Senha</label>
+                    <div class="text-style obrigatorio">Confirmar Senha</div>
                     <div class="icone-confirmar-senha">
                         <div class="confirmar-senha-fechada-ico">
                             <img src="../../resources/images/senha-aberta.svg" alt="senha-fechada-ico">
@@ -197,7 +206,9 @@
                         <button type="submit" class="confimar-botao-style">CONFIRMAR</button>
                     </div>
                 </div>
+                </div>
         </form>
     </div>
+</main>
 </body>
 </html>

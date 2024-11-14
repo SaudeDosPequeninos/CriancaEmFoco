@@ -14,13 +14,32 @@ function validar(passo) {
     return todosPreenchidos;
 }
 
+function checkSenha() {
+    const senha = document.getElementById('senha-user').value;
+    const confirmarSenha = document.getElementById('confirmar-senha-user').value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não são iguais, por favor, corrija sua senha.");
+        return false; 
+    }
+    return true; 
+}
+
 function mostrarProximo(passoAtual, proximoPasso) {
+    if (!validar(passoAtual)) {
+        return;
+    }
+
+    if (!checkSenha()) {
+        return;
+    }
+
     document.getElementById(passoAtual).style.display = 'none';
     document.getElementById(proximoPasso).style.display = 'block';
 }
 
 function toggleIco() {
-    const senhaInput = document.getElementById('senha');
+    const senhaInput = document.getElementById('senha-user');
     const olhoFechado = document.getElementById('olho-fechado');
     const olhoAberto = document.getElementById('olho-aberto');
     if (senhaInput.type === 'password') {
@@ -35,7 +54,7 @@ function toggleIco() {
 }
 
 function toggleIcoConfirmarSenha() {
-    const senhaInput = document.getElementById('confirmar-senha');
+    const senhaInput = document.getElementById('confirmar-senha-user');
     const olhoFechado = document.getElementById('olho-fechado-confirmar');
     const olhoAberto = document.getElementById('olho-aberto-confirmar');
     if (senhaInput.type === 'password') {
