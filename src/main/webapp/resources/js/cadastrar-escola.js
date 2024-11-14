@@ -67,3 +67,11 @@ function toggleIcoConfirmarSenha() {
         olhoAberto.style.display = 'inline';
     }
 }
+
+document.getElementById('confirmar-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    if (validar('passo3') && checkSenha()) {
+        document.forms[0].submit();
+    }
+});

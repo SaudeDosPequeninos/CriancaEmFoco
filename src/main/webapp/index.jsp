@@ -9,7 +9,7 @@
 </head>
  
 <body>
-	<a href="<%=request.getContextPath()%>/cadastrar-escola">CADASTRAR ESCOLA</a><br><br>
-	<a href="<%=request.getContextPath()%>/listar-escola">LISTAR ESCOLA</a>
+	<a href="<%=request.getContextPath()%>/paginas/escola/cadastrar-escola.jsp">CADASTRAR ESCOLA</a><br><br>
+	<a href="<%=request.getContextPath()%>/paginas/escola/listar-escola.jsp">LISTAR ESCOLA</a>
 </body>
 </html>
