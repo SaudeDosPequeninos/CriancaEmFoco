@@ -1,15 +1,16 @@
 package br.senac.criancaemfoco.modelo.dao.pessoa;
 
-import br.senac.criancaemfoco.modelo.entidade.pessoa.Pessoa;
-import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
-
-import org.hibernate.Session;
+import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
-import java.util.List;
+import org.hibernate.Session;
+
+import br.senac.criancaemfoco.modelo.entidade.pessoa.Pessoa;
+import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 public class PessoaDAOImpl implements PessoaDAO {
 
@@ -44,7 +45,6 @@ public class PessoaDAOImpl implements PessoaDAO {
 			sessao = abrirSessao(sessao);
 			sessao.save(pessoa);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -76,6 +76,27 @@ public class PessoaDAOImpl implements PessoaDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+
+	public Pessoa recuperarPessoa(Pessoa pessoa) {
+		Session sessao = null;
+		Pessoa pessoaRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Pessoa> criteria = construtor.createQuery(Pessoa.class);
+			Root<Pessoa> raizPessoa = criteria.from(Pessoa.class);
+			criteria.select(raizPessoa);
+			ParameterExpression<Long> idPessoa = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizPessoa.get("id"), idPessoa));
+			pessoaRecuperado = sessao.createQuery(criteria).setParameter(idPessoa, pessoa.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return pessoaRecuperado;
 	}
 
 	public List<Pessoa> recuperarPessoas() {

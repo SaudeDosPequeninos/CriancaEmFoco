@@ -1,11 +1,13 @@
 package br.senac.criancaemfoco.modelo.dao.pessoa.usuario.responsavel;
 
-import org.hibernate.Session;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
+
+import org.hibernate.Session;
 
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
@@ -39,12 +41,10 @@ public class ResponsavelDAOImpl implements ResponsavelDAO {
 
 	public void inserirResponsavel(Responsavel responsavel) {
 		Session sessao = null;
-
 		try {
 			sessao = abrirSessao(sessao);
 			sessao.save(responsavel);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -79,11 +79,30 @@ public class ResponsavelDAOImpl implements ResponsavelDAO {
 		}
 	}
 
-	public List<Responsavel> recuperarResponsavel() {
+	public Responsavel recuperarResponsavel(Responsavel responsavel) {
+		Session sessao = null;
+		Responsavel responsavelRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Responsavel> criteria = construtor.createQuery(Responsavel.class);
+			Root<Responsavel> raizResponsavel = criteria.from(Responsavel.class);
+			criteria.select(raizResponsavel);
+			ParameterExpression<Long> idResponsavel = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizResponsavel.get("id"), idResponsavel));
+			responsavelRecuperado = sessao.createQuery(criteria).setParameter(idResponsavel, responsavel.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return responsavelRecuperado;
+	}
 
+	public List<Responsavel> recuperarResponsaveis() {
 		Session sessao = null;
 		List<Responsavel> responsavel = null;
-
 		try {
 			sessao = abrirSessao(sessao);
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
