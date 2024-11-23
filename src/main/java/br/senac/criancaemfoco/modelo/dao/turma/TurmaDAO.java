@@ -13,4 +13,6 @@ public interface TurmaDAO {
 
 	List<Turma> recuperarTurmas();
 
+	Turma recuperarTurma(Turma turma);
+
 }

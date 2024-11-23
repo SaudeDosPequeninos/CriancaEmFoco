@@ -1,7 +1,8 @@
 package br.senac.criancaemfoco.modelo.dao.papel;
 
-import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
+import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
+
 import org.hibernate.Session;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

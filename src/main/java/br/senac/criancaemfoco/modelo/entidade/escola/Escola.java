@@ -17,7 +17,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
- 
+
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
 import br.senac.criancaemfoco.modelo.entidade.estoque.Estoque;

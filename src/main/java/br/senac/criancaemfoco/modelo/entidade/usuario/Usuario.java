@@ -12,6 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
 
 @Entity

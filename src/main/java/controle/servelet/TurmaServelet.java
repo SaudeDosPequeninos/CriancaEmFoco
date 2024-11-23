@@ -94,18 +94,18 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 		long id = Long.parseLong(request.getParameter("id"));
 	    String anoTurma = request.getParameter("ano-turma");
 	    String numeroTurma = request.getParameter("numero-turma");
-	    Turma turma = new Turma(id,numeroTurma, anoTurma);
+	    Turma turma = new Turma(numeroTurma, anoTurma);
 		dao.atualizarTurma(turma);
 		response.sendRedirect("listar"); //
 	}
 
 	private void deletarTurma(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		
+		/*
 		long id = Long.parseLong(request.getParameter("id"));
 		Contato contato = dao.recuperarContato(new Contato(id)); // recuperar uma turma por id
 		dao.deletarContato(contato);
 		response.sendRedirect("listar");
-		
+		*/
 	}
 		
 	

@@ -8,7 +8,9 @@
 	<body>
 		<div>
 			<h1>Turma provavelmente salva no banco.</h1>
-			<a href="<%=request.getContextPath()%>/criar">Nova Turma</a>
+			<a href="<%=request.getContextPath()%>/inserir">Nova Turma</a>
+			<a href="<%=request.getContextPath()%>/atualizar">Editar Turma</a>
+			<a href="<%=request.getContextPath()%>/criar">Ver Turmas</a>
 		</div>
 	</body>
 </html>
