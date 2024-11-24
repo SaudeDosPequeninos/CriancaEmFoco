@@ -3,7 +3,8 @@ package controle.servelet;
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.SQLException;
- 
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -58,6 +59,10 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 			case "atualizar":
 				atualizarTurma(request,response);
 				break;
+				
+			case "listar":
+				recuperarTurmas(request,response);
+				break;
 
 			default:
 				formularioTurma(request, response);
@@ -98,22 +103,45 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 		dao.atualizarTurma(turma);
 		response.sendRedirect("listar"); //
 	}
-
-	private void deletarTurma(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		/*
-		long id = Long.parseLong(request.getParameter("id"));
-		Contato contato = dao.recuperarContato(new Contato(id)); // recuperar uma turma por id
-		dao.deletarContato(contato);
-		response.sendRedirect("listar");
-		*/
-	}
-		
 	
+
+	private void deletarTurma(HttpServletRequest request, HttpServletResponse response)
+	        throws SQLException, ServletException, IOException {
+
+	    long idTurma = Long.parseLong(request.getParameter("id-turma"));
+	    Turma turmaRecuperada = null;
+	    List<Turma> turmas = dao.recuperarTurmas();
+	    // testar
+	    for (Turma turma : turmas) {
+	        if (turma.getId() == idTurma) {
+	            turmaRecuperada = turma;
+	            break;
+	        }
+	    }
+
+	    if (turmaRecuperada != null) {
+	        dao.deletarTurma(turmaRecuperada);
+	        response.sendRedirect("listar");
+	    }
+	}
+	
+	private void recuperarTurmas(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+	    List<Turma> turmas = dao.recuperarTurmas();
+	    
+	    request.setAttribute("turmas", turmas);
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("listar-turmas.jsp");
+	    dispatcher.forward(request, response);
+	}
+
+	
+
 	private void salvoTurma(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("salvo.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 }
