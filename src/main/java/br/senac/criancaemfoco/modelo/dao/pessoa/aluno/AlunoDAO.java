@@ -1,12 +1,24 @@
 package br.senac.criancaemfoco.modelo.dao.pessoa.aluno;
 
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.responsavel.Responsavel;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
+
 import java.util.List;
-import br.senac.criancaemfoco.modelo.entidade.escola.Escola;
+
 import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 public interface AlunoDAO {
+
+	void inserirAluno(Aluno aluno);
+
+	void deletarAluno(Aluno aluno);
+
+	void atualizarAluno(Aluno aluno);
+
+	Aluno recuperarAluno(Aluno aluno);
+
+	List<Aluno> recuperarAlunos();
 
 	List<Aluno> recuperarAlunoTurma(Turma turma);
 

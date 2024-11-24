@@ -15,14 +15,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.enfermeiro.Enfermeiro;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.responsavel.Responsavel;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 import br.senac.criancaemfoco.modelo.enumeracao.status.Status;
 
@@ -55,9 +53,7 @@ public class Agendamento implements Serializable {
 	private Enfermeiro enfermeiro;
 
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "agendamento_procedimento", 
-	joinColumns = @JoinColumn(name = "id_agendamento"), 
-	inverseJoinColumns = @JoinColumn(name = "id_procedimento"))
+	@JoinColumn(name = "id_agendamento")
 	private List<Procedimento> procedimentos = new ArrayList<Procedimento>();
 
 	@Enumerated(EnumType.STRING)
@@ -65,7 +61,7 @@ public class Agendamento implements Serializable {
 
 	public Agendamento() {}
 
-	public Agendamento(LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Responsavel responsavel, Enfermeiro enfermeiro) {
+	public Agendamento(LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Enfermeiro enfermeiro) {
 		setData(data);
 		setHorario(horario);
 		setTempoDuracao(tempoDuracao);
@@ -73,7 +69,7 @@ public class Agendamento implements Serializable {
 		setEnfermeiro(enfermeiro);
 	}
 
-	public Agendamento(Long id,LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Responsavel responsavel, Enfermeiro enfermeiro) {
+	public Agendamento(Long id,LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Enfermeiro enfermeiro) {
 		setId(id);
 		setData(data);
 		setHorario(horario);
@@ -137,27 +133,27 @@ public class Agendamento implements Serializable {
 	public boolean inserirProcedimento(Procedimento procedimento) {
 		if (procedimento == null)
 			return false;
-		
+
 		if (procedimento.getClass().getName() != "Procedimento")
 			return false;
-		
+
 		if (procedimentos.contains(procedimento))
 			return false;
-		
+
 		return procedimentos.add(procedimento);
 	}
 
 	public boolean removerProcedimento(Procedimento procedimento) {
 		if (procedimentos.contains(procedimento))
 			return false;
-		
+
 		int i = procedimentos.indexOf(procedimento);
-		
+
 		if (i < 0)
 			return false;
-		
+
 		this.procedimentos.remove(i);
-			
+
 		return true;
 	}
 

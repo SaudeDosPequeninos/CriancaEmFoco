@@ -1,6 +1,7 @@
 package br.senac.criancaemfoco.modelo.dao.procedimento;
 
 import java.util.List;
+
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 
 public interface ProcedimentoDAO {
@@ -11,6 +12,6 @@ public interface ProcedimentoDAO {
 
 	void atualizarProcedimento(Procedimento procedimento);
 
-	List<Procedimento> recuperarProcedimento();
+	List<Procedimento> recuperarProcedimentos();
 
 }

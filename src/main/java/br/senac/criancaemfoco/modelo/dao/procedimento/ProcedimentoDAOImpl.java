@@ -1,9 +1,12 @@
 package br.senac.criancaemfoco.modelo.dao.procedimento;
 
 import java.util.List;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
@@ -47,7 +50,6 @@ public class ProcedimentoDAOImpl implements ProcedimentoDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
-
 	}
 
 	public void removerProcedimento(Procedimento procedimento) {
@@ -61,7 +63,6 @@ public class ProcedimentoDAOImpl implements ProcedimentoDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
-
 	}
 
 	public void atualizarProcedimento(Procedimento procedimento) {
@@ -75,10 +76,30 @@ public class ProcedimentoDAOImpl implements ProcedimentoDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
-
 	}
 
-	public List<Procedimento> recuperarProcedimento() {
+	public Procedimento recuperarProcedimento(Procedimento procedimento) {
+		Session sessao = null;
+		Procedimento procedimentoRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Procedimento> criteria = construtor.createQuery(Procedimento.class);
+			Root<Procedimento> raizProcedimento = criteria.from(Procedimento.class);
+			criteria.select(raizProcedimento);
+			ParameterExpression<Long> idProcedimento = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizProcedimento.get("id"), idProcedimento));
+			procedimentoRecuperado = sessao.createQuery(criteria).setParameter(idProcedimento, procedimento.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return procedimentoRecuperado;
+	}
+
+	public List<Procedimento> recuperarProcedimentos() {
 		Session sessao = null;
 		List<Procedimento> procedimentos = null;
 		try {

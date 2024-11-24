@@ -41,12 +41,10 @@ public class TurmaDAOImpl implements TurmaDAO {
 
 	public void inserirTurma(Turma turma) {
 		Session sessao = null;
-
 		try {
 			sessao = abrirSessao(sessao);
 			sessao.save(turma);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -56,7 +54,6 @@ public class TurmaDAOImpl implements TurmaDAO {
 
 	public void deletarTurma(Turma turma) {
 		Session sessao = null;
-
 		try {
 			sessao = abrirSessao(sessao);
 			sessao.delete(turma);

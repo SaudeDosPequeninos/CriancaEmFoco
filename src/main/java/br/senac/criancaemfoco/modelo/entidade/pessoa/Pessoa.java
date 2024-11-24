@@ -1,36 +1,44 @@
 package br.senac.criancaemfoco.modelo.entidade.pessoa;
- 
+
 import java.io.Serializable;
 import java.time.LocalDate;
- 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
-import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
-import br.senac.criancaemfoco.modelo.entidade.usuario.Usuario;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table (name = "Pessoa")
-
-public abstract class Pessoa extends Usuario implements Serializable {
+public abstract class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "nome_pessoa", length = 25, nullable = false, unique = false)
-	private String nome;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_pessoa")
+	private Long id;
 
-	@Column(name = "sobrenome_pessoa", length = 45, nullable = false, unique = false)
+	@Column(name = "nome_id", length = 25, nullable = false, unique = false)
+	private String nomeId;
+
+	@Column(name = "sobrenome", length = 45, unique = false)
 	private String sobrenome;
 
-	@Column(name= "cpf", length = 14, nullable = false, unique = true)
-	private String cpf;
+	@Column(name= "id_fiscal", length = 14, nullable = false, unique = true)
+	private String idFiscal;
 
-	@Column(name= "data_nascimento", nullable = false, unique = false)
+	@Column(name= "data_nascimento", unique = false)
 	private LocalDate dataNascimento;
 
 	@OneToOne(fetch = FetchType.LAZY)
@@ -39,21 +47,34 @@ public abstract class Pessoa extends Usuario implements Serializable {
 
 	public Pessoa() {}
 
-	public Pessoa(Long id, String email, String senha, Papel papel, String nome, String sobrenome, String cpf,LocalDate dataNascimento, Contato contato) {
-		super(id, email, senha, papel);
-		setNome(nome);
+	public Pessoa(String nomeId, String sobrenome, String idFiscal,LocalDate dataNascimento, Contato contato) {
+		setNomeId(nomeId);
 		setSobrenome(sobrenome);
-		setCpf(cpf);
+		setIdFiscal(idFiscal);
 		setDataNascimento(dataNascimento);
 		setContato(contato);
 	}
 
-	public String getNome() {
-		return nome;
+	public Pessoa(String nomeId, String idFiscal, Contato contato) {
+		setNomeId(nomeId);
+		setIdFiscal(idFiscal);
+		setContato(contato);
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNomeId() {
+		return nomeId;
+	}
+
+	public void setNomeId(String nomeId) {
+		this.nomeId = nomeId;
 	}
 
 	public String getSobrenome() {
@@ -64,12 +85,12 @@ public abstract class Pessoa extends Usuario implements Serializable {
 		this.sobrenome = sobrenome;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public String getIdFiscal() {
+		return idFiscal;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setIdFiscal(String idFiscal) {
+		this.idFiscal = idFiscal;
 	}
 
 	public LocalDate getDataNascimento() {
@@ -86,6 +107,17 @@ public abstract class Pessoa extends Usuario implements Serializable {
 
 	public void setContato(Contato contato) {
 		this.contato = contato;
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pessoa outro = (Pessoa) obj;
+		return id == outro.id;
 	}
 
 }

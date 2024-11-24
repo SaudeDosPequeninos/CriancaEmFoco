@@ -12,13 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.senac.criancaemfoco.modelo.entidade.escola.Escola;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
 
 @Entity
 @Table(name = "turma")
@@ -31,41 +30,38 @@ public class Turma implements Serializable {
 	@Column(name = "id_turma")
 	private Long id;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "turma_aluno", 
-	joinColumns = @JoinColumn(name = "id_turma"), 
-	inverseJoinColumns = @JoinColumn(name = "id_usuario"))
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "turma")
 	private List<Aluno> alunosTurma = new ArrayList<Aluno>();
 
 	@Column(name = "ano_turma", nullable = false, length = 10)
-	private String anoTurma;
+	private byte anoTurma;
 
-	@Column(name = "numero_turma", nullable = false, length = 2)	
+	@Column(name = "numero_turma", nullable = false, length = 2)
 	private String numeroTurma;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_escola")
+	@JoinColumn(name = "id_escola", referencedColumnName = "id_pessoa")
 	private Escola escola;
 
 	public Turma() {}
 
-	public Turma(List<Aluno> alunosTurma, String anoTurma, String numeroTurma, Escola escola) {
+	public Turma(List<Aluno> alunosTurma, byte anoTurma, String numeroTurma, Escola escola) {
 		setAnoTurma(anoTurma);
 		setNumeroTurma(numeroTurma);
 		setEscola(escola);
 	}
 
-	public Turma(Long id, List<Aluno> alunosTurma, String anoTurma, String numeroTurma, Escola escola) {
+	public Turma(Long id, List<Aluno> alunosTurma, byte anoTurma, String numeroTurma, Escola escola) {
 		setId(id);
 		setAnoTurma(anoTurma);
 		setNumeroTurma(numeroTurma);
 		setEscola(escola);
 	}
 
-    public Turma(String anoTurma, String numeroTurma) {
-        this.anoTurma = anoTurma;
-        this.numeroTurma = numeroTurma;
-    }
+	public Turma(byte anoTurma, String numeroTurma) {
+		this.anoTurma = anoTurma;
+		this.numeroTurma = numeroTurma;
+	}
 
 	public Long getId() {
 		return id;
@@ -79,15 +75,19 @@ public class Turma implements Serializable {
 		return alunosTurma;
 	}
 
-	public void setAlunosTurma(List<Aluno> alunosTurma) {
-		this.alunosTurma = alunosTurma;
+	public boolean inserirAlunoTurma(Aluno aluno) {
+		return alunosTurma.add(aluno);
 	}
 
-	public String getAnoTurma() {
+	public boolean removerAlunoTurma(Aluno aluno) {
+		return alunosTurma.remove(aluno);
+	}
+
+	public byte getAnoTurma() {
 		return anoTurma;
 	}
 
-	public void setAnoTurma(String anoTurma) {
+	public void setAnoTurma(byte anoTurma) {
 		this.anoTurma = anoTurma;
 	}
 
@@ -105,6 +105,6 @@ public class Turma implements Serializable {
 
 	public void setEscola(Escola escola) {
 		this.escola = escola;
-	}	
+	}
 
 }

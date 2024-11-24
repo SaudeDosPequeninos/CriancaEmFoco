@@ -1,6 +1,7 @@
 package br.senac.criancaemfoco.modelo.dao.contato;
 
 import java.util.List;
+
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 
 public interface ContatoDAO {
@@ -10,6 +11,8 @@ public interface ContatoDAO {
 	void deletarContato(Contato contato);
 
 	void atualizarContato(Contato contato);
+
+	Contato recuperarContato(Contato contato);
 
 	List<Contato> recuperarContatos();
 

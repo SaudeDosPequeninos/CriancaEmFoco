@@ -12,12 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.senac.criancaemfoco.modelo.dao.escola.EscolaDAOImpl;
 import br.senac.criancaemfoco.modelo.dao.turma.TurmaDAO;
 import br.senac.criancaemfoco.modelo.dao.turma.TurmaDAOImpl;
-import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
-import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
-import br.senac.criancaemfoco.modelo.entidade.escola.Escola;
 import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 @WebServlet("/")
@@ -84,10 +80,8 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 	private void inserirTurma(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-	    Escola escola = new Escola();
-
 	    String anoTurma = request.getParameter("ano-turma");
-	    String numeroTurma = request.getParameter("numero-turma");
+	    byte numeroTurma = Byte.valueOf(request.getParameter("numero-turma"));
 	    
 	    Turma turma = new Turma(numeroTurma, anoTurma);
 	    dao.inserirTurma(turma); 
@@ -95,10 +89,8 @@ public class TurmaServelet extends HttpServlet implements Serializable {
 	}
 	
 	private void atualizarTurma(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		// recuperar uma turma por id para atualizar a mesma pelo id
-		long id = Long.parseLong(request.getParameter("id"));
-	    String anoTurma = request.getParameter("ano-turma");
-	    String numeroTurma = request.getParameter("numero-turma");
+		String anoTurma = request.getParameter("ano-turma");
+	    byte numeroTurma = Byte.valueOf(request.getParameter("numero-turma"));
 	    Turma turma = new Turma(numeroTurma, anoTurma);
 		dao.atualizarTurma(turma);
 		response.sendRedirect("listar"); //

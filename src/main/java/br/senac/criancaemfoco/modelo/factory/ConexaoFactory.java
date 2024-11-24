@@ -12,18 +12,18 @@ public class ConexaoFactory {
 
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.agendamento.Agendamento.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.endereco.Endereco.class);
-		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.escola.Escola.class);
+		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.estoque.Estoque.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.insumo.Insumo.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.Pessoa.class);
-		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.responsavel.Responsavel.class);
+		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno.class);
-		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.enfermeiro.Enfermeiro.class);
+		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.turma.Turma.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.contato.Contato.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.papel.Papel.class);
-		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.usuario.Usuario.class);
+		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario.class);
 
 		configuracao.configure("hibernate.cfg.xml");
 

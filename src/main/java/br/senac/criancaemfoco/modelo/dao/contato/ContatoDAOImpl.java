@@ -4,10 +4,12 @@ import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 import org.hibernate.Session;
+import java.util.List;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-import java.util.List;
 
 public class ContatoDAOImpl implements ContatoDAO {
 
@@ -36,25 +38,11 @@ public class ContatoDAOImpl implements ContatoDAO {
 		return sessao;
 	}
 
-	public void inserirContato(Contato Contato) {
+	public void inserirContato(Contato contato) {
 		Session sessao = null;
 		try {
 			sessao = abrirSessao(sessao);
-			sessao.save(Contato);
-			sessao.getTransaction().commit();
-
-		} catch (Exception exception) {
-			erroSessao(sessao, exception);
-		} finally {
-			fecharSessao(sessao);
-		}
-	}
-
-	public void deletarContato(Contato Contato) {
-		Session sessao = null;
-		try {
-			sessao = abrirSessao(sessao);
-			sessao.delete(Contato);
+			sessao.save(contato);
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
@@ -63,17 +51,51 @@ public class ContatoDAOImpl implements ContatoDAO {
 		}
 	}
 
-	public void atualizarContato(Contato Contato) {
+	public void deletarContato(Contato contato) {
 		Session sessao = null;
 		try {
 			sessao = abrirSessao(sessao);
-			sessao.update(Contato);
+			sessao.delete(contato);
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+
+	public void atualizarContato(Contato contato) {
+		Session sessao = null;
+		try {
+			sessao = abrirSessao(sessao);
+			sessao.update(contato);
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+	}
+
+	public Contato recuperarContato(Contato contato) {
+		Session sessao = null;
+		Contato contatoRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
+			Root<Contato> raizContato = criteria.from(Contato.class);
+			criteria.select(raizContato);
+			ParameterExpression<Long> idContato = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizContato.get("id"), idContato));
+			contatoRecuperado = sessao.createQuery(criteria).setParameter(idContato, contato.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return contatoRecuperado;
 	}
 
 	public List<Contato> recuperarContatos() {

@@ -1,6 +1,7 @@
 package br.senac.criancaemfoco.modelo.dao.turma;
 
 import java.util.List;
+
 import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
 
 public interface TurmaDAO {
@@ -11,8 +12,8 @@ public interface TurmaDAO {
 
 	void atualizarTurma(Turma turma);
 
-	List<Turma> recuperarTurmas();
-
 	Turma recuperarTurma(Turma turma);
+
+	List<Turma> recuperarTurmas();
 
 }
