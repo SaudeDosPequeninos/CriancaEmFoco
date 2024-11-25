@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -78,6 +79,27 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			fecharSessao(sessao);
 		}
 
+	}
+
+	public Usuario recuperarUsuario(Usuario usuario) {
+		Session sessao = null;
+		Usuario usuarioRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
+			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+			criteria.select(raizUsuario);
+			ParameterExpression<Long> idUsuario = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizUsuario.get("id"), idUsuario));
+			usuarioRecuperado = sessao.createQuery(criteria).setParameter(idUsuario, usuario.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return usuarioRecuperado;
 	}
 
 	public List<Usuario> recuperarUsuarios() {

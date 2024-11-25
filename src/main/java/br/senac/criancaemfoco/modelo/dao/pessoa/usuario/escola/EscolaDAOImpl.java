@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -50,7 +51,6 @@ public class EscolaDAOImpl implements EscolaDAO {
 			sessao = abrirSessao(sessao);
 			sessao.save(escola);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -82,6 +82,27 @@ public class EscolaDAOImpl implements EscolaDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+
+	public Escola recuperarEscola(Escola escola) {
+		Session sessao = null;
+		Escola escolaRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Escola> criteria = construtor.createQuery(Escola.class);
+			Root<Escola> raizEscola = criteria.from(Escola.class);
+			criteria.select(raizEscola);
+			ParameterExpression<Long> idEscola = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizEscola.get("id"), idEscola));
+			escolaRecuperado = sessao.createQuery(criteria).setParameter(idEscola, escola.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return escolaRecuperado;
 	}
 
 	public List<Escola> recuperarEscolas() {

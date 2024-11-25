@@ -1,19 +1,20 @@
 package br.senac.criancaemfoco.modelo.dao.pessoa.aluno;
 
-import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
-import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
+import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-import java.util.List;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
+import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
+import br.senac.criancaemfoco.modelo.entidade.turma.Turma;
+import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 public class AlunoDAOImpl implements AlunoDAO {
 
@@ -48,7 +49,6 @@ public class AlunoDAOImpl implements AlunoDAO {
 			sessao = abrirSessao(sessao);
 			sessao.save(aluno);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -80,6 +80,46 @@ public class AlunoDAOImpl implements AlunoDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+
+	public Aluno recuperarAluno(Aluno aluno) {
+		Session sessao = null;
+		Aluno alunoRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Aluno> criteria = construtor.createQuery(Aluno.class);
+			Root<Aluno> raizAluno = criteria.from(Aluno.class);
+			criteria.select(raizAluno);
+			ParameterExpression<Long> idAluno = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizAluno.get("id"), idAluno));
+			alunoRecuperado = sessao.createQuery(criteria).setParameter(idAluno, aluno.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return alunoRecuperado;
+	}
+
+	public List<Aluno> recuperarAlunos() {
+		Session sessao = null;
+		List<Aluno> alunos = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Aluno> criteria = construtor.createQuery(Aluno.class);
+			Root<Aluno> raizAluno = criteria.from(Aluno.class);
+			criteria.select(raizAluno);
+			alunos = sessao.createQuery(criteria).getResultList();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return alunos;
 	}
 
 	public List<Aluno> recuperarAlunoTurma(Turma turma) {
