@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +24,18 @@
         </div>
     </div>
     
-            <form action="criancaemfoco/cadastro/escola" method="POST">
-                <!-- Passo 1 -->
+        <c:if test="${escola != null}">
+			<form action="atualizar-escola" method="post">
+		</c:if>
+		<c:if test="${escola == null}">
+			<form action="inserir-escola" method="post">
+		</c:if>
+		<c:if test="${escola != null}">
+			<input type="hidden" name="id-escola" value="<c:out value='${escola.id}' />" />
+			<input type="hidden" name="id-contato" value="<c:out value='${contato.id}' />" />
+			<input type="hidden" name="id-endereco" value="<c:out value='${endereco.id}' />" />
+		</c:if>
+            
                 <div id="passo1" style="display: block;">
                     <div class="titulo">
                         <img src="../../resources/images/titulo.svg" alt="Titulo Cadastro">
@@ -35,7 +46,7 @@
                         <div class="user-ico">
                             <img src="../../resources/images/user-ico.svg" alt="user-ico">
                         </div>
-                        <input type="text" id="razao-social-user" name="razao-social-user" placeholder="Informe o nome" required><br>
+                        <input type="text" value="<c:out value='${escola.nomeId}' />" id="razao-social-user" name="razao-social-user" placeholder="Informe o nome" required><br>
                     </div>
 
                     <div class="nomeFantasia">
@@ -43,7 +54,7 @@
                         <div class="user-ico-fantasia">
                             <img src="../../resources/images/user-ico.svg" alt="user-ico-fantasia">   
                         </div>
-                        <input type="text" id="nome-fantasia-user" name="nome-fantasia-user" placeholder="Opcional"><br>
+                        <input type="text" value="<c:out value='${escola.sobrenome}' />" id="nome-fantasia-user" name="nome-fantasia-user" placeholder="Opcional"><br>
                     </div>
 
                     <div class="cnpj">
@@ -51,7 +62,7 @@
                         <div class="cnpj-ico">
                             <img src="../../resources/images/cnpj-ico.svg" alt="cnpj-ico">                           
                         </div>
-                        <input type="text" id="cnpj-user" name="cnpj-user" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
+                        <input type="text" value="<c:out value='${escola.idFiscal}' />" id="cnpj-user" name="cnpj-user" required pattern="\d{14}" title="Digite 14 dígitos" placeholder="Informe o CNPJ" maxlength="14" minlength="14"><br>
                     </div>
 
                     <div class="telefone">
@@ -59,7 +70,7 @@
                         <div class="tel-ico">
                             <img src="../../resources/images/telefone-ico.svg" alt="telefone-ico">                  
                         </div>
-                        <input type="tel" id="tel-user" name="tel-user" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
+                        <input type="tel" value="<c:out value='${contato.numCelular}' />" id="tel-user" name="tel-user" required pattern="\d{10,11}" title="Digite 10 ou 11 dígitos" placeholder="(DDD) 9xxxxxxxx" maxlength="11" minlength="10"><br>
                     </div>
 
                     <div class="email">
@@ -67,13 +78,12 @@
                         <div class="email-ico">
                             <img src="../../resources/images/email-ico.svg" alt="email-ico">  
                         </div>
-                        <input type="email" id="email-user" name="email-user" required placeholder="exemplo@exemplo.com"><br>
+                        <input type="email" value="<c:out value='${escola.email}' />" id="email-user" name="email-user" required placeholder="exemplo@exemplo.com"><br>
                     </div>
 
                     <button type="button" id="esconder-passo1" onclick="mostrarProximo('passo1', 'passo2')">AVANÇAR</button>
                 </div>
 
-                <!-- Passo 2 -->
                 <div id="passo2" style="display:none;">
                     <div class="titulo-cadastro2">
                         <img src="../../resources/images/titulo2.svg" alt="titulo-cadastro2">                   
@@ -84,7 +94,7 @@
                         <div class="estado-ico">
                             <img src="../../resources/images/estado-ico.svg" alt="estado-ico">                  
                         </div>
-                        <input type="text" id="estado-user" name="estado-user" placeholder="Informe o estado" required><br>
+                        <input type="text" value="<c:out value='${endereco.estado}' />" id="estado-user" name="estado-user" placeholder="Informe o estado" required><br>
                     </div>
 
                     <div class="cidade">
@@ -92,7 +102,7 @@
                         <div class="cidade-ico">
                             <img src="../../resources/images/estado-ico.svg" alt="cidade-ico">
                         </div>
-                        <input type="text" id="cidade-user" name="cidade-user" required placeholder="Informe a cidade"><br>
+                        <input type="text" value="<c:out value='${endereco.cidade}' />" id="cidade-user" name="cidade-user" required placeholder="Informe a cidade"><br>
                     </div>
 
                     <div class="logradouro">
@@ -100,7 +110,7 @@
                         <div class="logradouro-ico">
                             <img src="../../resources/images/logradouro-ico.svg" alt="logradouro-ico">
                         </div>
-                        <input type="text" id="logradouro-user" name="logradouro-user" required placeholder="Informe a rua"><br>
+                        <input type="text" value="<c:out value='${endereco.logradouro}' />" id="logradouro-user" name="logradouro-user" required placeholder="Informe a rua"><br>
                     </div>
 
                     <div class="cep">
@@ -108,7 +118,7 @@
                         <div class="cep-ico">
                             <img src="../../resources/images/cep-ico.svg" alt="cep-ico">
                         </div>
-                        <input type="text" id="cep-user" name="cep-user" required pattern="\d{8}" title="Digite 8 dígitos" placeholder="Informe o CEP" maxlength="8" minlength="8"><br>
+                        <input type="text" value="<c:out value='${endereco.cep}' />" id="cep-user" name="cep-user" required pattern="\d{8}" title="Digite 8 dígitos" placeholder="Informe o CEP" maxlength="8" minlength="8"><br>
                     </div>
 
                     <div class="tipo">
@@ -116,7 +126,7 @@
                         <div class="tipo-ico">
                             <img src="../../resources/images/tipo-ico.svg" alt="tipo-ico">
                         </div>
-                        <input type="text" id="tipo-user" name="tipo-user" required placeholder="Ex: Casa, Apto, etc."><br>
+                        <input type="text" value="<c:out value='${endereco.tipo}' />" id="tipo-user" name="tipo-user" required placeholder="Ex: Casa, Apto, etc."><br>
                     </div>
 
                     <div class="bairro">
@@ -124,14 +134,21 @@
                         <div class="bairro-ico">
                             <img src="../../resources/images/bairro-ico.svg" alt="bairro-ico">
                         </div>
-                        <input type="text" id="bairro-user" name="bairro-user" required placeholder="Informe o bairro"><br>
+                        <input type="text" value="<c:out value='${endereco.bairro}' />" id="bairro-user" name="bairro-user" required placeholder="Informe o bairro"><br>
+                    </div>
+                    
+                    <div class="numero">
+                    	<label for = "numero-user" class="text-style obrigatorio">Numero</label>
+                    	<div class="numero-ico">
+                    		<img src="../../resources/images/numero-ico.svg" alt="numero-ico">
+                    	</div>
+                    	<input type="number" value="<c:out value='${endereco.numero}' />" id="numero-user" name="numero-user" required min="1" placeholder="Informe o número e complemento"><br>
                     </div>
 
                     <button type="button" id="voltar-passo1" onclick="mostrarProximo('passo2', 'passo1')">VOLTAR</button>
                     <button type="button" id="esconder-passo2" onclick="mostrarProximo('passo2', 'passo3')">AVANÇAR</button>
                 </div>
 
-                <!-- Passo 3 -->
 				<div id="passo3" style="display:none;">
 				    <div class="titulo-cadastro3">
 				        <img src="../../resources/images/titulo3.svg" alt="titulo-cadastro3">
@@ -145,9 +162,9 @@
 				        </div>                    
 				        <select name="tipos-procedimento-user" id="tipos-procedimento-user" required>
 				            <optgroup label="Selecione um tipo de procedimento">
-				                <option value="procedimento1">Procedimento 1</option>
-				                <option value="procedimento2">Procedimento 2</option>
-				                <option value="procedimento3">Procedimento 3</option>
+				            <c:forEach var="procedimento" items="${procedimentos}">
+				                <option value="<c:out value='${procedimento.id}' />"><c:out value='${procedimento.nomeProcedimento}' /></option>
+				            </c:forEach>
 				            </optgroup>
 				        </select>
 				    </div>

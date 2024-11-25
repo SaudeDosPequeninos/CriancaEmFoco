@@ -656,6 +656,33 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	border-radius: 8px;
 }
 
+.numero {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: calc(50% - 725px/2 + 0.5px);
+	top: 796px;
+}
+
+.numero-ico {
+	position: absolute;
+	left: 3%;
+	right: 66.67%;
+	top: 55.44%;
+	bottom: 20.4%;
+	z-index: 1;
+}
+
+#numero-user {
+	box-sizing: border-box;
+	
+	position: absolute;
+	
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;		
+}
+
+
 .icone-confirmar-senha {
 	position: absolute;
 	width: 684.74px;

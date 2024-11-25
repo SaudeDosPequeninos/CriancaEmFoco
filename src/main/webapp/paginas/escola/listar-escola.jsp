@@ -18,7 +18,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="escola" items="${escola}">
+					<c:forEach var="escola" items="${escolas}">
 						<tr>
 							<td><c:out value="${escola.nomeId}" /></td>
 							<td><c:out value="${escola.sobrenome}" /></td>
