@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/css/cadastrar-escola.css">
-    <script src="../../resources/js/cadastrar-escola.js"></script>
+    <style><%@include file="/resources/css/cadastrar-escola.css"%></style>
+    <script><%@include file="/resources/js/cadastrar-escola.js"></script>
     <title>Cadastro: Escola</title>
 </head>
 
