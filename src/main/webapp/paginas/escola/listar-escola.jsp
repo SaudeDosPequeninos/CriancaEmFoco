@@ -24,8 +24,8 @@
 							<td><c:out value="${escola.sobrenome}" /></td>
 							<td><c:out value="${escola.idFiscal}" /></td>
 							<td>
-								<a href="editar-escola?id=<c:out value='${escola.id}'/>">Editar</a>
-								<a href="deletar-escola?id=<c:out value='${escola.id}'/>">Deletar</a>
+								<a href="editar-escola?id-escola=<c:out value='${escola.id}'/>&id-contato=<c:out value='${escola.contato.id}'/>&id-endereco=<c:out value='${escola.endereco.id}'/>'">Editar</a>
+								<a href="deletar-escola?id-escola=<c:out value='${escola.id}'/>&id-contato=<c:out value='${escola.contato.id}'/>&id-endereco=<c:out value='${escola.endereco.id}'/>'">Deletar</a>
 							</td>
 						</tr>
 					</c:forEach>

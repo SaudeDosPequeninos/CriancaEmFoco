@@ -1,8 +1,12 @@
 function validar(passo) {
-    const camposObrigatorios = document.querySelectorAll(`#${passo} input[required]`);
+    const camposObrigatorios = document.querySelectorAll(`${passo} input[required]`);
     let todosPreenchidos = true;
 
     camposObrigatorios.forEach(campo => {
+        if (campo.offsetParent === null) {
+            return;
+        }
+
         if (!campo.value.trim()) {
             todosPreenchidos = false;
             campo.classList.add("campo-invalido");
@@ -14,26 +18,16 @@ function validar(passo) {
     return todosPreenchidos;
 }
 
-function checkSenha() {
-    const senha = document.getElementById('senha-user').value;
-    const confirmarSenha = document.getElementById('confirmar-senha-user').value;
-
-    if (senha !== confirmarSenha) {
-        alert("As senhas não são iguais, por favor, corrija sua senha.");
-        return false; 
-    }
-    return true; 
-}
-
 function mostrarProximo(passoAtual, proximoPasso) {
     if (!validar(passoAtual)) {
         return;
     }
+	
+    document.getElementById(passoAtual).style.display = 'none';
+    document.getElementById(proximoPasso).style.display = 'block';
+}
 
-    if (!checkSenha()) {
-        return;
-    }
-
+function voltar(passoAtual, proximoPasso) {
     document.getElementById(passoAtual).style.display = 'none';
     document.getElementById(proximoPasso).style.display = 'block';
 }
@@ -69,9 +63,22 @@ function toggleIcoConfirmarSenha() {
 }
 
 document.getElementById('confirmar-btn').addEventListener('click', function(event) {
-    event.preventDefault();
+	
+	function checkSenha() {
+	    const senha = document.getElementById('senha-user').value;
+	    const confirmarSenha = document.getElementById('confirmar-senha-user').value;
 
-    if (validar('passo3') && checkSenha()) {
-        document.forms[0].submit();
+	    if (senha !== confirmarSenha) {
+	        alert("As senhas não são iguais, por favor, corrija sua senha.");
+	        return false; 
+	    }
+	    return true; 
+	}
+	
+    if (!validar('passo3') || !checkSenha()) {
+        event.preventDefault();
+        return;
     }
+
+    document.forms[0].submit();
 });
