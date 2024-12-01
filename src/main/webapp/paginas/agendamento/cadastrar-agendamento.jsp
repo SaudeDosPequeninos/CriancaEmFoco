@@ -34,7 +34,7 @@
 
                     <div id="observacao">
                         <label for="observacao">Observações</label>
-                        <input type="text" value="<c:out value='${agendamento.observacao}' />" id="observacao" name="observacao" placeholder="Digite aqui alguma observação sobre o procedimento (opcional)">
+                        <input type="text" value="<c:out value='${agendamento.descricao}' />" id="observacao" name="observacao" placeholder="Digite aqui alguma observação sobre o procedimento (opcional)">
                     </div>
 
                     <div id="horario-agendamento" class="horario">
