@@ -18,9 +18,12 @@ import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAO;
 import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAOImpl;
 import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.escola.EscolaDAO;
 import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.escola.EscolaDAOImpl;
+import br.senac.criancaemfoco.modelo.dao.procedimento.ProcedimentoDAO;
+import br.senac.criancaemfoco.modelo.dao.procedimento.ProcedimentoDAOImpl;
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
+import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 
 @WebServlet(urlPatterns = {"/cadastrar-escola", "/editar-escola", "/inserir-escola", "/atualizar-escola", "/deletar-escola", "/listar-escola"})
 public class EscolaServlet extends HttpServlet implements Serializable {
@@ -29,11 +32,13 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 	private EscolaDAO daoEscola;
 	private ContatoDAO daoContato;
 	private EnderecoDAO daoEndereco;
+	private ProcedimentoDAO daoProcedimento;
 
 	public void init() {
 		daoEscola = new EscolaDAOImpl();
 		daoContato = new ContatoDAOImpl();
 		daoEndereco = new EnderecoDAOImpl();
+		daoProcedimento = new ProcedimentoDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -83,6 +88,8 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 	private void mostrarCadastroEscola(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		List<Procedimento> procedimentos = daoProcedimento.recuperarProcedimentos();
+		request.setAttribute("procedimentos", procedimentos);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/escola/cadastrar-escola.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -93,30 +100,17 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 		Long idEscola = Long.parseLong(request.getParameter("id-escola"));
 		Long idContato = Long.parseLong(request.getParameter("id-contato"));
 		Long idEndereco = Long.parseLong(request.getParameter("id-endereco"));
-		Escola escolaRecuperada = null;
-		Contato contatoRecuperado = null;
-		Endereco enderecoRecuperado = null;
-		List<Escola> escolas = daoEscola.recuperarEscolas();
-		List<Contato> contatos = daoContato.recuperarContatos();
-		List<Endereco> enderecos = daoEndereco.recuperarEnderecos();
-		for (Escola escola : escolas) {
-			if (escola.getId() == idEscola) {
-				escolaRecuperada = escola;
-				break;
-			}
-		}
-		for (Contato contato : contatos) {
-			if (contato.getId() == idContato) {
-				contatoRecuperado = contato;
-				break;
-			}
-		}
-		for (Endereco endereco : enderecos) {
-			if (endereco.getId() == idEndereco) {
-				enderecoRecuperado = endereco;
-				break;
-			}
-		}
+		Escola escola = new Escola();
+		escola.setId(idEscola);
+		Contato contato = new Contato();
+		contato.setId(idContato);
+		Endereco endereco = new Endereco();
+		endereco.setId(idEndereco);
+		Escola escolaRecuperada = daoEscola.recuperarEscola(escola);
+		Contato contatoRecuperado = daoContato.recuperarContato(contato);
+		Endereco enderecoRecuperado = daoEndereco.recuperarEndereco(endereco);
+		List<Procedimento> procedimentos = daoProcedimento.recuperarProcedimentos();
+		request.setAttribute("procedimentos", procedimentos);
 		request.setAttribute("escola", escolaRecuperada);
 		request.setAttribute("contato", contatoRecuperado);
 		request.setAttribute("endereco", enderecoRecuperado);
@@ -131,19 +125,19 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 		Contato contato = new Contato();
 		Endereco endereco = new Endereco();
 
-		String razaoSocial = request.getParameter("razao_social_cadastro");
-		String nomeFantasia = request.getParameter("nome_fantasia_cadastro");
-		String cnpj = request.getParameter("cnpj_cadastro");
-		String telefone = request.getParameter("tel_cadastro");
-		String email = request.getParameter("email_cadastro");
-		String estado = request.getParameter("estado_cadastro");
-		String cidade = request.getParameter("cidade_cadastro");
-		String logradouro = request.getParameter("logradouro_cadastro");
-		int cep = Integer.parseInt(request.getParameter("cep_cadastro"));
-		String bairro = request.getParameter("bairro_cadastro");
-		short numero = Short.parseShort(request.getParameter("numero_cadastro"));
-		String tipo = request.getParameter("tipo_cadastro");
-		String senha = request.getParameter("senha_cadastro");
+		String razaoSocial = request.getParameter("razao-social-user");
+		String nomeFantasia = request.getParameter("nome-fantasia-user");
+		String cnpj = request.getParameter("cnpj-user");
+		String telefone = request.getParameter("tel-user");
+		String email = request.getParameter("email-user");
+		String estado = request.getParameter("estado-user");
+		String cidade = request.getParameter("cidade-user");
+		String logradouro = request.getParameter("logradouro-user");
+		int cep = Integer.parseInt(request.getParameter("cep-user"));
+		String bairro = request.getParameter("bairro-user");
+		short numero = Short.parseShort(request.getParameter("numero-user"));
+		String tipo = request.getParameter("tipo-user");
+		String senha = request.getParameter("senha-user");
 
 		contato.setNumCelular(telefone);
 		endereco.setBairro(bairro);
@@ -178,19 +172,19 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 		Contato contato = new Contato();
 		Endereco endereco = new Endereco();
 
-		String razaoSocial = request.getParameter("razao_social_cadastro");
-		String nomeFantasia = request.getParameter("nome_fantasia_cadastro");
-		String cnpj = request.getParameter("cnpj_cadastro");
-		String telefone = request.getParameter("tel_cadastro");
-		String email = request.getParameter("email_cadastro");
-		String estado = request.getParameter("estado_cadastro");
-		String cidade = request.getParameter("cidade_cadastro");
-		String logradouro = request.getParameter("logradouro_cadastro");
-		int cep = Integer.parseInt(request.getParameter("cep_cadastro"));
-		String bairro = request.getParameter("bairro_cadastro");
-		short numero = Short.parseShort(request.getParameter("numero_cadastro"));
-		String tipo = request.getParameter("tipo_cadastro");
-		String senha = request.getParameter("senha_cadastro");
+		String razaoSocial = request.getParameter("razao-social-user");
+		String nomeFantasia = request.getParameter("nome-fantasia-user");
+		String cnpj = request.getParameter("cnpj-user");
+		String telefone = request.getParameter("tel-user");
+		String email = request.getParameter("email-user");
+		String estado = request.getParameter("estado-user");
+		String cidade = request.getParameter("cidade-user");
+		String logradouro = request.getParameter("logradouro-user");
+		int cep = Integer.parseInt(request.getParameter("cep-user"));
+		String bairro = request.getParameter("bairro-user");
+		short numero = Short.parseShort(request.getParameter("numero-user"));
+		String tipo = request.getParameter("tipo-user");
+		String senha = request.getParameter("senha-user");
 
 		contato.setNumCelular(telefone);
 		contato.setId(idContato);
@@ -224,30 +218,15 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 		Long idEscola = Long.parseLong(request.getParameter("id-escola"));
 		Long idContato = Long.parseLong(request.getParameter("id-contato"));
 		Long idEndereco = Long.parseLong(request.getParameter("id-endereco"));
-		Escola escolaRecuperada = null;
-		Contato contatoRecuperado = null;
-		Endereco enderecoRecuperado = null;
-		List<Escola> escolas = daoEscola.recuperarEscolas();
-		List<Contato> contatos = daoContato.recuperarContatos();
-		List<Endereco> enderecos = daoEndereco.recuperarEnderecos();
-		for (Escola escola : escolas) {
-			if (escola.getId() == idEscola) {
-				escolaRecuperada = escola;
-				break;
-			}
-		}
-		for (Contato contato : contatos) {
-			if (contato.getId() == idContato) {
-				contatoRecuperado = contato;
-				break;
-			}
-		}
-		for (Endereco endereco : enderecos) {
-			if (endereco.getId() == idEndereco) {
-				enderecoRecuperado = endereco;
-				break;
-			}
-		}
+		Escola escola = new Escola();
+		escola.setId(idEscola);
+		Contato contato = new Contato();
+		contato.setId(idContato);
+		Endereco endereco = new Endereco();
+		endereco.setId(idEndereco);
+		Escola escolaRecuperada = daoEscola.recuperarEscola(escola);
+		Contato contatoRecuperado = daoContato.recuperarContato(contato);
+		Endereco enderecoRecuperado = daoEndereco.recuperarEndereco(endereco);
 		daoEscola.deletarEscola(escolaRecuperada);
 		daoContato.deletarContato(contatoRecuperado);
 		daoEndereco.deletarEndereco(enderecoRecuperado);
