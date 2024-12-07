@@ -1,0 +1,505 @@
+@charset "UTF-8";
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+html, body {
+    font-family: 'Helvetica', sans-serif;
+    height: 100%;
+    background-color: #FFF;
+}
+ 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #FFF;
+    padding-top: 70px;
+}
+ 
+header {
+    position: fixed;
+    background-color: #F2B199;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    top: 0;
+    z-index: 10;
+}
+ 
+.hamburgue-icon img{
+	position: fixed;
+	top: 12px;
+	right: 90%;
+	pointer-events: none;
+	height: 40px;
+ 
+	
+	}
+.casa-icon img{
+	position: fixed;
+	top: 12px;
+	right: 85%;
+	pointer-events: none;
+	height: 40px;
+ 
+	
+	}
+.sininho-icon img{
+	position: fixed;
+	top: 12px;
+	left: 85%;
+	pointer-events: none;
+	height: 40px;
+	
+}
+.configuracao-icon img{
+	position: fixed;
+	top: 12px;
+	left: 90%;
+	pointer-events: none;
+	height: 40px;
+}
+ 
+.perfil-icon img {
+	position: fixed;
+	top: 12px;
+	left: 95%;
+	pointer-events: none;
+	height: 40px;
+}
+ 
+.foto-perfil-icon img {
+	height: 200px;
+	position: relative;
+}
+ 
+.container-foto-perfil, .container-informacoes-basica, .container-informacoes-contato, .container-alterar-senha{
+    text-align: center;
+    margin: 20px 0;
+}
+ 
+.container-foto-perfil h2, .container-informacoes-basica h2, .container-informacoes-contato h2, .container-alterar-senha h2 {
+    font-size: 28px;
+    color: #203A40;
+    margin-bottom: 20px;
+}
+ 
+.EditarEnfermeiro-form {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #FFF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+ 
+.cpf {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+}
+ 
+.cpf label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+	
+.cpf img {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    height: 24px;
+}
+ 
+.cpf input {
+    width: 35%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+ 
+.cpf input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.data-de-nascimento {
+    position: relative;
+    bottom: 83px;
+    margin-right: 5px;
+    width: 35%;
+    left: 65%;
+}
+ 
+.data-de-nascimento label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+ 
+.data-de-nascimento img {
+    position: absolute;
+    right: 15px;
+    top: 28%;
+    height: 24px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+ 
+.data-de-nascimento input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+ 
+.data-de-nascimento input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.coren {
+    position: relative;
+    bottom: 20px;
+    margin-bottom: 30px;
+    margin-right: 5;
+    width: 35%;
+}
+ 
+.coren label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+ 
+.coren img {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    height: 24px;
+}
+ 
+.coren input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+ 
+.coren input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.nome {
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    width: 100%;
+    right: 0.2%;
+}
+ 
+.nome label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+	
+.nome img {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    height: 24px;
+}
+ 
+.nome input {
+    width: 35%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+ 
+.nome input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.sobrenome {
+    position: relative;
+    bottom: 83px;
+    margin-right: 5px;
+    width: 35%;
+    left: 65%;
+}
+ 
+.sobrenome label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+ 
+.sobrenome img {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    height: 24px;
+}
+ 
+.sobrenome input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+ 
+.sobrenome input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.telefone {
+    position: relative;
+    bottom: -10px;
+    margin-bottom: 30px;
+    margin-right: auto;
+    width: 35%;
+}
+ 
+.telefone label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+ 
+.telefone img {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    height: 24px;
+}
+ 
+.telefone input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+ 
+.telefone input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.email {
+    position: relative;
+    bottom: 73px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    width: 35%;
+    left: 65%;
+}
+ 
+.email label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+    z-index: 5;
+}
+ 
+.email img {
+    position: absolute;
+    left: 12px;
+    top: 34%;
+    height: 20px;
+}
+ 
+.email input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+ 
+.email input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.nova-senha {
+    position: relative;
+    margin-left: 5px;
+    width: 35%;
+    top: 7.1%;
+}
+ 
+.nova-senha label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+ 
+.novo-cadeado img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    z-index: 10;
+}
+ 
+.novo-olho-fechado-icon img {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    z-index: 10;
+}
+ 
+.novo-olho-aberto-icon img {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    z-index: 10;
+}
+ 
+.nova-senha input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+    position: relative;
+}
+ 
+.nova-senha input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.confirmar-senha {
+    position: relative;
+    margin-right: 5px;
+    width: 35%;
+    left: 65%;
+    top: 1%;
+}
+ 
+.confirmar-senha label {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    font-size: 14px;
+    height: 40px;
+ 
+}
+ 
+.confirmar-cadeado img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    z-index: 10;
+}
+ 
+.confirmar-olho-fechado-icon img {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    z-index: 10;
+}
+ 
+.confirmar-olho-aberto-icon img {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    z-index: 10;
+}
+ 
+.confirmar-senha input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 16px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+    position: relative;
+}
+ 
+.confirmar-senha input:focus {
+    border-color: #FF8C82;
+    outline: none;
+}
+ 
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+ 
+.form-buttons button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 48%;
+    top : 20%;
+    }
+.form-buttons button[type="reset"] {
+    background: #203A40;
+    color: #fff;
+}
+ 
+.form-buttons button[type="submit"] {
+    background: #203A40;
+    color: #fff;
+}
+ 
+@media (max-width: 768px) {
+    .EditarEnfermeiro-form {
+        grid-template-columns: 1fr;
+    }
+}
