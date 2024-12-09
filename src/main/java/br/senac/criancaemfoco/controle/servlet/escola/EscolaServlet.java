@@ -18,12 +18,9 @@ import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAO;
 import br.senac.criancaemfoco.modelo.dao.endereco.EnderecoDAOImpl;
 import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.escola.EscolaDAO;
 import br.senac.criancaemfoco.modelo.dao.pessoa.usuario.escola.EscolaDAOImpl;
-import br.senac.criancaemfoco.modelo.dao.procedimento.ProcedimentoDAO;
-import br.senac.criancaemfoco.modelo.dao.procedimento.ProcedimentoDAOImpl;
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
-import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 
 @WebServlet(urlPatterns = {"/cadastrar-escola", "/editar-escola", "/inserir-escola", "/atualizar-escola", "/deletar-escola", "/listar-escola"})
 public class EscolaServlet extends HttpServlet implements Serializable {
@@ -32,13 +29,11 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 	private EscolaDAO daoEscola;
 	private ContatoDAO daoContato;
 	private EnderecoDAO daoEndereco;
-	private ProcedimentoDAO daoProcedimento;
 
 	public void init() {
 		daoEscola = new EscolaDAOImpl();
 		daoContato = new ContatoDAOImpl();
 		daoEndereco = new EnderecoDAOImpl();
-		daoProcedimento = new ProcedimentoDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -88,8 +83,6 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 	private void mostrarCadastroEscola(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		List<Procedimento> procedimentos = daoProcedimento.recuperarProcedimentos();
-		request.setAttribute("procedimentos", procedimentos);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/escola/cadastrar-escola.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -109,8 +102,6 @@ public class EscolaServlet extends HttpServlet implements Serializable {
 		Escola escolaRecuperada = daoEscola.recuperarEscola(escola);
 		Contato contatoRecuperado = daoContato.recuperarContato(contato);
 		Endereco enderecoRecuperado = daoEndereco.recuperarEndereco(endereco);
-		List<Procedimento> procedimentos = daoProcedimento.recuperarProcedimentos();
-		request.setAttribute("procedimentos", procedimentos);
 		request.setAttribute("escola", escolaRecuperada);
 		request.setAttribute("contato", contatoRecuperado);
 		request.setAttribute("endereco", enderecoRecuperado);
