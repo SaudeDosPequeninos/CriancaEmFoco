@@ -24,5 +24,6 @@
 		<mapping class="br.senac.criancaemfoco.modelo.entidade.insumo.Insumo" />
 		<mapping class="br.senac.criancaemfoco.modelo.entidade.papel.Papel" />
 		<mapping class="br.senac.criancaemfoco.modelo.entidade.usuario.Usuario"/>
+		<mapping class="br.senac.criancaemfoco.modelo.entidade.foto.Foto"/>
 	</session-factory>
 </hibernate-configuration>

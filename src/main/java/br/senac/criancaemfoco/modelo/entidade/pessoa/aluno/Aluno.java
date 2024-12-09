@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
@@ -42,6 +43,8 @@ public class Aluno extends Pessoa implements Serializable {
 	@JoinColumn(name = "id_aluno")
 	private List<Procedimento> procedimentos = new ArrayList<Procedimento>();
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_foto")
 	private Foto foto;
 
 	public Aluno() {}

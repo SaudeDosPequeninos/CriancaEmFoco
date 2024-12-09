@@ -24,6 +24,7 @@ public class ConexaoFactory {
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.contato.Contato.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.papel.Papel.class);
 		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario.class);
+		configuracao.addAnnotatedClass(br.senac.criancaemfoco.modelo.entidade.foto.Foto.class);
 
 		configuracao.configure("hibernate.cfg.xml");
 

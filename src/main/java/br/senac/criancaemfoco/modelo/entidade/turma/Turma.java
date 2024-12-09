@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
@@ -44,6 +45,8 @@ public class Turma implements Serializable {
 	@JoinColumn(name = "id_escola", referencedColumnName = "id_pessoa")
 	private Escola escola;
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_foto")
 	private Foto foto;
 
 	public Turma() {}

@@ -31,6 +31,8 @@ public abstract class Usuario extends Pessoa implements Serializable {
 	@JoinColumn(name = "id_papel")
 	private Papel papel;
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_foto")
 	private Foto foto;
 
 	public Usuario() {}

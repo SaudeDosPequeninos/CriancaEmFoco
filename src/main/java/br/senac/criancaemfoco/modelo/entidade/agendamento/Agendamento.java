@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
@@ -60,6 +61,8 @@ public class Agendamento implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_foto")
 	private Foto foto;
 
 	public Agendamento() {}
