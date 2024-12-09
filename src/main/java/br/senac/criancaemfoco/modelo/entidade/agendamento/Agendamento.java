@@ -19,6 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
@@ -59,23 +60,27 @@ public class Agendamento implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
+	private Foto foto;
+
 	public Agendamento() {}
 
-	public Agendamento(LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Enfermeiro enfermeiro) {
+	public Agendamento(LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Enfermeiro enfermeiro, Foto foto) {
 		setData(data);
 		setHorario(horario);
 		setTempoDuracao(tempoDuracao);
 		setAluno(aluno);
 		setEnfermeiro(enfermeiro);
+		setFoto(foto);
 	}
 
-	public Agendamento(Long id,LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Enfermeiro enfermeiro) {
+	public Agendamento(Long id,LocalDate data, LocalTime horario, LocalTime tempoDuracao, Aluno aluno, Enfermeiro enfermeiro, Foto foto) {
 		setId(id);
 		setData(data);
 		setHorario(horario);
 		setTempoDuracao(tempoDuracao);
 		setAluno(aluno);
 		setEnfermeiro(enfermeiro);
+		setFoto(foto);
 	}
 
 	public Long getId() {
@@ -163,6 +168,14 @@ public class Agendamento implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
 	}
 
 }

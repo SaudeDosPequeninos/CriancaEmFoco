@@ -17,6 +17,7 @@ import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
+import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
 import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
 
 @Entity
@@ -34,8 +35,8 @@ public class Responsavel extends Usuario implements Serializable {
 
 	public Responsavel () {}
 
-	public Responsavel (String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, String email, String senha, Papel papel, Endereco endereco, Aluno dependente) {
-		super(nomeId, sobrenome, idFiscal, dataNascimento, contato, email, senha, papel);
+	public Responsavel (String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, String email, String senha, Papel papel, Foto foto, Endereco endereco, Aluno dependente) {
+		super(nomeId, sobrenome, idFiscal, dataNascimento, contato, email, senha, papel, foto);
 		setEndereco(endereco);
 		inserirDependente(dependente);
 	}

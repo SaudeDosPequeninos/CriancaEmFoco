@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
 import br.senac.criancaemfoco.modelo.entidade.endereco.Endereco;
 import br.senac.criancaemfoco.modelo.entidade.estoque.Estoque;
+import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
 import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
@@ -53,8 +54,8 @@ public class Escola extends Usuario implements Serializable {
 
 	public Escola() {}
 
-	public Escola(String nomeId, String idFiscal, Contato contato, String email, String senha, Papel papel, Endereco endereco) {
-		super(nomeId, idFiscal, contato, email, senha, papel);
+	public Escola(String nomeId, String idFiscal, Contato contato, String email, String senha, Papel papel, Foto foto, Endereco endereco) {
+		super(nomeId, idFiscal, contato, email, senha, papel, foto);
 		setEndereco(endereco);
 	}
 
