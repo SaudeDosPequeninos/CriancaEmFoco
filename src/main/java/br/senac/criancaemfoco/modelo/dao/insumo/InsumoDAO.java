@@ -12,6 +12,8 @@ public interface InsumoDAO {
 
 	void atualizarInsumo(Insumo insumo);
 
-	List<Insumo> recuperarInsumo();
+	Insumo recuperarInsumo(Insumo insumo);
+
+	List<Insumo> recuperarInsumos();
 
 }

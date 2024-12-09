@@ -73,25 +73,21 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .house-ico {
-/* Vector */
-
-position: absolute;
-left: 14.95%;
-right: 82.34%;
-top: 30%;
-bottom: 29.41%;
-
+	display: grid;
+    position: absolute;
+    left: 130px;
+    top: 25%;
+    bottom: 25.21%;
+    text-decoration: none;
 }
 
 .tab-ico {
-/* Vector */
-
-position: absolute;
-left: 8.44%;
-right: 88.85%;
-top: 35%;
-bottom: 35.65%;
-
+	display: grid;
+    position: absolute;
+    left: 50px;
+    top: 38%;
+    bottom: 26%;
+    text-decoration: none;
 }
 
 .user-ico {
@@ -142,6 +138,10 @@ bottom: 35.65%;
     right: 0;
     top: 0;
     bottom: 0;
+<<<<<<< HEAD
+=======
+    background: #203A40;
+>>>>>>> development
 }
 
 .razaoSocial {
@@ -218,11 +218,20 @@ bottom: 35.65%;
 }
 
 .email {
+<<<<<<< HEAD
 	position: absolute;
 	width: 725px;
 	height: 97px;
 	left: 200px;
 	top: 735px;
+=======
+	display: grid;
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: 620px;
+	top: 748px;
+>>>>>>> development
 }
 
 .email-ico {
@@ -230,7 +239,11 @@ bottom: 35.65%;
 	pointer-events: none;
 	left: 1.55%;
 	right: 88.9%;
+<<<<<<< HEAD
 	top: 50.5%;
+=======
+	top: 52.5%;
+>>>>>>> development
 	bottom: 0.93%;
 	z-index: 1;
 }
@@ -255,7 +268,11 @@ bottom: 35.65%;
 	width: 230px;
 	height: 70px;
 	left: 1490px;
+<<<<<<< HEAD
 	top: 760px;
+=======
+	top: 890px;
+>>>>>>> development
 	background: #203A40;
 	border-radius: 6px;
 	font-family: 'Helvetica';
@@ -416,10 +433,17 @@ bottom: 35.65%;
 
 .numero {
 	position: absolute;
+<<<<<<< HEAD
     width: 725px;
     height: 84px;
     left: 200px;
     top: 780px;
+=======
+	width: 725px;
+	height: 84px;
+	left: calc(50% - 725px/2 + 0.5px);
+	top: 796px;
+>>>>>>> development
 }
 
 .numero-ico {
@@ -470,6 +494,7 @@ bottom: 35.65%;
 }
 
 #voltar-passo1 {
+<<<<<<< HEAD
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -492,6 +517,33 @@ bottom: 35.65%;
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
+=======
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 16px;
+	gap: 10px;
+
+	position: absolute;
+	width: 230px;
+	height: 70px;
+	left: 201px;
+	top: 890px;
+	
+	background: #203A40;
+	border-radius: 6px;
+
+	font-family: 'Helvetica';
+	font-style: bold;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+>>>>>>> development
 }
 
 #esconder-passo2 {
@@ -514,7 +566,11 @@ bottom: 35.65%;
 	width: 230px;
 	height: 70px;
 	left: 1491px;
+<<<<<<< HEAD
 	top: 800px;
+=======
+	top: 890px;
+>>>>>>> development
 
 	background: #203A40;
 	border-radius: 6px;
@@ -542,12 +598,62 @@ bottom: 35.65%;
 	top: 220px;
 }
 
+<<<<<<< HEAD
 .senha {
 	position: absolute;
 	width: 725px;
 	height: 97px;
 	left: 162px;
 	top: 543px;
+=======
+.tipos-procedimento {
+	position: absolute;
+	width: 725px;
+	height: 84px;
+	left: calc(50% - 725px/2 - 3.5px);
+	top: 524px;
+}
+
+.procedimento-ico {
+    position: absolute;
+    left: 95%;
+    top: 60%;
+    bottom: 46.28%;
+    z-index: 1;
+}
+
+#tipos-procedimento-user {
+	box-sizing: border-box;
+	position: absolute;
+	outline: none;
+	width: 725px;
+	height: 64px;
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;
+
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: capitalize;
+	color: rgba(32, 58, 64, 0.5);
+	padding: 15px 12px;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+}
+
+.senha {
+	position: absolute;
+	width: 668px;
+	height: 84px;
+	left: 200px;
+	top: 668px;
+>>>>>>> development
 }
 
 .icone-senha {
@@ -599,9 +705,15 @@ bottom: 35.65%;
 .confirmar-senha {
 	position: absolute;
 	width: 725px;
+<<<<<<< HEAD
 	height: 96px;
 	right: 162px;
 	top: 544px;
+=======
+	height: 84px;
+	left: 995px;
+	top: 668px;
+>>>>>>> development
 }
 
 #confirmar-senha-user {
@@ -614,6 +726,7 @@ bottom: 35.65%;
 	border-radius: 8px;
 }
 
+<<<<<<< HEAD
 .numero-ico {
 	position: absolute;
 	left: 3%;
@@ -633,6 +746,8 @@ bottom: 35.65%;
 }
 
 
+=======
+>>>>>>> development
 .icone-confirmar-senha {
 	position: absolute;
 	width: 684.74px;
@@ -683,11 +798,19 @@ bottom: 35.65%;
 }
 
 .voltar-botao {
+<<<<<<< HEAD
     position: absolute;
     width: 230px;
     height: 70px;
     left: 810px;
     top: -230px;
+=======
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+>>>>>>> development
 }
 
 .voltar-botao-style {
@@ -728,6 +851,7 @@ bottom: 35.65%;
 }
 
 .botao-confirmar {
+<<<<<<< HEAD
     display: flex
 ;
     flex-direction: row;
@@ -738,6 +862,18 @@ bottom: 35.65%;
     height: 70px;
     left: 1505px;
     top: 660px;
+=======
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+
+	position: absolute;
+	width: 230px;
+	height: 70px;
+	left: 1490px;
+	top: 890px;
+>>>>>>> development
 }
 
 .confimar-botao-style {
@@ -767,6 +903,7 @@ bottom: 35.65%;
 	text-align: center;
 	text-transform: uppercase;
 	color: #FFFFFF;
+<<<<<<< HEAD
 }
 
 .checkbox-section {
@@ -844,4 +981,6 @@ bottom: 35.65%;
 a {
 	color: #FF725E;
 	text-decoration: none;
+=======
+>>>>>>> development
 }

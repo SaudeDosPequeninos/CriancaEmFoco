@@ -12,6 +12,8 @@ public interface PessoaDAO {
 
 	void atualizarPessoa(Pessoa pessoa);
 
+	Pessoa recuperarPessoa(Pessoa pessoa);
+
 	List<Pessoa> recuperarPessoas();
 
 }

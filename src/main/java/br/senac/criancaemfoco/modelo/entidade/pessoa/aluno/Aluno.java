@@ -10,9 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
@@ -28,36 +27,34 @@ public class Aluno extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "matricula_aluno", length = 20, nullable = false, unique=false)
-	private float matricula;
+	private String matricula;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_responsavel", referencedColumnName = "id_pessoa")
 	private Responsavel responsavel;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_turma", referencedColumnName = "id_turma")
 	private Turma turma;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
-	@JoinTable(name = "aluno_procedimento", 
-	joinColumns = @JoinColumn(name = "id_pessoa"), 
-	inverseJoinColumns = @JoinColumn(name = "id_procedimento"))
+	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name = "id_aluno")
 	private List<Procedimento> procedimentos = new ArrayList<Procedimento>();
 
 	public Aluno() {}
 
-	public Aluno(String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, float matricula, Responsavel responsavel, Turma turma) {
+	public Aluno(String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, String matricula, Responsavel responsavel, Turma turma) {
 		super(nomeId, sobrenome, idFiscal, dataNascimento, contato);
 		setMatricula(matricula);
 		setResponsavel(responsavel);
 		setTurma(turma);
 	}
 
-	public float getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(float matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 

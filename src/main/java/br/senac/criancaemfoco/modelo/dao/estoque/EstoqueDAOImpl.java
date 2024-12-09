@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -44,7 +45,6 @@ public class EstoqueDAOImpl implements EstoqueDAO {
 			sessao = abrirSessao(sessao);
 			sessao.save(estoque);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -76,6 +76,27 @@ public class EstoqueDAOImpl implements EstoqueDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+
+	public Estoque recuperarEstoque(Estoque estoque) {
+		Session sessao = null;
+		Estoque estoqueRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Estoque> criteria = construtor.createQuery(Estoque.class);
+			Root<Estoque> raizEstoque = criteria.from(Estoque.class);
+			criteria.select(raizEstoque);
+			ParameterExpression<Long> idEstoque = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizEstoque.get("id"), idEstoque));
+			estoqueRecuperado = sessao.createQuery(criteria).setParameter(idEstoque, estoque.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return estoqueRecuperado;
 	}
 
 	public List<Estoque> recuperarEstoques() {

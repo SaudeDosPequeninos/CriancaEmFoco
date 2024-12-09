@@ -11,7 +11,9 @@ public interface ProcedimentoDAO {
 	void removerProcedimento(Procedimento procedimento);
 
 	void atualizarProcedimento(Procedimento procedimento);
+	
+	Procedimento recuperarProcedimento(Procedimento procedimento);
 
-	List<Procedimento> recuperarProcedimento();
+	List<Procedimento> recuperarProcedimentos();
 
 }

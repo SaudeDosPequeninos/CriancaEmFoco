@@ -19,3 +19,4 @@ target/
 .project
 .classpath
 .apt_generated_tests/
+/src/
