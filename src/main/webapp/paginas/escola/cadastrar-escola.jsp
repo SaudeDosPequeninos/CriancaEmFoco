@@ -18,7 +18,7 @@
             <a href="<%=request.getContextPath()%>/index.jsp" class="house-ico">
                 <img src="<%=request.getContextPath()%>/resources/images/house-ico.svg" alt="house-ico">
             </a>
-            <a href="#" class="tab-ico">
+            <a href="" class="tab-ico">
                 <img src="<%=request.getContextPath()%>/resources/images/tab-ico.svg" alt="tab-ico">
             </a>
         </div>
@@ -154,21 +154,6 @@
 				        <img src="<%=request.getContextPath()%>/resources/images/titulo3.svg" alt="titulo-cadastro3">
 				    </div>               
 				
-				    <div class="tipos-procedimento">
-				        <label for="tipos-procedimento-user" class="text-style obrigatorio">Tipos de Procedimentos</label>
-				        <div class="procedimento-ico">
-				            <img id="tipos-procedimento-seta" src="<%=request.getContextPath()%>/resources/images/seta-baixo.svg" alt="seta-baixo" onclick="toggleIcoBaixo()">
-				            <img id="seta-cima" src="<%=request.getContextPath()%>/resources/images/seta-cima.svg" alt="seta-cima" style="display:none;" onclick="toggleIcoBaixo()">
-				        </div>                    
-				        <select name="tipos-procedimento-user" id="tipos-procedimento-user" required>
-				            <optgroup label="Selecione um tipo de procedimento">
-				            <c:forEach var="procedimento" items="${procedimentos}">
-				                <option value="<c:out value='${procedimento.id}' />"><c:out value='${procedimento.nomeProcedimento}' /></option>
-				            </c:forEach>
-				            </optgroup>
-				        </select>
-				    </div>
-				
 				    <div class="senha">
 				        <label for="senha-user" class="text-style obrigatorio">Senha</label>
 				        <div class="icone-senha">
@@ -204,7 +189,15 @@
 				        </div>
 				        <input type="password" id="confirmar-senha-user" name="confirmar-senha-user" placeholder="Informe a senha novamente" required>
 				    </div>
-				
+				    
+					<div class="checkbox-section">
+						<label class="termos">
+						    <span>Li e concordo com os <a href="#">Termos de Uso e Política de Privacidade</a></span>
+						    <input type="checkbox" name="termos" required>
+						    <div class="caixa-customizada"></div>
+						</label>
+					</div>
+					
 				    <div class="voltar">
 				        <div class="voltar-seta">
 				            <img src="<%=request.getContextPath()%>/resources/images/seta.svg" alt="seta">

@@ -62,18 +62,29 @@ function toggleIcoConfirmarSenha() {
     }
 }
 
-document.getElementById('confirmar-btn').addEventListener('click', function(event) {
-	
-	function checkSenha() {
-	    const senha = document.getElementById('senha-user').value;
-	    const confirmarSenha = document.getElementById('confirmar-senha-user').value;
+function toggleCheckboxIco() {
+    const checkboxInput = document.getElementById('checkbox');
+    const checkboxIco = document.getElementById('checkbox-ico');
+    if (checkboxInput.type === 'password') {
+        checkboxIco.style.display = 'inline';
+    } else {
+        checkboxInput.type = 'password';
+        checkboxIco.style.display = 'none';
+    }
+}
 
-	    if (senha !== confirmarSenha) {
-	        alert("As senhas não são iguais, por favor, corrija sua senha.");
-	        return false; 
-	    }
-	    return true; 
-	}
+function checkSenha() {
+    const senha = document.getElementById('senha-user').value;
+    const confirmarSenha = document.getElementById('confirmar-senha-user').value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não são iguais, por favor, corrija sua senha.");
+        return false; 
+    }
+    return true; 
+}
+
+document.getElementById('confirmar-btn').addEventListener('click', function(event) {
 	
     if (!validar('passo3') || !checkSenha()) {
         event.preventDefault();

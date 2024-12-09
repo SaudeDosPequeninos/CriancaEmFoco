@@ -73,21 +73,25 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .house-ico {
-	display: grid;
-    position: absolute;
-    left: 130px;
-    top: 25%;
-    bottom: 25.21%;
-    text-decoration: none;
+/* Vector */
+
+position: absolute;
+left: 14.95%;
+right: 82.34%;
+top: 30%;
+bottom: 29.41%;
+
 }
 
 .tab-ico {
-	display: grid;
-    position: absolute;
-    left: 50px;
-    top: 38%;
-    bottom: 26%;
-    text-decoration: none;
+/* Vector */
+
+position: absolute;
+left: 8.44%;
+right: 88.85%;
+top: 35%;
+bottom: 35.65%;
+
 }
 
 .user-ico {
@@ -138,7 +142,6 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
     right: 0;
     top: 0;
     bottom: 0;
-    background: #203A40;
 }
 
 .razaoSocial {
@@ -215,12 +218,11 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .email {
-	display: grid;
 	position: absolute;
 	width: 725px;
-	height: 84px;
-	left: 620px;
-	top: 748px;
+	height: 97px;
+	left: 200px;
+	top: 735px;
 }
 
 .email-ico {
@@ -228,7 +230,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	pointer-events: none;
 	left: 1.55%;
 	right: 88.9%;
-	top: 52.5%;
+	top: 50.5%;
 	bottom: 0.93%;
 	z-index: 1;
 }
@@ -253,7 +255,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	width: 230px;
 	height: 70px;
 	left: 1490px;
-	top: 890px;
+	top: 760px;
 	background: #203A40;
 	border-radius: 6px;
 	font-family: 'Helvetica';
@@ -414,10 +416,10 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 
 .numero {
 	position: absolute;
-	width: 725px;
-	height: 84px;
-	left: calc(50% - 725px/2 + 0.5px);
-	top: 796px;
+    width: 725px;
+    height: 84px;
+    left: 200px;
+    top: 780px;
 }
 
 .numero-ico {
@@ -468,31 +470,28 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 #voltar-passo1 {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	padding: 9px 16px;
-	gap: 10px;
-
-	position: absolute;
-	width: 230px;
-	height: 70px;
-	left: 201px;
-	top: 890px;
-	
-	background: #203A40;
-	border-radius: 6px;
-
-	font-family: 'Helvetica';
-	font-style: bold;
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 120%;
-	align-items: center;
-	text-align: center;
-	text-transform: uppercase;
-	color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 16px;
+    gap: 10px;
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    left: 997px;
+    top: 800px;
+    background: #203A40;
+    border-radius: 6px;
+    font-family: 'Helvetica';
+    font-style: bold;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
 
 #esconder-passo2 {
@@ -515,7 +514,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	width: 230px;
 	height: 70px;
 	left: 1491px;
-	top: 890px;
+	top: 800px;
 
 	background: #203A40;
 	border-radius: 6px;
@@ -543,53 +542,12 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	top: 220px;
 }
 
-.tipos-procedimento {
-	position: absolute;
-	width: 725px;
-	height: 84px;
-	left: calc(50% - 725px/2 - 3.5px);
-	top: 524px;
-}
-
-.procedimento-ico {
-    position: absolute;
-    left: 95%;
-    top: 60%;
-    bottom: 46.28%;
-    z-index: 1;
-}
-
-#tipos-procedimento-user {
-	box-sizing: border-box;
-	position: absolute;
-	outline: none;
-	width: 725px;
-	height: 64px;
-	border: 2.7px solid #F2695C;
-	border-radius: 8px;
-
-	font-family: 'Helvetica';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
-	line-height: 120%;
-	display: flex;
-	align-items: center;
-	text-transform: capitalize;
-	color: rgba(32, 58, 64, 0.5);
-	padding: 15px 12px;
-	-webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: none;
-}
-
 .senha {
 	position: absolute;
-	width: 668px;
-	height: 84px;
-	left: 200px;
-	top: 668px;
+	width: 725px;
+	height: 97px;
+	left: 162px;
+	top: 543px;
 }
 
 .icone-senha {
@@ -641,9 +599,9 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 .confirmar-senha {
 	position: absolute;
 	width: 725px;
-	height: 84px;
-	left: 995px;
-	top: 668px;
+	height: 96px;
+	right: 162px;
+	top: 544px;
 }
 
 #confirmar-senha-user {
@@ -654,14 +612,6 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	height: 64px;
 	border: 2.7px solid #F2695C;
 	border-radius: 8px;
-}
-
-.numero {
-	position: absolute;
-	width: 725px;
-	height: 84px;
-	left: calc(50% - 725px/2 + 0.5px);
-	top: 796px;
 }
 
 .numero-ico {
@@ -733,11 +683,11 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .voltar-botao {
-	position: absolute;
-	left: 0%;
-	right: 0%;
-	top: 0%;
-	bottom: 0%;
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    left: 810px;
+    top: -230px;
 }
 
 .voltar-botao-style {
@@ -778,16 +728,16 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .botao-confirmar {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	padding: 0px;
-
-	position: absolute;
-	width: 230px;
-	height: 70px;
-	left: 1490px;
-	top: 890px;
+    display: flex
+;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    left: 1505px;
+    top: 660px;
 }
 
 .confimar-botao-style {
@@ -817,4 +767,81 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	text-align: center;
 	text-transform: uppercase;
 	color: #FFFFFF;
+}
+
+.checkbox-section {
+	position: absolute;
+	width: 673px;
+	height: 48px;
+	left: 162px;
+	top: 688px; 
+}
+
+.termos {
+    justify-content: center;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+ 
+.termos span {
+    color: #000000;
+}
+ 
+.termos input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.caixa-customizada {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: #757575 solid 1px;
+    border-radius: 5px;
+}
+ 
+.termos:hover input~.caixa-customizada {
+    background-color: #ccc;
+}
+ 
+.termos input:checked~.caixa-customizada {
+    background-color: #FF725E;
+}
+ 
+.caixa-customizada:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+ 
+.termos input:checked~.caixa-customizada:after {
+    display: block;
+}
+ 
+/* Estiliza ele */
+.termos .caixa-customizada:after {
+    left: 8px;
+    top: 4px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+a {
+	color: #FF725E;
+	text-decoration: none;
 }
