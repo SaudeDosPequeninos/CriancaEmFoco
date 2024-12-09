@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
+import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.Pessoa;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
 import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
@@ -41,13 +42,16 @@ public class Aluno extends Pessoa implements Serializable {
 	@JoinColumn(name = "id_aluno")
 	private List<Procedimento> procedimentos = new ArrayList<Procedimento>();
 
+	private Foto foto;
+
 	public Aluno() {}
 
-	public Aluno(String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, String matricula, Responsavel responsavel, Turma turma) {
+	public Aluno(String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, String matricula, Responsavel responsavel, Turma turma, Foto foto) {
 		super(nomeId, sobrenome, idFiscal, dataNascimento, contato);
 		setMatricula(matricula);
 		setResponsavel(responsavel);
 		setTurma(turma);
+		setFoto(foto);
 	}
 
 	public String getMatricula() {
@@ -86,4 +90,11 @@ public class Aluno extends Pessoa implements Serializable {
 		return procedimentos.remove(procedimento);
 	}
 
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
+	}
 }

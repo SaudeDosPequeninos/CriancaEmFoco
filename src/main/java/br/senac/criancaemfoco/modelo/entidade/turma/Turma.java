@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.aluno.Aluno;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
 
@@ -43,12 +44,15 @@ public class Turma implements Serializable {
 	@JoinColumn(name = "id_escola", referencedColumnName = "id_pessoa")
 	private Escola escola;
 
+	private Foto foto;
+
 	public Turma() {}
 
-	public Turma(List<Aluno> alunosTurma, byte anoTurma, String numeroTurma, Escola escola) {
+	public Turma(List<Aluno> alunosTurma, byte anoTurma, String numeroTurma, Escola escola, Foto foto) {
 		setAnoTurma(anoTurma);
 		setNumeroTurma(numeroTurma);
 		setEscola(escola);
+		setFoto(foto);
 	}
 
 	public Turma(Long id, List<Aluno> alunosTurma, byte anoTurma, String numeroTurma, Escola escola) {
@@ -56,6 +60,7 @@ public class Turma implements Serializable {
 		setAnoTurma(anoTurma);
 		setNumeroTurma(numeroTurma);
 		setEscola(escola);
+		setFoto(foto);
 	}
 
 	public Long getId() {
@@ -100,6 +105,14 @@ public class Turma implements Serializable {
 
 	public void setEscola(Escola escola) {
 		this.escola = escola;
+	}
+
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
 	}
 
 }

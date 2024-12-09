@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.criancaemfoco.modelo.entidade.contato.Contato;
+import br.senac.criancaemfoco.modelo.entidade.foto.Foto;
 import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
 import br.senac.criancaemfoco.modelo.entidade.pessoa.Pessoa;
 
@@ -30,20 +31,24 @@ public abstract class Usuario extends Pessoa implements Serializable {
 	@JoinColumn(name = "id_papel")
 	private Papel papel;
 
+	private Foto foto;
+
 	public Usuario() {}
 
-	public Usuario(String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, String email, String senha, Papel papel) {
+	public Usuario(String nomeId, String sobrenome, String idFiscal, LocalDate dataNascimento, Contato contato, String email, String senha, Papel papel, Foto foto) {
 		super(nomeId, sobrenome, idFiscal, dataNascimento, contato);
 		setEmail(email);
 		setSenha(senha);
 		setPapel(papel);
+		setFoto(foto);
 	}
 
-	public Usuario(String nomeId, String idFiscal, Contato contato, String email, String senha, Papel papel) {
+	public Usuario(String nomeId, String idFiscal, Contato contato, String email, String senha, Papel papel, Foto foto) {
 		super(nomeId, idFiscal, contato);
 		setEmail(email);
 		setSenha(senha);
 		setPapel(papel);
+		setFoto(foto);
 	}
 
 	public String getEmail() {
@@ -68,6 +73,14 @@ public abstract class Usuario extends Pessoa implements Serializable {
 
 	public void setPapel(Papel papel) {
 		this.papel = papel;
+	}
+
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
 	}
 
 }
