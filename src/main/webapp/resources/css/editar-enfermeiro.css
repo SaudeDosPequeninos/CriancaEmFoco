@@ -393,10 +393,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
  
 .novo-olho-aberto-icon img {
     position: absolute;
-    right: 15px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    height: 15px;
+    height: 25px;
     z-index: 10;
 }
  
@@ -454,7 +454,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    height: 15px;
+    height: 25px;
     z-index: 10;
 }
  

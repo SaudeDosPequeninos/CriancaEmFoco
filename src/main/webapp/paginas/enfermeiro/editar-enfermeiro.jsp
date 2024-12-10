@@ -6,28 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cadastro: Enfermeiro</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/editar-enfermeiro.css">
+     <script src="${pageContext.request.contextPath}/resources/js/editar-enfermeiro.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-counteiner">
-                <a href="editar-enfermeiro.jsp" class="hamburguer-sidebar"></a>
-                <a href="editar-enfermeiro.jsp" class="home-button"></a>
-                <div class= "hamburgue-icon" >
-                <img src="${pageContext.request.contextPath}/resources/imagens/hamburgue.svg" alt="hamburgue-icon" >
-                </div>
-                 <div class= "casa-icon" >
-                <img src="${pageContext.request.contextPath}/resources/imagens/casa.svg" alt="casa-icon" >
-                </div>
-                <div class= "configuracao-icon" >
-                <img src="${pageContext.request.contextPath}/resources/imagens/configuracao.svg" alt="configuracao-icon" >
-                </div>
-                <div class= "sininho-icon" >
-                <img src="${pageContext.request.contextPath}/resources/imagens/sininho.svg" alt="sininho-icon" >
-                </div>
-                <div class= "perfil-icon">
-				<img src="${pageContext.request.contextPath}/resources/imagens/Perfil.svg" alt="perfil-icon">
-			    </div>
+              <a href="editar-enfermeiro.jsp" class="hamburguer-sidebar"></a>
+              <a href="editar-enfermeiro.jsp" class="home-button"></a>
+              <div class= "hamburgue-icon" >
+              <img src="${pageContext.request.contextPath}/resources/imagens/hamburgue.svg" alt="hamburgue-icon" >
+              </div>
+              <div class= "casa-icon" >
+              <img src="${pageContext.request.contextPath}/resources/imagens/casa.svg" alt="casa-icon" >
+              </div>
+              <div class= "configuracao-icon" >
+              <img src="${pageContext.request.contextPath}/resources/imagens/configuracao.svg" alt="configuracao-icon" >
+              </div>
+              <div class= "sininho-icon" >
+              <img src="${pageContext.request.contextPath}/resources/imagens/sininho.svg" alt="sininho-icon" >
+              </div>
+              <div class= "perfil-icon">
+		      <img src="${pageContext.request.contextPath}/resources/imagens/Perfil.svg" alt="perfil-icon">
+			  </div>
             </div>
         </nav>
     </header>
@@ -43,7 +44,7 @@
     </div>
  
     <div class="EditarEnfermeiro-form">
-        <form action="editar-enfermeiro" method="POST">
+        <form action="editar-enfermeiro" method="POST" onsubmit="return checkSenha()">
  
             <div class="cpf">
                 <label for="cpf-user">CPF</label>
@@ -100,10 +101,10 @@
                 <div class="novo-cadeado">
                 <img src="${pageContext.request.contextPath}/resources/imagens/cadeado.svg" alt="cadeado-icon">
                 </div>
-                <div class="novo-olho-fechado-icon" id="olho-fechado-novo">
+                <div class="novo-olho-fechado-icon" id="olho-fechado-novo" onclick="toggleIco()">
                 <img src="${pageContext.request.contextPath}/resources/imagens/olho-fechado.svg" alt="olho-fechado-icon">
                 </div>
-                <div class="novo-olho-aberto-icon" id="olho-aberto-novo" style="display: none;">
+                <div class="novo-olho-aberto-icon" id="olho-aberto-novo" style="display: none;" onclick="toggleIco()">
                 <img src="${pageContext.request.contextPath}/resources/imagens/olho-aberto.svg" alt="olho-aberto-icon">
                 </div>
                 <input type="password" id="nova-senha-user" name="nova-senha-user" placeholder="XXXXXXXX" minlength="8" maxlength="20" required>
@@ -114,10 +115,10 @@
                 <div class="confirmar-cadeado">
                 <img src="${pageContext.request.contextPath}/resources/imagens/cadeado.svg" alt="cadeado-icon">
                 </div>
-                <div class="confirmar-olho-fechado-icon" id="olho-fechado-novo">
+                <div class="confirmar-olho-fechado-icon" id="olho-fechado-confirmar" onclick="toggleIcoConfirmarSenha()">
                 <img src="${pageContext.request.contextPath}/resources/imagens/olho-fechado.svg" alt="olho-fechado-icon">
                 </div>
-                <div class="confirmar-olho-aberto-icon" id="olho-aberto-novo" style="display: none;">
+                <div class="confirmar-olho-aberto-icon" id="olho-aberto-confirmar" style="display: none;" onclick="toggleIcoConfirmarSenha()">
                 <img src="${pageContext.request.contextPath}/resources/imagens/olho-aberto.svg" alt="olho-aberto-icon">
                 </div>
                 <input type="password" id="confirmar-senha-user" name="confirmar-senha-user" placeholder="XXXXXXXX" minlength="8" maxlength="20" required>
@@ -125,7 +126,7 @@
  
             <div class="form-buttons">
                 <button type="reset">Cancelar</button>
-                <button type="submit">Salvar</button>
+                <button type="submit" >Salvar</button>
             </div>
         </form>
     </div>
