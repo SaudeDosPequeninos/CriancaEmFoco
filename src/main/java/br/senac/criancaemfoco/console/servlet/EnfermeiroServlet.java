@@ -193,7 +193,7 @@ public class EnfermeiroServlet extends HttpServlet implements Serializable {
 			throws SQLException, ServletException, IOException {
 		List<Enfermeiro> enfermeiros = daoEnfermeiro.recuperarEnfermeiros();
 		request.setAttribute("enfermeiro", enfermeiros);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("pagina/enfermeiro/listar-enfermeiro.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/enfermeiro/listar-enfermeiro.jsp");
 		dispatcher.forward(request, response);
 }
 }
