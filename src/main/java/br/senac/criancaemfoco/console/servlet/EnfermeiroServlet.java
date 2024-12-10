@@ -1,4 +1,4 @@
-package console.servlet;
+package br.senac.criancaemfoco.console.servlet;
  
 import java.io.IOException;
 import java.io.Serializable;
@@ -193,7 +193,7 @@ public class EnfermeiroServlet extends HttpServlet implements Serializable {
 			throws SQLException, ServletException, IOException {
 		List<Enfermeiro> enfermeiros = daoEnfermeiro.recuperarEnfermeiros();
 		request.setAttribute("enfermeiro", enfermeiros);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("pagina/procedimento/cadastra-procedimento.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("pagina/enfermeiro/listar-enfermeiro.jsp");
 		dispatcher.forward(request, response);
 }
 }
