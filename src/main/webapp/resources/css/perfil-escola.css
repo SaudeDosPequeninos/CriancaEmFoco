@@ -1,0 +1,199 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    box-sizing: border-box;
+}
+
+nav{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: center;
+    align-items: center;
+    height: 7.5rem;
+}
+
+#icons-logo{
+    grid-column: 2/4;
+    display: flex;
+}
+
+#icons-logo > ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#search-bar{
+    grid-column: 5/ span 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#bar{
+    width: 100%;
+    height: 3.125rem;
+    border: 2px solid #203A40;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bar > input{
+    height: 100%;
+    width: 85%;
+}
+
+#bar > img{
+    width: 1.688rem;
+    height: 1.688rem;
+}
+
+#notification-nav > button{
+    all: unset;
+}
+
+#notification-nav{
+    grid-column: 9/10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#config-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-user-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#moldura-nav{
+    border: 2px solid #203A40;
+    width: 4.375rem;
+    height: 4.375rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+#path-role{
+    grid-column: 2/-1;
+    margin: 1.5rem 0 4.563rem 0;
+    font-size: 1.25rem;
+}
+
+#header{
+    grid-column: 2/-1;
+    display: flex;
+    flex-direction: row;
+}
+
+#moldura-header{
+    width: 14rem;
+    height: 14rem;
+    border: 1px solid #F2695C;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#moldura-header > img{
+    position: relative;
+    left: 25px;
+    width: 70%;
+    height: 70%;
+}
+
+#edicao{
+    position: relative;
+    background-color: #F2695C;
+    border-radius: 15px;
+    width: 3.125rem;
+    height: 3.125rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    left: 10px;
+    top: 50px;
+}
+
+#info-escola{
+    margin: 0 0 0 3.438rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+#nome-escola{
+    font-size: 3.125rem;
+    font-weight: bold;
+}
+
+#email-escola{
+    font-size: 1.875rem;
+}
+
+#bottom{
+    margin-top: 6.188rem;
+    grid-column: 2/-2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 12.5rem;
+}
+
+.card{
+    width: 24.813rem;
+    height: 21.063rem;
+    border: 2.7px solid #F2695C;
+    background-color: rgba(242, 105, 92, 0.17);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nome-card{
+    font-size: 2.188rem;
+    font-weight: bold;
+    margin: 1.373rem 0 2.438rem 0;
+}
+
+.ver-mais > button{
+    width: 11.125rem;
+    height: 3.25rem;
+    border-radius: 8px;
+    background-color: #F2695C;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.ver-mais > button:hover{
+    cursor: pointer;
+}
