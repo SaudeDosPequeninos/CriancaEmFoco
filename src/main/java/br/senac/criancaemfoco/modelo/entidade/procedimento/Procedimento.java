@@ -30,6 +30,9 @@ public class Procedimento implements Serializable {
 
 	@Column(name = "nome_procedimento", length = 30, nullable = false)
 	private String nomeProcedimento;
+	
+	@Column(name ="descricao", length = 50, nullable = false)
+	private String descricaoProcedimento;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_procedimento")
@@ -47,6 +50,14 @@ public class Procedimento implements Serializable {
 
 	public void setNomeProcedimento(String nomeProcedimento) {
 		this.nomeProcedimento = nomeProcedimento;
+	}
+	
+	public String getDescricaoProcedimento() {
+		return descricaoProcedimento;
+	}
+ 
+	public void setDescricaoProcedimento(String descricaoProcedimento) {
+		this.descricaoProcedimento = descricaoProcedimento;
 	}
 
 	public List<Insumo> getInsumos() {
