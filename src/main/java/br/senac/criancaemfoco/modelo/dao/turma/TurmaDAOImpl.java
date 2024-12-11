@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -40,12 +41,10 @@ public class TurmaDAOImpl implements TurmaDAO {
 
 	public void inserirTurma(Turma turma) {
 		Session sessao = null;
-
 		try {
 			sessao = abrirSessao(sessao);
 			sessao.save(turma);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -55,7 +54,6 @@ public class TurmaDAOImpl implements TurmaDAO {
 
 	public void deletarTurma(Turma turma) {
 		Session sessao = null;
-
 		try {
 			sessao = abrirSessao(sessao);
 			sessao.delete(turma);
@@ -78,6 +76,27 @@ public class TurmaDAOImpl implements TurmaDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+	}
+
+	public Turma recuperarTurma(Turma turma) {
+		Session sessao = null;
+		Turma turmaRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Turma> criteria = construtor.createQuery(Turma.class);
+			Root<Turma> raizTurma = criteria.from(Turma.class);
+			criteria.select(raizTurma);
+			ParameterExpression<Long> idTurma = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizTurma.get("id"), idTurma));
+			turmaRecuperado = sessao.createQuery(criteria).setParameter(idTurma, turma.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return turmaRecuperado;
 	}
 
 	public List<Turma> recuperarTurmas() {

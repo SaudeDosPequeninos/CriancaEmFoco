@@ -7,12 +7,12 @@ import br.senac.criancaemfoco.modelo.entidade.procedimento.Procedimento;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 import org.hibernate.Session;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class AgendamentoDAOImpl implements AgendamentoDAO {
@@ -81,16 +81,35 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 		}
 	}
 
+	public Agendamento recuperarAgendamento(Agendamento agendamento) {
+		Session sessao = null;
+		Agendamento agendamentoRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Agendamento> criteria = construtor.createQuery(Agendamento.class);
+			Root<Agendamento> raizAgendamento = criteria.from(Agendamento.class);
+			criteria.select(raizAgendamento);
+			ParameterExpression<Long> idAgendamento = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizAgendamento.get("id"), idAgendamento));
+			agendamentoRecuperado = sessao.createQuery(criteria).setParameter(idAgendamento, agendamento.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return agendamentoRecuperado;
+	}
+
 	public List<Agendamento> recuperarAgendamentos() {
 		Session sessao = null;
 		List<Agendamento> agendamentos = null;
 		try {
 			sessao = abrirSessao(sessao);
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
 			CriteriaQuery<Agendamento> criteria = construtor.createQuery(Agendamento.class);
 			Root<Agendamento> raizAgendamento = criteria.from(Agendamento.class);
-
 			criteria.select(raizAgendamento);
 			agendamentos = sessao.createQuery(criteria).getResultList();
 			sessao.getTransaction().commit();
@@ -102,16 +121,16 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 		return agendamentos;
 	}
 
-	public List<Agendamento> recuperarAgendamentosAluno(Aluno aluno) {
+	public List<Agendamento> recuperarAgendamentoAluno(Aluno aluno) {
 		Session sessao = null;
-		List<Agendamento> agendamentos = null;
+		List<Agendamento> agendamentos = new ArrayList<>();
 		try {
 			sessao = abrirSessao(sessao);
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Agendamento> criteria = construtor.createQuery(Agendamento.class);
 			Root<Agendamento> raizAgendamento = criteria.from(Agendamento.class);
 			Join<Agendamento, Aluno> juncaoAluno = raizAgendamento.join("aluno");
-			criteria.where(construtor.equal(juncaoAluno.get("id"), aluno.getId()));
+			criteria.where(construtor.equal(juncaoAluno.get("id"), aluno.getIdFiscal()));
 			agendamentos = sessao.createQuery(criteria).getResultList();
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
@@ -122,9 +141,9 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 		return agendamentos;
 	}
 
-	public List<Agendamento> recuperarAgendamentosEnfermeiro(Enfermeiro enfermeiro) {
+	public 	List<Agendamento> recuperarAgendamentoEnfermeiro(Enfermeiro enfermeiro) {
 		Session sessao = null;
-		List<Agendamento> agendamentos = null;
+		List<Agendamento> agendamentos = new ArrayList<>();
 		try {
 			sessao = abrirSessao(sessao);
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
@@ -150,7 +169,7 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Agendamento> criteria = construtor.createQuery(Agendamento.class);
 			Root<Agendamento> raizAgendamento = criteria.from(Agendamento.class);
-			Join<Agendamento, Procedimento> juncaoProcedimento = raizAgendamento.join("procedimento");
+			Join<Agendamento, Procedimento> juncaoProcedimento = raizAgendamento.join("agendamento");
 			criteria.where(construtor.equal(juncaoProcedimento.get("id"), procedimento.getId()));
 			agendamentos = sessao.createQuery(criteria).getResultList();
 			sessao.getTransaction().commit();
@@ -161,4 +180,5 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 		}
 		return agendamentos;
 	}
+
 }

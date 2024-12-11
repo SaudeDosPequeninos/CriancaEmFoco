@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,10 +30,7 @@ public class Turma implements Serializable {
 	@Column(name = "id_turma")
 	private Long id;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "turma_aluno", 
-	joinColumns = @JoinColumn(name = "id_turma"), 
-	inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "turma")
 	private List<Aluno> alunosTurma = new ArrayList<Aluno>();
 
 	@Column(name = "ano_turma", nullable = false, length = 10)
@@ -44,7 +40,7 @@ public class Turma implements Serializable {
 	private String numeroTurma;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_escola")
+	@JoinColumn(name = "id_escola", referencedColumnName = "id_pessoa")
 	private Escola escola;
 
 	public Turma() {}
@@ -62,6 +58,11 @@ public class Turma implements Serializable {
 		setEscola(escola);
 	}
 
+	public Turma(byte anoTurma, String numeroTurma) {
+		this.anoTurma = anoTurma;
+		this.numeroTurma = numeroTurma;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -74,8 +75,12 @@ public class Turma implements Serializable {
 		return alunosTurma;
 	}
 
-	public void setAlunosTurma(List<Aluno> alunosTurma) {
-		this.alunosTurma = alunosTurma;
+	public boolean inserirAlunoTurma(Aluno aluno) {
+		return alunosTurma.add(aluno);
+	}
+
+	public boolean removerAlunoTurma(Aluno aluno) {
+		return alunosTurma.remove(aluno);
 	}
 
 	public byte getAnoTurma() {

@@ -12,6 +12,8 @@ public interface ResponsavelDAO {
 
 	void deletarResponsavel (Responsavel responsavel);
 
-	List<Responsavel> recuperarResponsavel();
+	Responsavel recuperarResponsavel(Responsavel responsavel);
+
+	List<Responsavel> recuperarResponsaveis();
 
 }

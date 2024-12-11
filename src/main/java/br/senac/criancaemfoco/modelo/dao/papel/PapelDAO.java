@@ -12,6 +12,8 @@ public interface PapelDAO {
 
 	void atualizarPapel(Papel papel);
 
+	Papel recuperarPapel(Papel papel);
+
 	List<Papel> recuperarPapeis();
 
 }
