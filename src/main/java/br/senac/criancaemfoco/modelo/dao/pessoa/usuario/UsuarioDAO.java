@@ -12,6 +12,12 @@ public interface UsuarioDAO {
 
 	void atualizarUsuario(Usuario usuario);
 
+	boolean usuarioExistente(String email, String senha);
+
+	Usuario recuperarUsuario(Usuario usuario);
+
+	Usuario recuperarUsuario(String email);
+
 	List<Usuario> recuperarUsuarios();
 
 }
