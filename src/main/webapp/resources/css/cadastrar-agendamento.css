@@ -1,0 +1,464 @@
+input[type="text"], input[type="password"], input[type="number"], input[type="tel"], input[type="email"], input[type="date"]  {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: none;
+	color: rgba(32, 58, 64, 0.5); 
+    padding: 15px 50px 12px;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+button.no-style {
+    all: unset;
+    cursor: pointer;
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+select {
+    -webkit-appearance: none; 
+    -moz-appearance: none;   
+    appearance: none;        
+    background: none;         
+}
+
+
+.obrigatorio::after {
+	content: "*";
+	color: #E8505B;
+}
+
+.top-bar {
+    display: grid;
+	padding: 45px 25px;
+    position: fixed;
+	height: 0%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.tab-ico {
+    position: absolute;
+    left: 8.44%;
+    right: 88.85%;
+    top: 3.63%;
+    bottom: 93.33%;
+}
+
+.house-ico {
+    position: absolute;
+    left: 14.95%;
+    right: 82.34%;
+    top: 3.11%;
+    bottom: 92.68%;
+}
+
+#search {
+    position: absolute;
+    left: 33.23%;
+    right: 33.18%;
+    top: 3.02%;
+    bottom: 92.65%;
+
+    border: 2px solid rgba(32, 58, 64, 1.00); width: 645px; height: 46.67px; padding: 0px 0px 0px 0px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px
+}
+
+#lupa-ico {
+    position: absolute;
+    pointer-events: none;
+    left: 64.43%;
+    right: 34.17%;
+    top: 4.06%;
+    bottom: 93.6%;
+}
+
+.sino-ico {
+    position: absolute;
+    left: 71.93%;
+    right: 25.26%;
+    top: 2.59%;
+    bottom: 92.16%;
+}
+
+.config-ico {
+    position: absolute;
+    left: 80.1%;
+    right: 16.82%;
+    top: 2.59%;
+    bottom: 92.31%;
+}
+
+.user-ico {
+    position: absolute;
+    width: 66px;
+    height: 61.6px;
+    left: 1690px;
+    top: 25.2px;
+}
+
+.coisas {
+    position: absolute;
+    width: 1130px;
+    height: 20px;
+    left: 162px;
+    top: 191px;
+}
+
+.traco-ico {
+    position: absolute;
+    left: 4.96%;
+    right: 93.98%;
+    top: 32%;
+}
+
+.perfil {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    color: #F2695C;
+}
+
+.procedimento {
+    position: absolute;
+    left: 6.37%;
+    right: 81.77%;
+    top: 18%;
+    bottom: 0%;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    color: #F2695C;
+}
+
+.traco-ico-dois {
+    position: absolute;
+    left: 18.12%;
+    right: 79.82%;
+    top: 36%;
+    bottom: -10%;
+}
+
+.agendar-procedimento {
+    position: absolute;
+    left: 19.53%;
+    right: 61.33%;
+    top: 15%;
+    bottom: 0%;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    color: #203A40;
+}
+
+.titulo {
+    position: absolute;
+    width: 785px;
+    height: 57px;
+    left: 162px;
+    top: 258px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 57px;
+    letter-spacing: 0.02em;
+    color: #203A40;
+}
+
+.text-style {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
+	display: flex;
+	align-items: center;
+	text-transform: capitalize;	
+	text-decoration: none;
+	color: #203A40;
+	padding: 0px 20px;
+}
+
+#tipos-procedimento {
+    position: absolute;
+    width: 725px;
+    height: 97px;
+    left: calc(50% - 725px/2 - 435.5px);
+    top: 431px;
+}
+
+#procedimento {
+    box-sizing: border-box;
+    width: 725px;
+    height: 64px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+#data {
+    position: absolute;
+    width: 725px;
+    height: 100px;
+    left: calc(50% - 725px/2 - 435.5px);
+    top: 572px;
+}
+
+#data-agendamento {
+    box-sizing: border-box;
+    position: absolute;
+    width: 725px;
+    height: 64px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+.horario {
+    position: absolute;
+    width: 725px;
+    height: 95px;
+    left: calc(50% - 725px/2 + 434.5px);
+    top: 432px;
+}
+
+#horario {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 725px;
+    height: 64px;
+
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+.observacao {
+    position: absolute;
+    width: 725px;
+    height: 177px;
+    left: 1032px;
+    top: 576px;
+}
+
+#observacao {
+    box-sizing: border-box;
+    position: absolute;
+    width: 725px;
+    height: 145px;
+    border: 2.7px solid #F2695C;
+    border-radius: 8px;
+}
+
+#cancelar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 230px;
+    height: 60px;
+    left: 1033px;
+    top: 842px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 16px;
+    gap: 10px;
+    background: #203A40;
+    border-radius: 6px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#cadastrar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 230px;
+    height: 60px;
+    left: 1530px;
+    top: 842px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 16px;
+    gap: 10px;
+    background: #203A40;
+    border-radius: 6px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.checkbox-section {
+	position: absolute;
+	width: 673px;
+	height: 48px;
+	left: 1035px;
+	top: 800px;
+}
+
+.termos {
+    justify-content: center;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+ 
+.termos span {
+    color: #000000;
+}
+ 
+.termos input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.caixa-customizada {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: #757575 solid 1px;
+    border-radius: 5px;
+}
+ 
+.termos:hover input~.caixa-customizada {
+    background-color: #ccc;
+}
+ 
+.termos input:checked~.caixa-customizada {
+    background-color: #FF725E;
+}
+ 
+.caixa-customizada:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+ 
+.termos input:checked~.caixa-customizada:after {
+    display: block;
+}
+ 
+.termos .caixa-customizada:after {
+    left: 8px;
+    top: 4px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+a {
+	color: #FF725E;
+	text-decoration: none;
+}
+
+#calendario-ico {
+    position: absolute;
+    left: 2%;
+    right: 88.93%;
+    top: 40%;
+    bottom: 39.22%;
+    z-index: 1;
+}
+
+.relogio-ico {
+    position: absolute;
+    left: 54.5%;
+    right: 43.65%;
+    top: 49.5%;
+    bottom: 52.69%;
+    z-index: 1;
+}
+
+.seta-ico {
+    position: absolute;
+    left: 44.27%;
+    right: 54.82%;
+    top: 50.7%;
+    bottom: 53.69%;
+    z-index: 1;
+}
+
+.seta-ico-2 {
+	position: absolute;
+	left: 89.58%;
+	right: 9.51%;
+    top: 50.7%;
+	bottom: 53.78%;
+	z-index: 1;
+}
