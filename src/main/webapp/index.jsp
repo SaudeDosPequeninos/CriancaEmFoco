@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<a href="form-turma">Cadastrar Turma</a>
+
 <a href="<%=request.getContextPath()%>/paginas/enfermeiro/editar-enfermeiro.jsp">Editar enfermeiro</a>
 
 <a href="<%= request.getContextPath()%>/paginas/enfermeiro/agenda.jsp">Enfermeiro Agenda</a>

@@ -73,26 +73,27 @@ public class UsuarioServlet extends HttpServlet {
 		
 		String email = request.getParameter("email-user");
 		String senha = request.getParameter("senha-user");
-
+		Papel papel = new Papel();
 		
 		if(daoUsuario.usuarioExistente(email, senha)) {
 			
 			HttpSession session = request.getSession();
 			
-			Usuario usuario = daoUsuario.recuperarUsuario(email);
-			Papel papel = daoPapel.recuperarPapel(usuario.getPapel().getId());
+			Usuario usuarioRecuperado = daoUsuario.recuperarUsuario(email);
+			papel.setId(usuarioRecuperado.getPapel().getId());
+			Papel papelRecuperado = daoPapel.recuperarPapel(papel);
 			
-			if(papel.getNomePapel().equals("enfermeiro")) {
+			if(papelRecuperado.getNomePapel().equals("enfermeiro")) {
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/enfermeiro/perfil-enfermeiro.jsp");
 				dispatcher.forward(request, response);
 			
-			}else if(papel.getNomePapel().equals("escola")) {
+			}else if(papelRecuperado.getNomePapel().equals("escola")) {
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/escola/perfil-escola.jsp");
 				dispatcher.forward(request, response);
 			
-			}else if(papel.getNomePapel().equals("responsavel")) {
+			}else if(papelRecuperado.getNomePapel().equals("responsavel")) {
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("paginas/responsavel/perfil-responsavel.jsp");
 				dispatcher.forward(request, response);
@@ -105,7 +106,7 @@ public class UsuarioServlet extends HttpServlet {
 				return;
 			}
 			
-			session.setAttribute("usuario", usuario);
+			session.setAttribute("usuario", usuarioRecuperado);
 			return;
 		
 		}else {

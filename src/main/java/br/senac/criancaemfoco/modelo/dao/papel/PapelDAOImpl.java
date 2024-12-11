@@ -1,16 +1,16 @@
 package br.senac.criancaemfoco.modelo.dao.papel;
 
+import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
+import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
+
+import org.hibernate.Session;
+
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-
-import org.hibernate.Session;
-
-import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
-import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 public class PapelDAOImpl implements PapelDAO {
 

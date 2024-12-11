@@ -10,9 +10,6 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
  
 import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.Usuario;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.enfermeiro.Enfermeiro;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.escola.Escola;
-import br.senac.criancaemfoco.modelo.entidade.pessoa.usuario.responsavel.Responsavel;
 import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
  
 public class UsuarioDAOImpl implements UsuarioDAO {
@@ -96,6 +93,27 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			ParameterExpression<Long> idUsuario = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(raizUsuario.get("id"), idUsuario));
 			usuarioRecuperado = sessao.createQuery(criteria).setParameter(idUsuario, usuario.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return usuarioRecuperado;
+	}
+
+	public Usuario recuperarUsuario(String email) {
+		Session sessao = null;
+		Usuario usuarioRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
+			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+			criteria.select(raizUsuario);
+			ParameterExpression<String> emailUsuario = construtor.parameter(String.class);
+			criteria.where(construtor.equal(raizUsuario.get("email"), emailUsuario));
+			usuarioRecuperado = sessao.createQuery(criteria).setParameter(emailUsuario, email).getSingleResult();
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);

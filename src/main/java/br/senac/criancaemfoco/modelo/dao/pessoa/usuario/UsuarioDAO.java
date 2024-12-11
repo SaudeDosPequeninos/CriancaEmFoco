@@ -11,12 +11,12 @@ public interface UsuarioDAO {
 	void deletarUsuario(Usuario usuario);
 
 	void atualizarUsuario(Usuario usuario);
-	
-	Usuario recuperarUsuario(String email);
-	
+
 	boolean usuarioExistente(String email, String senha);
 
 	Usuario recuperarUsuario(Usuario usuario);
+
+	Usuario recuperarUsuario(String email);
 
 	List<Usuario> recuperarUsuarios();
 

@@ -41,6 +41,7 @@ import br.senac.criancaemfoco.modelo.enumeracao.status.Status;
 
 public class Main {
 	public static void main(String[] args) {
+
 		AgendamentoDAO agendamentoDao = new AgendamentoDAOImpl();
 		ContatoDAO contatoDao = new ContatoDAOImpl();
 		EnderecoDAO enderecoDao = new EnderecoDAOImpl();
@@ -182,5 +183,6 @@ public class Main {
 		insumoDao.atualizarInsumo(insumo);
 		procedimentoDao.atualizarProcedimento(procedimento);
 		estoqueDao.atualizarEstoque(estoque);
+
 	}
 }

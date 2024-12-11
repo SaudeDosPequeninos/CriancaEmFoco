@@ -58,6 +58,11 @@ public class Turma implements Serializable {
 		setEscola(escola);
 	}
 
+	public Turma(byte anoTurma, String numeroTurma) {
+		this.anoTurma = anoTurma;
+		this.numeroTurma = numeroTurma;
+	}
+
 	public Long getId() {
 		return id;
 	}
