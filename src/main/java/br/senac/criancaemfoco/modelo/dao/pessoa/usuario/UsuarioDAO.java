@@ -12,6 +12,8 @@ public interface UsuarioDAO {
 
 	void atualizarUsuario(Usuario usuario);
 
+	Usuario recuperarUsuario(Usuario usuario);
+
 	List<Usuario> recuperarUsuarios();
 
 }
