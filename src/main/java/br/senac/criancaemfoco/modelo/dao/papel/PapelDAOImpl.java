@@ -78,6 +78,7 @@ public class PapelDAOImpl implements PapelDAO {
 		}
 	}
 
+
 	public Papel recuperarPapel(Papel papel) {
 		Session sessao = null;
 		Papel papelRecuperado = null;
@@ -96,8 +97,10 @@ public class PapelDAOImpl implements PapelDAO {
 		} finally {
 			fecharSessao(sessao);
 		}
+
 		return papelRecuperado;
 	}
+
 
 	public List<Papel> recuperarPapeis() {
 		Session sessao = null;
