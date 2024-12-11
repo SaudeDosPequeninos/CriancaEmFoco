@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,16 +81,35 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 		}
 	}
 
+	public Agendamento recuperarAgendamento(Agendamento agendamento) {
+		Session sessao = null;
+		Agendamento agendamentoRecuperado = null;
+		try {
+			sessao = abrirSessao(sessao);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Agendamento> criteria = construtor.createQuery(Agendamento.class);
+			Root<Agendamento> raizAgendamento = criteria.from(Agendamento.class);
+			criteria.select(raizAgendamento);
+			ParameterExpression<Long> idAgendamento = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizAgendamento.get("id"), idAgendamento));
+			agendamentoRecuperado = sessao.createQuery(criteria).setParameter(idAgendamento, agendamento.getId()).getSingleResult();
+			sessao.getTransaction().commit();
+		} catch (Exception exception) {
+			erroSessao(sessao, exception);
+		} finally {
+			fecharSessao(sessao);
+		}
+		return agendamentoRecuperado;
+	}
+
 	public List<Agendamento> recuperarAgendamentos() {
 		Session sessao = null;
 		List<Agendamento> agendamentos = null;
 		try {
 			sessao = abrirSessao(sessao);
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
 			CriteriaQuery<Agendamento> criteria = construtor.createQuery(Agendamento.class);
 			Root<Agendamento> raizAgendamento = criteria.from(Agendamento.class);
-
 			criteria.select(raizAgendamento);
 			agendamentos = sessao.createQuery(criteria).getResultList();
 			sessao.getTransaction().commit();
@@ -160,4 +180,5 @@ public class AgendamentoDAOImpl implements AgendamentoDAO {
 		}
 		return agendamentos;
 	}
+
 }

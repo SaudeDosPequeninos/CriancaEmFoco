@@ -16,6 +16,8 @@ public interface UsuarioDAO {
 	
 	boolean usuarioExistente(String email, String senha);
 
+	Usuario recuperarUsuario(Usuario usuario);
+
 	List<Usuario> recuperarUsuarios();
 
 }

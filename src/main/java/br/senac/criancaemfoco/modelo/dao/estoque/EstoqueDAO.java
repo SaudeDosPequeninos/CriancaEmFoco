@@ -12,6 +12,8 @@ public interface EstoqueDAO {
 
 	void atualizarEstoque(Estoque estoque);
 
+	Estoque recuperarEstoque(Estoque estoque);
+
 	List<Estoque> recuperarEstoques();
 
 }

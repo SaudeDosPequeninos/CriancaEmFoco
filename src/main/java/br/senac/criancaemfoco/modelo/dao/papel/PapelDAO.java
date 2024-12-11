@@ -14,6 +14,8 @@ public interface PapelDAO {
 	
 	Papel recuperarPapel(Long id);
 
+	Papel recuperarPapel(Papel papel);
+
 	List<Papel> recuperarPapeis();
 
 }

@@ -1,15 +1,16 @@
 package br.senac.criancaemfoco.modelo.dao.papel;
 
-import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
-import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
-
-import org.hibernate.Session;
+import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
-import java.util.List;
+import org.hibernate.Session;
+
+import br.senac.criancaemfoco.modelo.entidade.papel.Papel;
+import br.senac.criancaemfoco.modelo.factory.ConexaoFactory;
 
 public class PapelDAOImpl implements PapelDAO {
 
@@ -44,7 +45,6 @@ public class PapelDAOImpl implements PapelDAO {
 			sessao = abrirSessao(sessao);
 			sessao.save(Papel);
 			sessao.getTransaction().commit();
-
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
@@ -78,25 +78,30 @@ public class PapelDAOImpl implements PapelDAO {
 		}
 	}
 
-	public Papel recuperarPapel(Long id) {
+
+	public Papel recuperarPapel(Papel papel) {
 		Session sessao = null;
-		Papel papel = null;
+		Papel papelRecuperado = null;
 		try {
 			sessao = abrirSessao(sessao);
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Papel> criteria = construtor.createQuery(Papel.class);
-			Root<Papel> raizCliente = criteria.from(Papel.class);
-			criteria.select(raizCliente).where(construtor.equal(raizCliente.get("id"), id));
-			papel = sessao.createQuery(criteria).getSingleResult();
+			Root<Papel> raizPapel = criteria.from(Papel.class);
+			criteria.select(raizPapel);
+			ParameterExpression<Long> idPapel = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(raizPapel.get("id"), idPapel));
+			papelRecuperado = sessao.createQuery(criteria).setParameter(idPapel, papel.getId()).getSingleResult();
 			sessao.getTransaction().commit();
 		} catch (Exception exception) {
 			erroSessao(sessao, exception);
 		} finally {
 			fecharSessao(sessao);
 		}
-		return papel;
+
+		return papelRecuperado;
 	}
-	
+
+
 	public List<Papel> recuperarPapeis() {
 		Session sessao = null;
 		List<Papel> papeis = null;

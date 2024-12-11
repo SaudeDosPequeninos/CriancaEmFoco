@@ -13,6 +13,8 @@ public interface EnfermeiroDAO {
 
 	void atualizarEnfermeiro(Enfermeiro enfermeiro);
 
+	Enfermeiro recuperarEnfermeiro(Enfermeiro enfermeiro);
+
 	List<Enfermeiro> recuperarEnfermeiros();
 
 	List<Enfermeiro> recuperarEnfermeirosAgendamento(Agendamento agendamento);

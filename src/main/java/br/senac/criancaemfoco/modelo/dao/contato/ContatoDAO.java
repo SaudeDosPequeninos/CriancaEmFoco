@@ -12,6 +12,8 @@ public interface ContatoDAO {
 
 	void atualizarContato(Contato contato);
 
+	Contato recuperarContato(Contato contato);
+
 	List<Contato> recuperarContatos();
 
 }
