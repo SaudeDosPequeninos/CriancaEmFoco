@@ -17,6 +17,8 @@ public interface EscolaDAO {
 
 	void atualizarEscola(Escola escola);
 
+	Escola recuperarEscola(Escola escola);
+
 	List<Escola> recuperarEscolas();
 
 	List<Escola> recuperarEscolasAluno(Aluno aluno);

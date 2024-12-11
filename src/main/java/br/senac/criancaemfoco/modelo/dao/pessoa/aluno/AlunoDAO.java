@@ -16,6 +16,10 @@ public interface AlunoDAO {
 
 	void atualizarAluno(Aluno aluno);
 
+	Aluno recuperarAluno(Aluno aluno);
+
+	List<Aluno> recuperarAlunos();
+
 	List<Aluno> recuperarAlunoTurma(Turma turma);
 
 	List<Aluno> recuperarAlunoResponsavel(Responsavel responsavel);

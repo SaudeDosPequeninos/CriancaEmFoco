@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,7 +22,7 @@ import br.senac.criancaemfoco.modelo.entidade.insumo.Insumo;
 public class Procedimento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_procedimento")
@@ -31,16 +30,17 @@ public class Procedimento implements Serializable {
 
 	@Column(name = "nome_procedimento", length = 30, nullable = false)
 	private String nomeProcedimento;
+	
+	@Column(name ="descricao", length = 50, nullable = false)
+	private String descricaoProcedimento;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "procedimento_insumo", 
-	joinColumns = @JoinColumn(name = "id_procedimento"), 
-	inverseJoinColumns = @JoinColumn(name = "id_insumo"))
-	private List<Insumo> insumos = new ArrayList<Insumo>();;
+	@JoinColumn(name = "id_procedimento")
+	private List<Insumo> insumos = new ArrayList<Insumo>();
 
 	public Procedimento() {}
 
-	public Procedimento(String procedimento) {
+	public Procedimento(String nomeProcedimento) {
 		setNomeProcedimento(nomeProcedimento);
 	}
 
@@ -51,17 +51,25 @@ public class Procedimento implements Serializable {
 	public void setNomeProcedimento(String nomeProcedimento) {
 		this.nomeProcedimento = nomeProcedimento;
 	}
+	
+	public String getDescricaoProcedimento() {
+		return descricaoProcedimento;
+	}
+ 
+	public void setDescricaoProcedimento(String descricaoProcedimento) {
+		this.descricaoProcedimento = descricaoProcedimento;
+	}
 
 	public List<Insumo> getInsumos() {
 		return insumos;
 	}
 
-	public boolean inserirInsumo (List<Insumo> insumo) {
-		return false;
+	public boolean inserirInsumo (Insumo insumo) {
+		return insumos.add(insumo);
 	}
 
-	public boolean removerInsumo (List<Insumo> insumo) {
-		return false;
+	public boolean removerInsumo (Insumo insumo) {
+		return insumos.remove(insumo);
 	}
 
 	public Long getId() {

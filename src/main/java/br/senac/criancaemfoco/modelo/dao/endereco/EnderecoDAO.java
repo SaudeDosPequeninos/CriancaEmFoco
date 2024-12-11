@@ -12,6 +12,8 @@ public interface EnderecoDAO {
 
 	void atualizarEndereco(Endereco endereco);
 
+	Endereco recuperarEndereco(Endereco endereco);
+
 	List<Endereco> recuperarEnderecos();
 
 }
