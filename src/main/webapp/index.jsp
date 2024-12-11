@@ -9,6 +9,6 @@
 </head>
 
 <body>
-	<a href="<%=request.getContextPath()%>/paginas/agendamento/cadastrar-agendamento.jsp">>AGENDAMENTO</a>
+	<a href="<%=request.getContextPath()%>/paginas/agendamento/cadastrar-agendamento">AGENDAMENTO</a>
 </body>
 </html>
