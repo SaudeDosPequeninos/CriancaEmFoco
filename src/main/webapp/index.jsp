@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<a href="<%= request.getContextPath() %>/cadastrar-responsavel">Cadastrar Responsavel</a>
+<a href="<%=request.getContextPath()%>/cadastrar-responsavel">Cadastrar Responsavel</a>
 
-<a href="form-turma">Cadastrar Turma</a>
+<a href="<%=request.getContextPath()%>/cadastrar-turma">Cadastrar Turma</a>
 
 <a href="<%=request.getContextPath()%>/paginas/enfermeiro/editar-enfermeiro.jsp">Editar enfermeiro</a>
 
