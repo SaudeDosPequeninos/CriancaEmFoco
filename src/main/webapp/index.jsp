@@ -8,17 +8,21 @@
 </head>
 <body>
 
-<a href="<%=request.getContextPath()%>/cadastrar-responsavel">Cadastrar Responsavel</a>
+	<a href="<%=request.getContextPath()%>/cadastrar-escola">CADASTRAR ESCOLA</a><br><br>
 
-<a href="<%=request.getContextPath()%>/cadastrar-turma">Cadastrar Turma</a>
+	<a href="<%=request.getContextPath()%>/listar-escola">LISTAR ESCOLA</a>
 
-<a href="<%=request.getContextPath()%>/paginas/enfermeiro/editar-enfermeiro.jsp">Editar enfermeiro</a>
+	<a href="<%=request.getContextPath()%>/cadastrar-responsavel">Cadastrar Responsavel</a>
 
-<a href="<%= request.getContextPath()%>/paginas/enfermeiro/agenda.jsp">Enfermeiro Agenda</a>
+	<a href="<%=request.getContextPath()%>/cadastrar-turma">Cadastrar Turma</a>
 
-<a href="<%=request.getContextPath()%>/paginas/responsavel/cadastrar-responsavel.jsp">Cadastrar Responsavel</a>
+	<a href="<%=request.getContextPath()%>/paginas/enfermeiro/editar-enfermeiro.jsp">Editar enfermeiro</a>
 
-<a href="<%=request.getContextPath()%>/paginas/escola/perfil-escola.jsp">Perfil Escola</a>
+	<a href="<%= request.getContextPath()%>/paginas/enfermeiro/agenda.jsp">Enfermeiro Agenda</a>
+
+	<a href="<%=request.getContextPath()%>/paginas/responsavel/cadastrar-responsavel.jsp">Cadastrar Responsavel</a>
+
+	<a href="<%=request.getContextPath()%>/paginas/escola/perfil-escola.jsp">Perfil Escola</a>
 
 </body>
 </html>

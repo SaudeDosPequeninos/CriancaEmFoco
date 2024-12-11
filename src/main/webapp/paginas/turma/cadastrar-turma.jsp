@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style><%@include file="/resources/css/cadastro-turma.css"%></style>
-    <script><%@include file="/resources/js/cadastro-turma.css"%></script>
+    <script><%@include file="/resources/js/cadastro-turma.js"%></script>
     <title>Cadastro:Turma</title>
     <style>
     </style>

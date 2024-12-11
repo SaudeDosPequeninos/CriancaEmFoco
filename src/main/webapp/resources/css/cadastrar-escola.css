@@ -138,7 +138,10 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
     right: 0;
     top: 0;
     bottom: 0;
+<<<<<<< HEAD
+=======
     background: #203A40;
+>>>>>>> development
 }
 
 .razaoSocial {
@@ -215,12 +218,20 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .email {
+<<<<<<< HEAD
+	position: absolute;
+	width: 725px;
+	height: 97px;
+	left: 200px;
+	top: 735px;
+=======
 	display: grid;
 	position: absolute;
 	width: 725px;
 	height: 84px;
 	left: 620px;
 	top: 748px;
+>>>>>>> development
 }
 
 .email-ico {
@@ -228,7 +239,11 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	pointer-events: none;
 	left: 1.55%;
 	right: 88.9%;
+<<<<<<< HEAD
+	top: 50.5%;
+=======
 	top: 52.5%;
+>>>>>>> development
 	bottom: 0.93%;
 	z-index: 1;
 }
@@ -253,7 +268,11 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	width: 230px;
 	height: 70px;
 	left: 1490px;
+<<<<<<< HEAD
+	top: 760px;
+=======
 	top: 890px;
+>>>>>>> development
 	background: #203A40;
 	border-radius: 6px;
 	font-family: 'Helvetica';
@@ -414,10 +433,17 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 
 .numero {
 	position: absolute;
+<<<<<<< HEAD
+    width: 725px;
+    height: 84px;
+    left: 200px;
+    top: 780px;
+=======
 	width: 725px;
 	height: 84px;
 	left: calc(50% - 725px/2 + 0.5px);
 	top: 796px;
+>>>>>>> development
 }
 
 .numero-ico {
@@ -468,6 +494,30 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 #voltar-passo1 {
+<<<<<<< HEAD
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 16px;
+    gap: 10px;
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    left: 997px;
+    top: 800px;
+    background: #203A40;
+    border-radius: 6px;
+    font-family: 'Helvetica';
+    font-style: bold;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+=======
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -493,6 +543,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	text-align: center;
 	text-transform: uppercase;
 	color: #FFFFFF;
+>>>>>>> development
 }
 
 #esconder-passo2 {
@@ -515,7 +566,11 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	width: 230px;
 	height: 70px;
 	left: 1491px;
+<<<<<<< HEAD
+	top: 800px;
+=======
 	top: 890px;
+>>>>>>> development
 
 	background: #203A40;
 	border-radius: 6px;
@@ -543,6 +598,14 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	top: 220px;
 }
 
+<<<<<<< HEAD
+.senha {
+	position: absolute;
+	width: 725px;
+	height: 97px;
+	left: 162px;
+	top: 543px;
+=======
 .tipos-procedimento {
 	position: absolute;
 	width: 725px;
@@ -590,6 +653,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	height: 84px;
 	left: 200px;
 	top: 668px;
+>>>>>>> development
 }
 
 .icone-senha {
@@ -641,9 +705,15 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 .confirmar-senha {
 	position: absolute;
 	width: 725px;
+<<<<<<< HEAD
+	height: 96px;
+	right: 162px;
+	top: 544px;
+=======
 	height: 84px;
 	left: 995px;
 	top: 668px;
+>>>>>>> development
 }
 
 #confirmar-senha-user {
@@ -656,6 +726,28 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	border-radius: 8px;
 }
 
+<<<<<<< HEAD
+.numero-ico {
+	position: absolute;
+	left: 3%;
+	right: 66.67%;
+	top: 55.44%;
+	bottom: 20.4%;
+	z-index: 1;
+}
+
+#numero-user {
+	box-sizing: border-box;
+	
+	position: absolute;
+	
+	border: 2.7px solid #F2695C;
+	border-radius: 8px;		
+}
+
+
+=======
+>>>>>>> development
 .icone-confirmar-senha {
 	position: absolute;
 	width: 684.74px;
@@ -706,11 +798,19 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .voltar-botao {
+<<<<<<< HEAD
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    left: 810px;
+    top: -230px;
+=======
 	position: absolute;
 	left: 0%;
 	right: 0%;
 	top: 0%;
 	bottom: 0%;
+>>>>>>> development
 }
 
 .voltar-botao-style {
@@ -751,6 +851,18 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 }
 
 .botao-confirmar {
+<<<<<<< HEAD
+    display: flex
+;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    left: 1505px;
+    top: 660px;
+=======
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
@@ -761,6 +873,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	height: 70px;
 	left: 1490px;
 	top: 890px;
+>>>>>>> development
 }
 
 .confimar-botao-style {
@@ -790,4 +903,84 @@ input[type="text"], input[type="password"], input[type="number"], input[type="te
 	text-align: center;
 	text-transform: uppercase;
 	color: #FFFFFF;
+<<<<<<< HEAD
+}
+
+.checkbox-section {
+	position: absolute;
+	width: 673px;
+	height: 48px;
+	left: 162px;
+	top: 688px; 
+}
+
+.termos {
+    justify-content: center;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+ 
+.termos span {
+    color: #000000;
+}
+ 
+.termos input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.caixa-customizada {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: #757575 solid 1px;
+    border-radius: 5px;
+}
+ 
+.termos:hover input~.caixa-customizada {
+    background-color: #ccc;
+}
+ 
+.termos input:checked~.caixa-customizada {
+    background-color: #FF725E;
+}
+ 
+.caixa-customizada:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+ 
+.termos input:checked~.caixa-customizada:after {
+    display: block;
+}
+ 
+/* Estiliza ele */
+.termos .caixa-customizada:after {
+    left: 8px;
+    top: 4px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+a {
+	color: #FF725E;
+	text-decoration: none;
+=======
+>>>>>>> development
 }

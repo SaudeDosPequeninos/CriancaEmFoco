@@ -1,8 +1,12 @@
 function validar(passo) {
-    const camposObrigatorios = document.querySelectorAll(`#${passo} input[required]`);
+    const camposObrigatorios = document.querySelectorAll(`${passo} input[required]`);
     let todosPreenchidos = true;
 
     camposObrigatorios.forEach(campo => {
+        if (campo.offsetParent === null) {
+            return;
+        }
+
         if (!campo.value.trim()) {
             todosPreenchidos = false;
             campo.classList.add("campo-invalido");
@@ -15,10 +19,17 @@ function validar(passo) {
 }
 
 function mostrarProximo(passoAtual, proximoPasso) {
-    if (validar(passoAtual)) {
-        document.getElementById(passoAtual).style.display = 'none';
-        document.getElementById(proximoPasso).style.display = 'block';
+    if (!validar(passoAtual)) {
+        return;
     }
+	
+    document.getElementById(passoAtual).style.display = 'none';
+    document.getElementById(proximoPasso).style.display = 'block';
+}
+
+function voltar(passoAtual, proximoPasso) {
+    document.getElementById(passoAtual).style.display = 'none';
+    document.getElementById(proximoPasso).style.display = 'block';
 }
 
 function toggleIco() {
@@ -51,22 +62,34 @@ function toggleIcoConfirmarSenha() {
     }
 }
 
-function toggleIcoBaixo() {
-    const setaBaixo = document.getElementById('tipos-procedimento-seta');
-    const setaCima = document.getElementById('seta-cima');
-    const tipoProcedimentoSelect = document.getElementById('tipos-procedimento-user');
-
-    tipoProcedimentoSelect.addEventListener('focus', function() {
-            setaBaixo.style.display = 'none';
-            setaCima.style.display = 'inline';
-    });
-
-    tipoProcedimentoSelect.addEventListener('focusout', function() {
-            setaBaixo.style.display = 'inline';
-            setaCima.style.display = 'none';
-    });
+function toggleCheckboxIco() {
+    const checkboxInput = document.getElementById('checkbox');
+    const checkboxIco = document.getElementById('checkbox-ico');
+    if (checkboxInput.type === 'password') {
+        checkboxIco.style.display = 'inline';
+    } else {
+        checkboxInput.type = 'password';
+        checkboxIco.style.display = 'none';
+    }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    toggleIcoBaixo();
+function checkSenha() {
+    const senha = document.getElementById('senha-user').value;
+    const confirmarSenha = document.getElementById('confirmar-senha-user').value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não são iguais, por favor, corrija sua senha.");
+        return false; 
+    }
+    return true; 
+}
+
+document.getElementById('confirmar-btn').addEventListener('click', function(event) {
+	
+    if (!validar('passo3') || !checkSenha()) {
+        event.preventDefault();
+        return;
+    }
+
+    document.forms[0].submit();
 });
